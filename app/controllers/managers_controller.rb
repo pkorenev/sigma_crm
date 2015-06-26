@@ -92,6 +92,6 @@ class ManagersController < CrmController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def manager_params
-      params.require(:manager).permit(:email, :full_name, :avatar, :full_address, user_info_attributes: [:first_name, :last_name, :middle_name, :avatar, address_attributes: [:street, :house_number, :apartment_number, :index, :city, :country]] )
+      params.require(:manager).permit(:email, :password, :password_confirmation, :full_name, :avatar, :full_address, user_info_attributes: [:first_name, :last_name, :middle_name, :avatar, address_attributes: [:street, :house_number, :apartment_number, :index, :city, :country]] )
     end
 end
