@@ -72,4 +72,4 @@ gem 'faker'
 
 gem 'rails_admin'
 
-gem 'figaro'
+#gem 'figaro'
