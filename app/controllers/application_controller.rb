@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   def render_unauthorized
     render file: Rails.root.join("public/401.html"), layout: false
   end
+
+  def site_home
+    render template: "layouts/application", layout: false
+  end
 end

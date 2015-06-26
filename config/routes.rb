@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
 
 
-  constraints subdomain: 'crm' do
-    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  constraints subdomain: ENV["CRM_SUBDOMAIN"] do
+    #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
     root to: "crm#dashboard", as: :crm_dashboard
     resources :managers
     resources :buildings
@@ -16,8 +16,10 @@ Rails.application.routes.draw do
     post "managers/invite"
   end
 
+  root to: "application#site_home"
+
   resources :user_infos
-  devise_for :users
+  devise_for :users, controller: { sessions: "users/sessions" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

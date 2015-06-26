@@ -5,22 +5,22 @@
 - if @managers.any?
   = table_for @managers, [ 'Email', 'Full name', 'Avatar', 'Full address', '-', '-', '-'], model: Manager, border: 1, id: "managers-table" do |m|
 
-    /= field m.email
-    /- ui = m.user_info
-    /- ui.try do |ui|
-    /  = field m.full_name
-    /  - if m.avatar.exists?
-    /    = field image_tag(m.avatar.url)
-    /  - else
-    /    = field "-"
-    /  - if m.address
-    /    = field m.full_address
-    /  - else
-    /    = field "-"
-    /
-    /= field link_to('Show', m, class: 'show-button')
-    /= field link_to('Edit', edit_manager_path(id: m.id), class: 'edit-button')
-    /= field link_to('Delete', m, class: 'delete-button')
+    = field m.email
+    - ui = m.user_info
+    - ui.try do |ui|
+      = field m.full_name
+      - if m.avatar.exists?
+        = field image_tag(m.avatar.url)
+      - else
+        = field "-"
+      - if m.address && m.full_address.present?
+        = field m.full_address
+      - else
+        = field "-"
+
+    = field link_to('Show', m, class: 'show-button')
+    = field link_to('Edit', edit_manager_path(id: m.id), class: 'edit-button')
+    = field link_to('Delete', m, class: 'delete-button')
 - else
   h1
     |Немає жлдного менеджера

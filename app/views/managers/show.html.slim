@@ -11,7 +11,10 @@ p
   = @manager.avatar
 p
   strong Full address:
-  = @manager.full_address
+  - if @manager.user_info.address
+    = @manager.full_address
+  else
+    = "-"
 
 = link_to 'Edit', edit_manager_path(@manager)
 '|

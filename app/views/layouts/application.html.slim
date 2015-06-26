@@ -7,11 +7,44 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
+    sass:
+      #top-nav
+        position: relative
+        height: 50px
+        border-bottom: 1px solid gray
+        background: #eee
+        width: 100%
+      #top-nav-inner
+        position: fixed
+        height: inherit
+        width: inherit
+        z-index: 2
+      .account-block
+        display: block
+        position: absolute
+        right: 0
+
+        .user-email, .user-logout
+          display: inline-block
 
   body
+    #top-nav
+      #top-nav-inner
+        - if user_signed_in?
+          .account-block
+            .user-email
+              = current_user.email
+            .user-logout
+              = link_to "Вийти", destroy_user_session_path, type: "delete", class: "user-logout-button"
+        - else
+          .account-block
+            .user-login
+              = link_to "Login", new_user_session_path
+
     #sidebar
 
     #main
       .container
-        /|Site
+        |Site
         = yield
+

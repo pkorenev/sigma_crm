@@ -19,4 +19,6 @@ class User < ActiveRecord::Base
   has_many :comments
   accepts_nested_attributes_for :comments
   attr_accessible :comments, :comments_attributes
+
+  attr_accessible :remember_me
 end
