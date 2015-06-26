@@ -1,0 +1,96 @@
+doctype html
+html
+  head
+    title
+      | SigmaDb
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    sass:
+      body
+        padding-top: 0
+      #sidebar
+        background: #f4f4f4
+        width: 200px
+        position: fixed
+        z-index: 1
+        left: 0
+        height: 100%
+        top: 0
+        padding-top: 100px
+
+        #sidebar-menu
+          &, ul
+            list-style: none
+            padding-left: 15px
+      #main
+        padding-left: 200px
+      table
+        width: 100%
+
+        th
+          padding: 0 15px
+
+
+        .dataTable
+          tbody
+            [role=row]
+              &:hover
+                background: skyblue
+                cursor: pointer
+      #top-nav
+        position: relative
+        height: 50px
+        border-bottom: 1px solid gray
+        background: #eee
+        width: 100%
+      #top-nav-inner
+        position: fixed
+        height: inherit
+        width: inherit
+        z-index: 2
+      .account-block
+        display: block
+        position: absolute
+        right: 0
+
+        .user-email, .user-logout
+          display: inline-block
+
+      //form
+        width: 80%
+        margin: 0 auto
+
+  body
+    #top-nav
+      #top-nav-inner
+        - if user_signed_in?
+          .account-block
+            .user-email
+              = current_user.email
+            .user-logout
+              = link_to "Вийти", destroy_user_session_path, type: "delete", class: "user-logout-button"
+
+
+    #sidebar
+      ul#sidebar-menu
+        li
+          = link_to "Дашборд", crm_dashboard_path
+        - if can?(:manage, :users)
+          li
+            = link_to "Менеджери", managers_path
+        li
+          = link_to "Нерухомість", buildings_path
+          ul
+            li
+              = link_to "Житлові комплекси", building_complexes_path
+            li
+              = link_to "Особняки", penthouses_path
+            li
+              = link_to "Квартири", apartments_path
+            li
+              = link_to "Багатоквартирні будинки", apartment_houses_path
+
+    #main
+      .container
+        = yield

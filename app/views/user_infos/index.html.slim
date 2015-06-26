@@ -1,0 +1,35 @@
+h1 Listing user_infos
+
+table
+  thead
+    tr
+      th First name
+      th Last name
+      th Middle name
+      th Identification number
+      th Phone
+      th Email
+      th User type
+      th User
+      th
+      th
+      th
+
+  tbody
+    - @user_infos.each do |user_info|
+      tr
+        td = user_info.first_name
+        td = user_info.last_name
+        td = user_info.middle_name
+        td = user_info.identification_number
+        td = user_info.phone
+        td = user_info.email
+        td = user_info.user_type
+        td = user_info.user_id
+        td = link_to 'Show', user_info
+        td = link_to 'Edit', edit_user_info_path(user_info)
+        td = link_to 'Destroy', user_info, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New User info', new_user_info_path

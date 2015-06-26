@@ -1,0 +1,9 @@
+= simple_form_for(@apartment) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :rooms_count
+    = f.input :square
+
+  .form-actions
+    = f.button :submit

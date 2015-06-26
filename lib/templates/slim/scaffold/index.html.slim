@@ -1,0 +1,8 @@
+= table_for @<%=  plural_table_name %>, [ <%= attributes.map{|attr| "'#{attr.name.humanize}'" }.join(", ") %>], model: <%= singular_table_name.capitalize %> do |<%= singular_table_name %>|
+  <% attributes.each do |attr| %>
+  = field <%= singular_table_name %>.<%= attr.name %>
+  <% end %>
+
+  = field link_to('Show', <%= singular_table_name %>, class: 'show-button')
+  = field link_to('Edit', edit_<%= singular_table_name %>_path, class: 'edit-button')
+  = field link_to('Delete', <%= singular_table_name %>, class: 'delete-button')

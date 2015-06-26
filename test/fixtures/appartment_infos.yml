@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  exterior_walls_description: MyText
+  appartment_separator_walls_description: MyText
+  appartment_inner_separator_walls_description: MyText
+  height_description: MyText
+  filling_openings_in_walls_description: MyText
+  phone_description: MyText
+  internet_description: MyText
+  tv_description: MyText
+  kitchen_stove_description: MyText
+  wiring_description: MyText
+  plumbing_description: MyText
+  heating_description: MyText
+  ventilation_description: MyText
+  water_supply_description: MyText
+  meters_description: MyText
+  internal_sewer_system_description: MyText
+  internal_finishing_work_description: MyText
+  beautification_description: MyText
+  additional_info: MyText
+
+two:
+  exterior_walls_description: MyText
+  appartment_separator_walls_description: MyText
+  appartment_inner_separator_walls_description: MyText
+  height_description: MyText
+  filling_openings_in_walls_description: MyText
+  phone_description: MyText
+  internet_description: MyText
+  tv_description: MyText
+  kitchen_stove_description: MyText
+  wiring_description: MyText
+  plumbing_description: MyText
+  heating_description: MyText
+  ventilation_description: MyText
+  water_supply_description: MyText
+  meters_description: MyText
+  internal_sewer_system_description: MyText
+  internal_finishing_work_description: MyText
+  beautification_description: MyText
+  additional_info: MyText

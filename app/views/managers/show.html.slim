@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Email:
+  = @manager.email
+p
+  strong Full name:
+  = @manager.full_name
+p
+  strong Avatar:
+  = @manager.avatar
+p
+  strong Full address:
+  = @manager.full_address
+
+= link_to 'Edit', edit_manager_path(@manager)
+'|
+= link_to 'Back', managers_path

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  building_id: 
+  client_id: 
+  manager_type: MyString
+  manager_id: 1
+  set_at: 2015-06-26 09:46:23
+
+two:
+  building_id: 
+  client_id: 
+  manager_type: MyString
+  manager_id: 1
+  set_at: 2015-06-26 09:46:23

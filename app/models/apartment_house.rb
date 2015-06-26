@@ -1,0 +1,3 @@
+class ApartmentHouse < Building
+
+end

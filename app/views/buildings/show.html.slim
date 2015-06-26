@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Type:
+  = @building.type
+p
+  strong Price:
+  = @building.price
+p
+  strong Price currency:
+  = @building.price_currency
+
+= link_to 'Edit', edit_building_path(@building)
+'|
+= link_to 'Back', buildings_path

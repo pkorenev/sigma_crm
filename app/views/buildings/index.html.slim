@@ -1,0 +1,22 @@
+= render "index_links"
+/= my_method.inspect
+
+- if @buildings.try(&:any?)
+
+  = table_for @buildings, @table_columns, model: Building, border: 1 do |building|
+
+
+    = render "index_table_columns", building: building
+
+
+
+
+    = field link_to('Show', resource_path(id: building.id), class: 'show-button')
+    = field link_to('Edit', edit_resource_path(id: building.id), class: 'edit-button')
+    = field link_to('Delete', resource_path(id: building.id), class: 'delete-button')
+
+  = paginate @buildings
+
+- else
+  h1
+    |Немає жодного об'єкту

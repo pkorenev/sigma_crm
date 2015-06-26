@@ -1,0 +1,14 @@
+= simple_form_for(@building) do |f|
+  = f.error_notification
+
+  .form-inputs
+    - if @building.class == Building
+      = f.input :type
+    = f.input :price
+    = f.input :price_currency
+    - if f.respond_to?(:apartment_info)
+      = render "apartment_info", form: f
+
+
+  .form-actions
+    = f.button :submit

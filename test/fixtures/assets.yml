@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 
+  assetable_type: MyString
+  assetable_id: 1
+
+two:
+  data: 
+  assetable_type: MyString
+  assetable_id: 1

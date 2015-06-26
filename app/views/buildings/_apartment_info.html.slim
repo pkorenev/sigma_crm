@@ -1,0 +1,3 @@
+= form.simple_fields_for :apartment_info do |ai|
+  - ApartmentInfo.descriptive_attribute_names.each do |attr_name|
+    = ai.input attr_name
