@@ -76,3 +76,5 @@ gem 'rails_admin'
 
 #gem 'figaro'
 
+
+#gem 'angular_rails_csrf'

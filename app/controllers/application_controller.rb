@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
   def site_home
     render template: "layouts/application", layout: false
   end
+
+  def set_csrf_headers
+    cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
+  end
 end

@@ -25,3 +25,5 @@ asset "ng-idle"
 
 asset "angular-formly"
 asset "angular-formly-templates-bootstrap"
+
+asset "nya-bootstrap-select"

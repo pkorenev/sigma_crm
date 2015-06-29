@@ -4,7 +4,10 @@
       | Створити нового менеджера
     ng-include src="'/assets/views/common/breadcrumbs'"
 
-form name="vm.someForm" ng-submit="vm.handleSubmit()"
-  formly-form fields="vm.fields" model="vm.model"
-    button ng-disabled="vm.someForm.$invalid" type="submit"  Submit
-    button ng-click="vm.options.resetModel()" type="button"  Reset
+.row
+  .col-lg-4.col-lg-offset-4.form-container
+
+    form name="vm.createManagerForm" ng-submit="vm.handleSubmit()" style=""
+      formly-form fields="vm.fields" model="vm.model"
+        button.btn.btn-primary ng-disabled="vm.createManagerForm.$invalid" type="submit"  Submit
+        /button ng-click="vm.options.resetModel()" type="button"  Reset

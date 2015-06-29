@@ -76,6 +76,11 @@ class BuildingsController < CrmController
   #
   # helper_method :my_method
 
+  def objects_count
+    obj_count = {total_count: Building.count, building_complexes_count: BuildingComplex.count, apartments_count: Apartment.count, penthouses_count: Penthouse.count}
+    render json: obj_count
+  end
+
 
 
   def new_resource_path(*args)

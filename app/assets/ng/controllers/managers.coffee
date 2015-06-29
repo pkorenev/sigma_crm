@@ -26,18 +26,65 @@ managersController = [
 newManagerController = [
   "$scope"
   #"formly"
-  ($scope)->
+  "Restangular"
+  ($scope, Restangular)->
     $scope.breadcrumbs = breadcrumbs
+
+    baseManagerRegistrations = Restangular.all('managers');
 
     $scope.vm = {}
 
-    $scope.vm.model = {}
+    $scope.vm.model = {country2: "Україна"}
     $scope.vm.fields = [
+      {
+        type: "input"
+        key: "email"
+        templateOptions: {
+          label: "Електронна пошта"
+          required: true
+          type: "email"
+        }
+      }
+      {
+        type: "input"
+        key: "password"
+        templateOptions: {
+          label: "Пароль"
+          required: true
+          type: "password"
+        }
+#        validators: {
+#          password_confirmed:
+#            expression: (view_value, model_value, scope)->
+#              view_value == scope.model.password_confirmation
+#            message: "Паролі повинні співпадати"
+#        }
+      }
+      {
+        type: "input"
+        key: "password_confirmation"
+        templateOptions: {
+          label: "Підтвердіть пароль"
+          required: true
+          type: "password"
+        }
+        expressionProperties: {
+          "templateOptions.valid": (modelValue, viewValue, scope)->
+            console.log("args: ", scope.model.password == scope.model.password_confirmation)
+        }
+        validators: {
+          password_confirmed:
+            expression: (view_value, model_value, scope)->
+              scope.model.password == view_value
+            message: "Паролі повинні співпадати"
+        }
+      }
       {
         type: "input"
         key: "last_name"
         templateOptions: {
           label: "Прізвище"
+          required: true
         }
       }
       {
@@ -45,6 +92,7 @@ newManagerController = [
         key: "first_name"
         templateOptions: {
           label: "Ім’я"
+          required: true
         }
       }
       {
@@ -52,6 +100,7 @@ newManagerController = [
         key: "middle_name"
         templateOptions: {
           label: "По-батькові"
+          required: true
         }
       }
       {
@@ -59,19 +108,29 @@ newManagerController = [
         key: "phone"
         templateOptions: {
           label: "Телефон"
+          required: true
         }
       }
       {
-        type: "select"
-        key: "country"
+        key: 'country',
+        type: 'input',
         templateOptions: {
+          required: true
           label: "Країна"
+          #description: 'Description : this is a nice select!',
+          options: [
+            {name: 'Paris', value: 'paris_city', group: 'EU'},
+            {name: 'New York', value: 'new_york_city', group: 'USA'},
+            {name: 'Berlin', value: 'berlin_city', group: 'EU'},
+            {name: 'Salt Lake City', value: 'salt_lake_city_city', group: 'USA'},
+          ]
         }
       }
       {
         type: "input"
         key: "city"
         templateOptions: {
+          required: true
           label: "Місто"
         }
       }
@@ -98,7 +157,13 @@ newManagerController = [
           type: "number"
         }
       }
+
     ]
+
+    $scope.vm.handleSubmit = ()->
+      alert("submit")
+      #baseManagers.post($scope.vm.model)
+      baseManagerRegistrations.post($scope.vm.model)
 
 ]
 

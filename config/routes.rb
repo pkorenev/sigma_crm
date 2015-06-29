@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controller: { sessions: "users/sessions" }
+  #devise_for :manager_users, controllers: {  }
+  devise_for :users, controllers: { sessions: "users/sessions" }
 
   cnstrs = {subdomain: ENV["CRM_SUBDOMAIN"]}
   cnstrs = {} if ENV["LOCALHOST"] == "true"
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
     #get "ng", to: "crm#ng"
     root to: "crm#ng", as: "crm_root"
     with_options defaults: {format: "json"} do
-
+      get "buildings/objects_count"
       #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
       root to: "crm#dashboard", as: :crm_dashboard
       resources :managers

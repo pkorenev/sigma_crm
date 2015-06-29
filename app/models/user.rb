@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :invitable#, :authentication_keys => {email: true, get_phone: false}
 
   #include DeviseTokenAuth::Concerns::User
-  include UserConcern
+  #include UserConcern
 
   rolify
 
@@ -18,7 +18,9 @@ class User < ActiveRecord::Base
   attr_accessible :user_info, :user_info_attributes
 
   attr_accessible :password, :password_confirmation, :email
-  delegate :first_name, :last_name, :middle_name, :identification_number, :phone, :user_type, :user_id, :full_name, :address, :full_address, :avatar, to: :user_info, allow_nil: true
+  methods_to_delegate = [:first_name, :last_name, :middle_name, :identification_number, :phone, :user_type, :user_id, :full_name, :address, :full_address, :avatar]
+  methods_to_delegate.clone.each {|m| methods_to_delegate << "#{m}=".to_sym }
+  delegate *methods_to_delegate, to: :user_info, allow_nil: true
 
   has_many :comments
   accepts_nested_attributes_for :comments

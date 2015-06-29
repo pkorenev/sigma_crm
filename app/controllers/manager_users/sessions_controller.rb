@@ -1,6 +1,6 @@
-class Users::SessionsController < Devise::SessionsController
+class ManagerUsers::SessionsController < Users::SessionsController
 # before_filter :configure_sign_in_params, only: [:create]
-  after_filter :set_csrf_headers, only: [:create, :destroy]
+  #after_filter :set_csrf_headers, only: [:create, :destroy]
 
 
 
@@ -23,9 +23,7 @@ class Users::SessionsController < Devise::SessionsController
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_sign_in_params
+  #def configure_sign_in_params
     #devise_parameter_sanitizer.for(:sign_in) {|u| u.permit(:email, :password) }
-  end
-
-
+  #end
 end

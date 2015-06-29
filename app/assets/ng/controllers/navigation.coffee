@@ -16,8 +16,8 @@ navigationController = ($scope)->
           icon_class: "fa fa-th-large"
         }
         {
-          text: "Багатовартирні будинки"
-          sref: "crm.buildings.apartment_houses"
+          text: "Житлові комплекси"
+          sref: "crm.buildings.building_complexes"
           icon_class: "fa fa-th-large"
         }
         {

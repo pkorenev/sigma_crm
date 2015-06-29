@@ -43,7 +43,11 @@ class ManagersController < CrmController
   # POST /managers
   # POST /managers.json
   def create
+
     @manager = Manager.new(manager_params)
+    @manager.provider = "email"
+    @manager.uid = "{email: '#{@manager.email}'}"
+
 
     respond_to do |format|
       if @manager.save

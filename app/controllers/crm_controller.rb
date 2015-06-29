@@ -1,6 +1,5 @@
 class CrmController < ApplicationController
-  before_action :authenticate_user!
-
+  #before_action :authenticate_user!
 
   self.layout "crm"
 
@@ -11,5 +10,7 @@ class CrmController < ApplicationController
   def ng
     render template: "layouts/ng_index", layout: false
   end
+
+
 
 end
