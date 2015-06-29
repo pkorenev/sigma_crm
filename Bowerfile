@@ -24,3 +24,4 @@ asset "angular-bootstrap"
 asset "ng-idle"
 
 asset "angular-formly"
+asset "angular-formly-templates-bootstrap"

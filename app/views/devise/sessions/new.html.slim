@@ -1,8 +1,8 @@
-h3 Welcome to IN+
+h3 Вітаємо у Sigma CRM
 p
-  | Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
+  | S-CRM &mdash; це надійне та зручне середовище для управління агенціями нерухомості.
 /! Continually expanded and constantly improved Inspinia Admin Them (IN+)
-p Login in. To see it in action.
+p Просимо залогуватися
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   - # f.error_notification
   - resource.valid?() if params[:action] == 'create'; resource.errors.messages;
@@ -10,8 +10,8 @@ p Login in. To see it in action.
   .form-inputs
     = f.input :email, required: true, label: false, placeholder: "Email or phone", as: :string, autofocus: true
     = f.input :password, required: false, label: false
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+    = f.input :remember_me, label: "Запам’ятати мене", as: :boolean if devise_mapping.rememberable?
   .form-actions
     /= f.button :submit, "Log in", class: "btn btn-primary block full-width m-b"
-    input type="submit" value="Log in" name="commit" class="btn btn-primary block full-width m-b"
+    input type="submit" value="Увійти" name="commit" class="btn btn-primary block full-width m-b"
 = render "devise/shared/links"
