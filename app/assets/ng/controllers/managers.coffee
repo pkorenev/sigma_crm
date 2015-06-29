@@ -52,6 +52,7 @@ newManagerController = [
           label: "Пароль"
           required: true
           type: "password"
+          minlength: 8
         }
 #        validators: {
 #          password_confirmed:
