@@ -18,7 +18,7 @@ class Building < ActiveRecord::Base
   has_one :building_complex, through: :building_complex_link
 
 
-  delegate :street, :house_number, :apartment_number, :index, :city, :country, :full_address, to: :address
+  delegate :street, :house_number, :apartment_number, :index, :city, :country, :full_address, to: :address, allow_nil: true
 
   has_many :user_views, class_name: "BuildingView"
   has_many :users_viewed, through: :user_views, source: :building

@@ -1,27 +1,32 @@
 Rails.application.routes.draw do
 
+  devise_for :users, controller: { sessions: "users/sessions" }
 
   cnstrs = {subdomain: ENV["CRM_SUBDOMAIN"]}
   cnstrs = {} if ENV["LOCALHOST"] == "true"
-  cnstrs[:defaults] = {format: "json"}
+  #cnstrs[:defaults] = {format: "json"}
   constraints cnstrs do
-    get "ng", to: "crm#ng"
-    #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-    root to: "crm#dashboard", as: :crm_dashboard
-    resources :managers
-    resources :buildings
-    resources :building_complexes
-    resources :penthouses
-    resources :apartments
-    resources :apartment_houses
+    #get "ng", to: "crm#ng"
+    root to: "crm#ng", as: "crm_root"
+    with_options defaults: {format: "json"} do
 
-    post "managers/invite"
+      #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+      root to: "crm#dashboard", as: :crm_dashboard
+      resources :managers
+      resources :buildings
+      resources :building_complexes
+      resources :penthouses
+      resources :apartments
+      resources :apartment_houses
+
+      post "managers/invite"
+    end
   end
 
   root to: "application#site_home"
 
   resources :user_infos
-  devise_for :users, controller: { sessions: "users/sessions" }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

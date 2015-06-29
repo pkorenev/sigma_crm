@@ -15,10 +15,11 @@ class ManagersController < CrmController
   def index
     @managers = Manager.all
     #respond_with @managers
-    respond_to do |format|
-      format.json
-      format.html
-    end
+    #render inline: "#{params.inspect}"
+    # respond_to do |format|
+    #   format.json
+    #   format.html
+    # end
   end
 
   # GET /managers/1

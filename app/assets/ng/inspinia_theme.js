@@ -26,3 +26,7 @@
 
 //= require lodash/lodash.min
 //= require restangular/dist/restangular.min
+//= require angular-cookie/angular-cookie.min
+//= require ng-token-auth/dist/ng-token-auth.min
+//= require api-check/dist/api-check.min.js
+//= require angular-formly/dist/formly.min.js

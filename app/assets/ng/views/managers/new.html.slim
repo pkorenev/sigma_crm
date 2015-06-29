@@ -1,0 +1,10 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-9
+    h2
+      | Створити нового менеджера
+    ng-include src="'/assets/views/common/breadcrumbs'"
+
+form name="vm.someForm" ng-submit="vm.handleSubmit()"
+  formly-form fields="vm.fields" model="vm.model"
+    button ng-disabled="vm.someForm.$invalid" type="submit"  Submit
+    button ng-click="vm.options.resetModel()" type="button"  Reset

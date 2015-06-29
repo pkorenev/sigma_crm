@@ -31,6 +31,16 @@ navigationController = ($scope)->
       text: "Менеджери"
       sref: "crm.managers"
       icon_class: "fa fa-th-large"
+      menu_items: [
+        {
+          text: "Список"
+          sref: "crm.managers.index"
+        }
+        {
+          text: "Створити нового"
+          sref: "crm.managers.new"
+        }
+      ]
     }
 
 

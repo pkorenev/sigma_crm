@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   attr_accessible :user_info, :user_info_attributes
 
   attr_accessible :password, :password_confirmation, :email
-  delegate :first_name, :last_name, :middle_name, :identification_number, :phone, :user_type, :user_id, :full_name, :address, :full_address, :avatar, to: :user_info
+  delegate :first_name, :last_name, :middle_name, :identification_number, :phone, :user_type, :user_id, :full_name, :address, :full_address, :avatar, to: :user_info, allow_nil: true
 
   has_many :comments
   accepts_nested_attributes_for :comments

@@ -22,3 +22,5 @@ asset "oclazyload"
 asset "angular-translate"
 asset "angular-bootstrap"
 asset "ng-idle"
+
+asset "angular-formly"

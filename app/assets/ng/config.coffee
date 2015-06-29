@@ -1,6 +1,7 @@
 config = ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdleProvider, KeepaliveProvider)->
   $urlRouterProvider.otherwise("/dashboard");
 
+  empty_view = "<div ui-view></div>"
 
 
   $stateProvider
@@ -36,17 +37,21 @@ config = ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdleProvider,
     templateUrl: template_path("buildings/index")
     controller: controller_name("buildings")
 
-    ###
-  .state "crm.managers",
-    url: "/managers"
-    controller: controller_name("managers")
-    template: "<div ui-view></div>"
-    ###
 
   .state "crm.managers",
-    controller: controller_name("managers")
     url: "/managers"
+    #controller: controller_name("managers")
+    template: empty_view
+
+  .state "crm.managers.index",
+    controller: controller_name("managers")
+    url: "/list"
     templateUrl: template_path("managers/index")
+
+  .state "crm.managers.new",
+    controller: controller_name("new_manager")
+    url: "/new"
+    templateUrl: template_path("managers/new")
 
 
 

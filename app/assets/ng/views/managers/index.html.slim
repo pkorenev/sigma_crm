@@ -1,11 +1,11 @@
 .row.wrapper.border-bottom.white-bg.page-heading
   .col-lg-9
     h2
-      | Contacts
-    ol.breadcrumb
-      li ng-repeat="item in breadcrumbs" ui-sref-active="active"
-        a ui-sref="{{item.sref}}"
-          |{{item.text}}
+      | Менеджери
+    ng-include src="'/assets/views/common/breadcrumbs'"
+  .col-lg-2.text-right
+    a.btn.yellow-bg ui-sref="crm.managers.new" style="margin: 30px 0 10px 0;"
+      |Створити нового
 
 .wrapper.wrapper-content.animated.fadeInRight ng-if="allManagers.length"
   .row
@@ -17,25 +17,27 @@
         .col-sm-4
           .text-center
             img.img-circle.m-t-xs.img-responsive[alt="image" src="/assets/img/a2.jpg"]
-            .m-t-xs.font-bold
+            /.m-t-xs.font-bold
               | Graphics designer
         .col-sm-8
           h3
             strong
-              | John Smith
+              /| John Smith
+              |{{manager.full_name}}
           p
             i.fa.fa-map-marker
-            |  Riviera State 32/106
+            /|  Riviera State 32/106
+            |{{manager.user_info.full_address}}
           address
-            strong
+            /strong
               | Twitter, Inc.
-            br
-            |  795 Folsom Ave, Suite 600
-            br
-            |  San Francisco, CA 94107
-            br
+            /br
+            /|  795 Folsom Ave, Suite 600
+            /br
+            /|  San Francisco, CA 94107
+            /br
             abbr[title="Phone"]
               | P:
-            |  (123) 456-7890
+            |  {{manager.user_info.phone}}
         .clearfix
 

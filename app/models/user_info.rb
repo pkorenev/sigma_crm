@@ -13,7 +13,7 @@ class UserInfo < ActiveRecord::Base
   accepts_nested_attributes_for :address
   attr_accessible :address, :address_attributes
 
-  delegate :street, :house_number, :apartment_number, :index, :city, :country, :full_address, to: :address
+  delegate :street, :house_number, :apartment_number, :index, :city, :country, :full_address, to: :address, allow_nil: true
 
 
   has_attached_file :avatar
