@@ -52,6 +52,17 @@ config = ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdleProvider,
     #controller: controller_name("managers")
     template: empty_view
 
+  .state "crm.managers.show",
+    url: "/managers/:id"
+    controller: controller_name("showManager")
+    templateUrl: template_path("managers/new")
+
+  .state "crm.managers.edit",
+    url: "/:id/edit"
+    controller: controller_name("showManager")
+    templateUrl: template_path("managers/new")
+
+
   .state "crm.managers.index",
     controller: controller_name("managers")
     url: "/list"
@@ -61,6 +72,7 @@ config = ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdleProvider,
     controller: controller_name("new_manager")
     url: "/new"
     templateUrl: template_path("managers/new")
+
 
 
 

@@ -11,7 +11,7 @@
   .row
     /- 20.times do
     .col-lg-4 ng-repeat="manager in allManagers"
-      .contact-box
+      .contact-box ng-click="editManager(manager)"
         a[ui-sref="profile"]
 
         .col-sm-4
