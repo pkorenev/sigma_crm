@@ -1,0 +1,56 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-10
+    h2
+      | Sweet Alert
+    ol.breadcrumb
+      li
+        a[href="index.html"]
+          | Home
+      li
+        a
+          | Miscellaneous
+      li.active
+        strong
+          | Sweet Alert
+  .col-lg-2
+
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox
+        .ibox-title
+          h5
+            | Sweet Alert
+        .ibox-content
+          strong
+            | An awesome replacement for JavaScript's alert.
+          p
+            |  SweetAlert automatically centers itself on the page and looks great no matter if you're using a desktop computer, mobile or tablet. It's even highly customizeable, as you can see below! 
+            a[href="http://t4t5.github.io/sweetalert/" target="_blank"]
+              | http://t4t5.github.io/sweetalert/
+          .row.text-center[ng-controller="sweetAlertCtrl"]
+            .col-lg-6.h-100.p-lg
+              p
+                | A basic sweetalert message
+              button.btn.btn-primary.btn-sm[ng-click="demo1()"]
+                | Run example
+            .col-lg-6.h-100.p-lg
+              p
+                |  A success message! 
+              button.btn.btn-success.btn-sm[ng-click="demo2()"]
+                | Run example
+            .col-lg-6.h-100.p-lg
+              p
+                | A warning message, with a function attached to the "Confirm"-button...
+              button.btn.btn-warning.btn-sm[ng-click="demo3()"]
+                | Run example
+            .col-lg-6.h-100.p-lg
+              p
+                |  ... and by passing a parameter, you can execute something else for "Cancel". 
+              button.btn.btn-danger.btn-sm[ng-click="demo4()"]
+                | Run example
+          .m-t-md
+            p
+              |  You can easy add sweet alert in your script: 
+            pre
+              |  SweetAlert.swal({ title: "Are you sure?", text: "Your will not be able to recover this imaginary file!", type: "warning", showCancelButton: true, confirmButtonColor: "#DD6B55", confirmButtonText: "Yes, delete it!", cancelButtonText: "No, cancel plx!", closeOnConfirm: false, closeOnCancel: false }, function (isConfirm) { if (isConfirm) { SweetAlert.swal("Deleted!", "Your imaginary file has been deleted.", "success"); } else { SweetAlert.swal("Cancelled", "Your imaginary file is safe :)", "error"); } });

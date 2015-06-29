@@ -1,0 +1,117 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-10
+    h2
+      | Timeline - version 2
+    ol.breadcrumb
+      li
+        a[href="index.html"]
+          | Home
+      li
+        a
+          | Miscellaneous
+      li.active
+        strong
+          | Timeline v.2
+  .col-lg-2
+
+.wrapper.wrapper-content
+  .row.animated.fadeInRight
+    .col-lg-12
+      .ibox.float-e-margins
+        .text-center.float-e-margins.p-md
+          span
+            | Turn on/off color/background or orientation version: 
+          a#lightVersion.btn.btn-xs.btn-primary[href="#"]
+            | Light version
+          a#darkVersion.btn.btn-xs.btn-primary[href="#"]
+            | Dark version
+          a#leftVersion.btn.btn-xs.btn-primary[href="#"]
+            | Left version
+        #ibox-content.ibox-content
+          #vertical-timeline.vertical-container.dark-timeline.center-orientation
+            .vertical-timeline-block
+              .vertical-timeline-icon.navy-bg
+                i.fa.fa-briefcase
+              .vertical-timeline-content
+                h2
+                  | Meeting
+                p
+                  | Conference on the sales results for the previous year. Monica please examine sales trends in marketing and products. Below please find the current status of the sale. 
+                a.btn.btn-sm.btn-primary[href="#"]
+                  |  More info
+                span.vertical-date
+                  |  Today 
+                  br
+                  small
+                    | Dec 24
+            .vertical-timeline-block
+              .vertical-timeline-icon.blue-bg
+                i.fa.fa-file-text
+              .vertical-timeline-content
+                h2
+                  | Send documents to Mike
+                p
+                  | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.
+                a.btn.btn-sm.btn-success[href="#"]
+                  |  Download document 
+                span.vertical-date
+                  |  Today 
+                  br
+                  small
+                    | Dec 24
+            .vertical-timeline-block
+              .vertical-timeline-icon.lazur-bg
+                i.fa.fa-coffee
+              .vertical-timeline-content
+                h2
+                  | Coffee Break
+                p
+                  | Go to shop and find some products. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's. 
+                a.btn.btn-sm.btn-info[href="#"]
+                  | Read more
+                span.vertical-date
+                  |  Yesterday 
+                  br
+                  small
+                    | Dec 23
+            .vertical-timeline-block
+              .vertical-timeline-icon.yellow-bg
+                i.fa.fa-phone
+              .vertical-timeline-content
+                h2
+                  | Phone with Jeronimo
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
+                span.vertical-date
+                  | Yesterday 
+                  br
+                  small
+                    | Dec 23
+            .vertical-timeline-block
+              .vertical-timeline-icon.lazur-bg
+                i.fa.fa-user-md
+              .vertical-timeline-content
+                h2
+                  | Go to the doctor dr Smith
+                p
+                  | Find some issue and go to doctor. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. 
+                span.vertical-date
+                  | Yesterday 
+                  br
+                  small
+                    | Dec 23
+            .vertical-timeline-block
+              .vertical-timeline-icon.navy-bg
+                i.fa.fa-comments
+              .vertical-timeline-content
+                h2
+                  | Chat with Monica and Sandra
+                p
+                  | Web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). 
+                span.vertical-date
+                  | Yesterday 
+                  br
+                  small
+                    | Dec 23
+script
+  |  // Local script for demo purpose only $(document).ready(function(){ $('#lightVersion').click(function(event) { event.preventDefault() $('#ibox-content').removeClass('ibox-content'); $('#vertical-timeline').removeClass('dark-timeline'); $('#vertical-timeline').addClass('light-timeline'); }); $('#darkVersion').click(function(event) { event.preventDefault() $('#ibox-content').addClass('ibox-content'); $('#vertical-timeline').removeClass('light-timeline'); $('#vertical-timeline').addClass('dark-timeline'); }); $('#leftVersion').click(function(event) { event.preventDefault() $('#vertical-timeline').toggleClass('center-orientation'); }); }); 

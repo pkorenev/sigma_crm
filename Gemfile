@@ -47,9 +47,11 @@ gem 'devise'
 gem 'paperclip'
 gem 'protected_attributes'
 gem 'quiet_assets'
+gem 'thin'
 gem "rolify"
 #gem 'devise_token_auth'
 gem 'devise_invitable'
+gem 'devise_token_auth'
 gem 'simple_form'
 gem 'cancancan'
 
@@ -73,3 +75,4 @@ gem 'faker'
 gem 'rails_admin'
 
 #gem 'figaro'
+

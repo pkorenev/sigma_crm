@@ -1,0 +1,3 @@
+class ClientStatusTag < ClientTag
+
+end

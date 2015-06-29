@@ -1,0 +1,176 @@
+#wrapper
+  div[ng-include="'/assets/views/common/navigation.html'"]
+  #page-wrapper.gray-bg.{{$state.current.name}}
+    div[ng-include="'/assets/views/common/topnavbar.html'"]
+    .row.wrapper.border-bottom.white-bg.page-heading
+      .col-lg-10
+        h2
+          | CSS Animations
+        ol.breadcrumb
+          li
+            a[href="index.html"]
+              | Home
+          li.active
+            strong
+              | CSS Animations
+      .col-lg-2
+
+    .wrapper.wrapper-content.animated.fadeIn
+      .row
+        .col-lg-12
+          .ibox.float-e-margins
+            .ibox-title
+              h5
+                | CSS Animations 
+                small
+                  | http://daneden.github.io/animate.css/
+              div[ibox-tools]
+            .ibox-content.text-center.css-animation-box
+              h1.text-navy
+                |  Animation.css 
+              p
+                |  A cross-browser library of CSS animations. Animation.css is a bunch of cool, fun, and cross-browser animations for you to use in your projects. Great for emphasis, home pages, sliders, and general just-add-water-awesomeness. 
+              .hr-line-dashed
+              .row[ng-controller="rickshawChartCtrl as chart"]
+                .col-sm-6.text-center
+                  h4.m-b-lg
+                    |  Example box for animation effect. 
+                  #animation_box.animated
+                    p.animation-text-info
+                      |  This is simple example of Rickshaw charts. You can use animation on any objects: text, charts, images, tables etc. 
+                    .text-center.wrapper-content.animation-text-box
+                      h2
+                        | 48%
+                      p
+                        | Sales marketing
+                    rickshaw[rickshaw-options="chart.multiAreaOptions" rickshaw-series="chart.multiAreaSeries"]
+                .col-lg-6.animation-efect-links.text-center
+                  h4.m-b-lg
+                    |  Use any animation button to turn on the animation on box example. 
+                  a.btn.btn-white.animation_select[href="" data-animation="bounce"]
+                    | bounce
+                  a.btn.btn-white.animation_select[href="" data-animation="flash"]
+                    | flash
+                  a.btn.btn-white.animation_select[href="" data-animation="pulse"]
+                    | pulse
+                  a.btn.btn-white.animation_select[href="" data-animation="rubberBand"]
+                    | rubberBand
+                  a.btn.btn-white.animation_select[href="" data-animation="shake"]
+                    | shake
+                  a.btn.btn-white.animation_select[href="" data-animation="swing"]
+                    | swing
+                  a.btn.btn-white.animation_select[href="" data-animation="tada"]
+                    | tada
+                  a.btn.btn-white.animation_select[href="" data-animation="wobble"]
+                    | wobble
+                  a.btn.btn-white.animation_select[href="" data-animation="bounceIn"]
+                    | bounceIn
+                  a.btn.btn-white.animation_select[href="" data-animation="bounceInDown"]
+                    | bounceInDown
+                  a.btn.btn-white.animation_select[href="" data-animation="bounceInLeft"]
+                    | bounceInLeft
+                  a.btn.btn-white.animation_select[href="" data-animation="bounceInRight"]
+                    | bounceInRight
+                  a.btn.btn-white.animation_select[href="" data-animation="bounceInUp"]
+                    | bounceInUp
+                  a.btn.btn-white.animation_select[href="" data-animation="bounceOut"]
+                    | bounceOut
+                  a.btn.btn-white.animation_select[href="" data-animation="bounceOutDown"]
+                    | bounceOutDown
+                  a.btn.btn-white.animation_select[href="" data-animation="bounceOutLeft"]
+                    | bounceOutLeft
+                  a.btn.btn-white.animation_select[href="" data-animation="bounceOutRight"]
+                    | bounceOutRight
+                  a.btn.btn-white.animation_select[href="" data-animation="bounceOutUp"]
+                    | bounceOutUp
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeIn"]
+                    | fadeIn
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeInDown"]
+                    | fadeInDown
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeInDownBig"]
+                    | fadeInDownBig
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeInLeft"]
+                    | fadeInLeft
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeInLeftBig"]
+                    | fadeInLeftBig
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeInRight"]
+                    | fadeInRight
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeInRightBig"]
+                    | fadeInRightBig
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeInUp"]
+                    | fadeInUp
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeInUpBig"]
+                    | fadeInUpBig
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeOut"]
+                    | fadeOut
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeOutDown"]
+                    | fadeOutDown
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeOutDownBig"]
+                    | fadeOutDownBig
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeOutLeft"]
+                    | fadeOutLeft
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeOutLeftBig"]
+                    | fadeOutLeftBig
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeOutRight"]
+                    | fadeOutRight
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeOutRightBig"]
+                    | fadeOutRightBig
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeOutUp"]
+                    | fadeOutUp
+                  a.btn.btn-white.animation_select[href="" data-animation="fadeOutUpBig"]
+                    | fadeOutUpBig
+                  a.btn.btn-white.animation_select[href="" data-animation="flip"]
+                    | flip
+                  a.btn.btn-white.animation_select[href="" data-animation="flipInX"]
+                    | flipInX
+                  a.btn.btn-white.animation_select[href="" data-animation="flipInY"]
+                    | flipInY
+                  a.btn.btn-white.animation_select[href="" data-animation="flipOutX"]
+                    | flipOutX
+                  a.btn.btn-white.animation_select[href="" data-animation="flipOutY"]
+                    | flipOutY
+                  a.btn.btn-white.animation_select[href="" data-animation="lightSpeedIn"]
+                    | lightSpeedIn
+                  a.btn.btn-white.animation_select[href="" data-animation="lightSpeedOut"]
+                    | lightSpeedOut
+                  a.btn.btn-white.animation_select[href="" data-animation="rotateIn"]
+                    | rotateIn
+                  a.btn.btn-white.animation_select[href="" data-animation="rotateInDownLeft"]
+                    | rotateInDownLeft
+                  a.btn.btn-white.animation_select[href="" data-animation="rotateInDownRight"]
+                    | rotateInDownRight
+                  a.btn.btn-white.animation_select[href="" data-animation="rotateInUpLeft"]
+                    | rotateInUpLeft
+                  a.btn.btn-white.animation_select[href="" data-animation="rotateInUpRight"]
+                    | rotateInUpRight
+                  a.btn.btn-white.animation_select[href="" data-animation="rotateOut"]
+                    | rotateOut
+                  a.btn.btn-white.animation_select[href="" data-animation="rotateOutDownLeft"]
+                    | rotateOutDownLeft
+                  a.btn.btn-white.animation_select[href="" data-animation="rotateOutDownRight"]
+                    | rotateOutDownRight
+                  a.btn.btn-white.animation_select[href="" data-animation="rotateOutUpLeft"]
+                    | rotateOutUpLeft
+                  a.btn.btn-white.animation_select[href="" data-animation="rotateOutUpRight"]
+                    | rotateOutUpRight
+                  a.btn.btn-white.animation_select[href="" data-animation="slideInDown"]
+                    | slideInDown
+                  a.btn.btn-white.animation_select[href="" data-animation="slideInLeft"]
+                    | slideInLeft
+                  a.btn.btn-white.animation_select[href="" data-animation="slideInRight"]
+                    | slideInRight
+                  a.btn.btn-white.animation_select[href="" data-animation="slideOutLeft"]
+                    | slideOutLeft
+                  a.btn.btn-white.animation_select[href="" data-animation="slideOutRight"]
+                    | slideOutRight
+                  a.btn.btn-white.animation_select[href="" data-animation="slideOutUp"]
+                    | slideOutUp
+                  a.btn.btn-white.animation_select[href="" data-animation="hinge"]
+                    | hinge
+                  a.btn.btn-white.animation_select[href="" data-animation="rollIn"]
+                    | rollIn
+                  a.btn.btn-white.animation_select[href="" data-animation="rollOut"]
+                    | rollOut
+    script
+      |  // This is just for demo demo purpose - animation css local script $(document).ready(function () { $('.animation_select').click(function () { $('#animation_box').removeAttr('class').attr('class', ''); var animation = $(this).attr("data-animation"); $('#animation_box').addClass('animated'); $('#animation_box').addClass(animation); return false; }); }); 
+    div[ng-include="'/assets/views/common/footer.html'"]

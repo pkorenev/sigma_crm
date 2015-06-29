@@ -18,4 +18,4 @@
 //= require rainbow/js/language/ruby
 //= require dataTables/jquery.dataTables
 //= require jquery_basic
-//= require_tree .
+// require_tree .

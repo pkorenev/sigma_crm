@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
 
-
-
-  constraints subdomain: ENV["CRM_SUBDOMAIN"] do
+  cnstrs = {subdomain: ENV["CRM_SUBDOMAIN"]}
+  cnstrs = {} if ENV["LOCALHOST"] == "true"
+  cnstrs[:defaults] = {format: "json"}
+  constraints cnstrs do
+    get "ng", to: "crm#ng"
     #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
     root to: "crm#dashboard", as: :crm_dashboard
     resources :managers

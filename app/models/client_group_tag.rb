@@ -1,0 +1,3 @@
+class ClientGroupTag < ClientTag
+
+end

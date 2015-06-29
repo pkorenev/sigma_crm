@@ -1,0 +1,141 @@
+.wrapper.wrapper-content
+  .row
+    .col-lg-3
+      .ibox.float-e-margins
+        .ibox-content.mailbox-content
+          .file-manager
+            a.btn.btn-block.btn-primary.compose-mail[href="mail_compose.html"]
+              | Compose Mail
+            .space-25
+            h5
+              | Folders
+            ul.folder-list.m-b-md[style="padding: 0"]
+              li
+                a[ui-sref="inbox"]
+                  i.fa.fa-inbox
+                  |  Inbox 
+                  span.label.label-warning.pull-right
+                    | 16
+              li
+                a[ui-sref="inbox"]
+                  i.fa.fa-envelope-o
+                  |  Send Mail
+              li
+                a[ui-sref="inbox"]
+                  i.fa.fa-certificate
+                  |  Important
+              li
+                a[ui-sref="inbox"]
+                  i.fa.fa-file-text-o
+                  |  Drafts 
+                  span.label.label-danger.pull-right
+                    | 2
+              li
+                a[ui-sref="inbox"]
+                  i.fa.fa-trash-o
+                  |  Trash
+            h5
+              | Categories
+            ul.category-list[style="padding: 0"]
+              li
+                a[href=""]
+                  i.fa.fa-circle.text-navy
+                  |  Work 
+              li
+                a[href=""]
+                  i.fa.fa-circle.text-danger
+                  |  Documents
+              li
+                a[href=""]
+                  i.fa.fa-circle.text-primary
+                  |  Social
+              li
+                a[href=""]
+                  i.fa.fa-circle.text-info
+                  |  Advertising
+              li
+                a[href=""]
+                  i.fa.fa-circle.text-warning
+                  |  Clients
+            h5.tag-title
+              | Labels
+            ul.tag-list[style="padding: 0"]
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Family
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Work
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Home
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Children
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Holidays
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Music
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Photography
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Film
+            .clearfix
+    .col-lg-9
+      .mail-box-header
+        .pull-right.tooltip-demo
+          a.btn.btn-white.btn-sm[ui-sref="inbox" data-toggle="tooltip" data-placement="top" title="Move to draft folder"]
+            i.fa.fa-pencil
+            |  Draft
+          a.btn.btn-danger.btn-sm[ui-sref="inbox" data-toggle="tooltip" data-placement="top" title="Discard email"]
+            i.fa.fa-times
+            |  Discard
+        h2
+          |  Compse mail 
+      .mail-box
+        .mail-body
+          form.form-horizontal[method="get"]
+            .form-group
+              label.col-sm-2.control-label
+                | To:
+              .col-sm-10
+                input.form-control[type="text" value="alex.smith@corporat.com"]
+            .form-group
+              label.col-sm-2.control-label
+                | Subject:
+              .col-sm-10
+                input.form-control[type="text" value=""]
+        .mail-text.h-200
+          .summernote[summernote ng-model="main.summernoteText"]
+            h3
+              | Hello Jonathan! 
+            |  dummy text of the printing and typesetting industry. 
+            strong
+              | Lorem Ipsum has been the industry's
+            |  standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with 
+            br
+            br
+          .clearfix
+        .mail-body.text-right.tooltip-demo
+          a.btn.btn-sm.btn-primary[ui-sref="inbox" data-toggle="tooltip" data-placement="top" title="Send"]
+            i.fa.fa-reply
+            |  Send
+          a.btn.btn-white.btn-sm[ui-sref="inbox" data-toggle="tooltip" data-placement="top" title="Discard email"]
+            i.fa.fa-times
+            |  Discard
+          a.btn.btn-white.btn-sm[ui-sref="inbox" data-toggle="tooltip" data-placement="top" title="Move to draft folder"]
+            i.fa.fa-pencil
+            |  Draft
+        .clearfix

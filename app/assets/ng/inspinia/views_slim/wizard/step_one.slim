@@ -1,0 +1,25 @@
+fieldset
+  h2
+    | Account Information
+  .row
+    .col-lg-8
+      .form-group
+        label
+          | Username *
+        input#userName.form-control[ng-model="formData.username" name="username" type="text" ng-minlength="8"]
+        p.help-block[ng-show="signupForm.username.$error.minlength"]
+          | Example of validation - Username is too short (min 8 signs)
+      .form-group
+        label
+          | Password *
+        input#password.form-control[ng-model="formData.password" name="password" type="text"]
+      .form-group
+        label
+          | Confirm Password *
+        input#confirm.form-control.required[name="confirm" type="text"]
+    .col-lg-4
+      .text-center
+        div[style="margin-top: 20px"]
+          i.fa.fa-sign-in[style="font-size: 180px;color: #e5e5e5 "]
+  a.btn.btn-primary[ui-sref="forms.wizard.step_two"]
+    | Next

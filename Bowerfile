@@ -1,1 +1,24 @@
+# test
 asset "rainbow"
+
+
+# angular crm
+
+asset "angular"
+asset "angular-ui-router"
+asset "restangular"
+asset "ng-token-auth"
+asset "bootstrap"
+
+asset "font-awesome"
+asset "animate.css"
+asset "jquery"
+asset "jquery-ui"
+asset "metisMenu"
+asset "slimScroll"
+asset "pace"
+asset "oclazyload"
+
+asset "angular-translate"
+asset "angular-bootstrap"
+asset "ng-idle"

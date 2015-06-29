@@ -1,0 +1,81 @@
+nav.navbar-default.navbar-static-side role="navigation" ng-controller="NavigationController"
+  .sidebar-collapse
+    ul#side-menu.nav.metismenu[side-navigation]
+      li.nav-header
+        .dropdown.profile-element[dropdown]
+          img.img-circle[alt="image" src="/assets/img/profile_small.jpg"]
+          a.dropdown-toggle[dropdown-toggle href]
+            span.clear
+              span.block.m-t-xs
+                strong.font-bold
+                  | David Williams
+              span.text-muted.text-xs.block
+                | Art Director 
+                b.caret
+          ul.dropdown-menu.animated.fadeInRight.m-t-xs
+            li
+              a[ui-sref="profile"]
+                | Profile
+            li
+              a[ui-sref="contacts"]
+                | Contacts
+            li
+              a[ui-sref="inbox"]
+                | Mailbox
+            li.divider
+            li
+              a[href="../login.html"]
+                | Logout
+        .logo-element
+          |  IN+
+
+      li ng-repeat="menu_item in menu_items track by $index" ng-class="{active: $state.includes(menu_item.sref)}"
+        a ui-sref="{{menu_item.sref}}"
+          i class="{{menu_item.icon_class}}"
+          span.nav-label
+            |{{menu_item.text}}
+          /span.fa.arrow
+        ul.nav.nav-second-level ng-if="menu_item.menu_items && menu_item.menu_items.length" ng-class="{in: $state.includes(menu_item.sref)}"
+          li ui-sref-active="active" ng-repeat="subitem in menu_item.menu_items"
+            a ui-sref="{{subitem.sref}}"
+              |{{subitem.text}}
+
+
+
+      /li[ng-class="{active: $state.includes('dashboard')}"]
+        a[href="index.html"]
+          i.fa.fa-th-large
+          span.nav-label
+            |Дашборд
+          span.fa.arrow
+
+      /li[ui-sref-active="active"]
+        a[ui-sref="layouts"]
+          i.fa.fa-diamond
+          span.nav-label
+            | {{ 'LAYOUTS' | translate }}
+      /li[ng-class="{active: $state.includes('charts')}"]
+        a[href=""]
+          i.fa.fa-bar-chart-o
+          span.nav-label
+            | {{ 'GRAPHS' | translate }}
+          span.fa.arrow
+        ul.nav.nav-second-level[ng-class="{in: $state.includes('charts')}"]
+          li[ui-sref-active="active"]
+            a[ui-sref="charts.flot_chart"]
+              | Flot Charts
+          li[ui-sref-active="active"]
+            a[ui-sref="charts.rickshaw_chart"]
+              | Rickshaw Charts
+          li[ui-sref-active="active"]
+            a[ui-sref="charts.chartjs_chart"]
+              | Chart.js
+          li[ui-sref-active="active"]
+            a[ui-sref="charts.chartist_chart"]
+              | Chartist
+          li[ui-sref-active="active"]
+            a[ui-sref="charts.peity_chart"]
+              | Peity Charts
+          li[ui-sref-active="active"]
+            a[ui-sref="charts.sparkline_chart"]
+              | Sparkline Charts

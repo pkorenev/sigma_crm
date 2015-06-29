@@ -1,0 +1,41 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-9
+    h2
+      | Contacts
+    ol.breadcrumb
+      li ng-repeat="item in breadcrumbs" ui-sref-active="active"
+        a ui-sref="{{item.sref}}"
+          |{{item.text}}
+
+.wrapper.wrapper-content.animated.fadeInRight ng-if="allManagers.length"
+  .row
+    /- 20.times do
+    .col-lg-4 ng-repeat="manager in allManagers"
+      .contact-box
+        a[ui-sref="profile"]
+
+        .col-sm-4
+          .text-center
+            img.img-circle.m-t-xs.img-responsive[alt="image" src="/assets/img/a2.jpg"]
+            .m-t-xs.font-bold
+              | Graphics designer
+        .col-sm-8
+          h3
+            strong
+              | John Smith
+          p
+            i.fa.fa-map-marker
+            |  Riviera State 32/106
+          address
+            strong
+              | Twitter, Inc.
+            br
+            |  795 Folsom Ave, Suite 600
+            br
+            |  San Francisco, CA 94107
+            br
+            abbr[title="Phone"]
+              | P:
+            |  (123) 456-7890
+        .clearfix
+

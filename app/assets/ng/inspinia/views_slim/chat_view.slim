@@ -1,0 +1,186 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-10
+    h2
+      | Chat view
+    ol.breadcrumb
+      li
+        a[href="index.html"]
+          | Home
+      li
+        a
+          | Miscellaneous
+      li.active
+        strong
+          | Chat view
+  .col-lg-2
+
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-content
+          strong
+            | Chat room 
+          |  can be used to create chat room in your app. You can also use a small chat in the right corner to provide live discussion. 
+  .row
+    .col-lg-12
+      .ibox.chat-view
+        .ibox-title
+          small.pull-right.text-muted
+            | Last message: Mon Jan 26 2015 - 18:39:23
+          |  Chat room panel 
+        .ibox-content
+          .row
+            .col-md-9
+              .chat-discussion
+                .chat-message.left
+                  img.message-avatar[src="/assets/img/a1.jpg" alt=""]
+                  .message
+                    a.message-author[href="#"]
+                      |  Michael Smith 
+                    span.message-date
+                      |  Mon Jan 26 2015 - 18:39:23 
+                    span.message-content
+                      |  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
+                .chat-message.right
+                  img.message-avatar[src="/assets/img/a4.jpg" alt=""]
+                  .message
+                    a.message-author[href="#"]
+                      |  Karl Jordan 
+                    span.message-date
+                      |  Fri Jan 25 2015 - 11:12:36 
+                    span.message-content
+                      |  Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover. 
+                .chat-message.left
+                  img.message-avatar[src="/assets/img/a2.jpg" alt=""]
+                  .message
+                    a.message-author[href="#"]
+                      |  Michael Smith 
+                    span.message-date
+                      |  Fri Jan 25 2015 - 11:12:36 
+                    span.message-content
+                      |  There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration. 
+                .chat-message.right
+                  img.message-avatar[src="/assets/img/a5.jpg" alt=""]
+                  .message
+                    a.message-author[href="#"]
+                      |  Alice Jordan 
+                    span.message-date
+                      |  Fri Jan 25 2015 - 11:12:36 
+                    span.message-content
+                      |  All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words. 
+                .chat-message.left
+                  img.message-avatar[src="/assets/img/a6.jpg" alt=""]
+                  .message
+                    a.message-author[href="#"]
+                      |  Mark Smith 
+                    span.message-date
+                      |  Fri Jan 25 2015 - 11:12:36 
+                    span.message-content
+                      |  All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words. 
+            .col-md-3
+              .chat-users
+                .users-list
+                  .chat-user
+                    img.chat-avatar[src="/assets/img/a4.jpg" alt=""]
+                    .chat-user-name
+                      a[href="#"]
+                        | Karl Jordan
+                  .chat-user
+                    img.chat-avatar[src="/assets/img/a1.jpg" alt=""]
+                    .chat-user-name
+                      a[href="#"]
+                        | Monica Smith
+                  .chat-user
+                    span.pull-right.label.label-primary
+                      | Online
+                    img.chat-avatar[src="/assets/img/a2.jpg" alt=""]
+                    .chat-user-name
+                      a[href="#"]
+                        | Michael Smith
+                  .chat-user
+                    span.pull-right.label.label-primary
+                      | Online
+                    img.chat-avatar[src="/assets/img/a3.jpg" alt=""]
+                    .chat-user-name
+                      a[href="#"]
+                        | Janet Smith
+                  .chat-user
+                    img.chat-avatar[src="/assets/img/a5.jpg" alt=""]
+                    .chat-user-name
+                      a[href="#"]
+                        | Alice Smith
+                  .chat-user
+                    img.chat-avatar[src="/assets/img/a6.jpg" alt=""]
+                    .chat-user-name
+                      a[href="#"]
+                        | Monica Cale
+                  .chat-user
+                    img.chat-avatar[src="/assets/img/a2.jpg" alt=""]
+                    .chat-user-name
+                      a[href="#"]
+                        | Mark Jordan
+                  .chat-user
+                    span.pull-right.label.label-primary
+                      | Online
+                    img.chat-avatar[src="/assets/img/a3.jpg" alt=""]
+                    .chat-user-name
+                      a[href="#"]
+                        | Janet Smith
+          .row
+            .col-lg-12
+              .chat-message-form
+                .form-group
+                  textarea.form-control.message-input[name="message" placeholder="Enter message text"]
+.small-chat-box.ng-small-chat.fadeInRight.animated[ng-show="openChat"]
+  .heading[draggable="true"]
+    small.chat-date.pull-right
+      |  02.19.2015 
+    |  Small chat 
+  .content[chat-slim-scroll]
+    .left
+      .author-name
+        |  Monica Jackson 
+        small.chat-date
+          |  10:02 am 
+      .chat-message.active
+        |  Lorem Ipsum is simply dummy text input. 
+    .right
+      .author-name
+        |  Mick Smith 
+        small.chat-date
+          |  11:24 am 
+      .chat-message
+        |  Lorem Ipsum is simpl. 
+    .left
+      .author-name
+        |  Alice Novak 
+        small.chat-date
+          |  08:45 pm 
+      .chat-message.active
+        |  Check this stock char. 
+    .right
+      .author-name
+        |  Anna Lamson 
+        small.chat-date
+          |  11:24 am 
+      .chat-message
+        |  The standard chunk of Lorem Ipsum 
+    .left
+      .author-name
+        |  Mick Lane 
+        small.chat-date
+          |  08:45 pm 
+      .chat-message.active
+        |  I belive that. Lorem Ipsum is simply dummy text. 
+  .form-chat
+    .input-group.input-group-sm
+      input.form-control[type="text"]
+      span.input-group-btn
+        button.btn.btn-primary[type="button"]
+          | Send 
+#small-chat[ng-click="openChat = !openChat"]
+  span.badge.badge-warning.pull-right
+    | 5
+  a.open-small-chat
+    i.fa.fa-comments

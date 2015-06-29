@@ -1,0 +1,300 @@
+#wrapper
+  div[ng-include="'/assets/views/common/navigation.html'"]
+  #page-wrapper.gray-bg.{{$state.current.name}}
+    div[ng-include="'/assets/views/common/topnavbar.html'"]
+    .wrapper.wrapper-content.animated.fadeInRight[ng-controller="metricsCtrl as spark"]
+      .row
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5.m-b-md
+                | Server status Q12
+              h2.text-navy
+                i.fa.fa-play.fa-rotate-270
+                |  Up 
+              small
+                | Last down 42 days ago
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5.m-b-md
+                | Server status Q13
+              h2.text-navy
+                i.fa.fa-play.fa-rotate-270
+                |  Up 
+              small
+                | Last down 42 days ago
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5.m-b-md
+                | Server status Q42
+              h2.text-danger
+                i.fa.fa-play.fa-rotate-90
+                |  Down 
+              small
+                | Server down since 4 days
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5.m-b-md
+                | Server status Q43
+              h2.text-danger
+                i.fa.fa-play.fa-rotate-90
+                |  Down 
+              small
+                | Server down since 4:32 pm.
+      .row
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Visits in last 24h
+              h2
+                | 198 009
+              div[sparkline spark-data="spark.demo1Data" spark-options="spark.demo1Options"]
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Visits week
+              h2
+                | 65 000
+              div[sparkline spark-data="spark.demo2Data" spark-options="spark.demo2Options"]
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Last month
+              h2
+                | 680 900
+              div[sparkline spark-data="spark.demo3Data" spark-options="spark.demo3Options"]
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Avarage time
+              h2
+                | 00:06:40
+              div[sparkline spark-data="spark.demo4Data" spark-options="spark.demo4Options"]
+      .row
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Usage
+              h2
+                | 65%
+              .progress.progress-mini
+                .progress-bar[style="width: 68%;"]
+              .m-t-sm.small
+                | Server down since 4:32 pm.
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Usage
+              h2
+                | 50%
+              .progress.progress-mini
+                .progress-bar[style="width: 78%;"]
+              .m-t-sm.small
+                | Server down since 4:32 pm.
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Usage
+              h2
+                | 14%
+              .progress.progress-mini
+                .progress-bar.progress-bar-danger[style="width: 38%;"]
+              .m-t-sm.small
+                | Server down since 4:32 pm.
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Usage
+              h2
+                | 20%
+              .progress.progress-mini
+                .progress-bar.progress-bar-danger[style="width: 28%;"]
+              .m-t-sm.small
+                | Server down since 4:32 pm.
+      .row
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Percentage distribution
+              h2
+                | 42/20
+              .text-center
+                div[sparkline spark-data="spark.demo5Data" spark-options="spark.demo5Options"]
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Percentage division
+              h2
+                | 100/54
+              .text-center
+                div[sparkline spark-data="spark.demo6Data" spark-options="spark.demo6Options"]
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Percentage distribution
+              h2
+                | 685/211
+              .text-center
+                div[sparkline spark-data="spark.demo7Data" spark-options="spark.demo7Options"]
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Percentage division
+              h2
+                | 240/32
+              .text-center
+                div[sparkline spark-data="spark.demo8Data" spark-options="spark.demo8Options"]
+      .row
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Income
+              h1.no-margins
+                | 886,200
+              .stat-percent.font-bold.text-navy
+                | 98% 
+                i.fa.fa-bolt
+              small
+                | Total income
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Income last month
+              h1.no-margins
+                | 1 738,200
+              .stat-percent.font-bold.text-navy
+                | 98% 
+                i.fa.fa-bolt
+              small
+                | Total income
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Income last day
+              h1.no-margins
+                | -200,100
+              .stat-percent.font-bold.text-danger
+                | 12% 
+                i.fa.fa-level-down
+              small
+                | Total income
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Income all
+              h1.no-margins
+                | 54,200
+              .stat-percent.font-bold.text-danger
+                | 24% 
+                i.fa.fa-level-down
+              small
+                | Total income
+      .row
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | All new alerts
+              table.table.table-stripped.small.m-t-md
+                tbody
+                  tr
+                    td.no-borders
+                      i.fa.fa-circle.text-navy
+                    td.no-borders
+                      |  Example element 1 
+                  tr
+                    td
+                      i.fa.fa-circle.text-navy
+                    td
+                      |  Example element 2 
+                  tr
+                    td
+                      i.fa.fa-circle.text-navy
+                    td
+                      |  Example element 3 
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Alerts
+              table.table.table-stripped.small.m-t-md
+                tbody
+                  tr
+                    td.no-borders
+                      i.fa.fa-circle.text-navy
+                    td.no-borders
+                      |  Example element 1 
+                  tr
+                    td
+                      i.fa.fa-circle.text-navy
+                    td
+                      |  Example element 2 
+                  tr
+                    td
+                      i.fa.fa-circle.text-navy
+                    td
+                      |  Example element 3 
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | All messages
+              table.table.table-stripped.small.m-t-md
+                tbody
+                  tr
+                    td.no-borders
+                      i.fa.fa-circle.text-danger
+                    td.no-borders
+                      |  Example element 1 
+                  tr
+                    td
+                      i.fa.fa-circle.text-danger
+                    td
+                      |  Example element 2 
+                  tr
+                    td
+                      i.fa.fa-circle.text-danger
+                    td
+                      |  Example element 3 
+        .col-lg-3
+          .ibox
+            .ibox-content
+              h5
+                | Last notification
+              table.table.table-stripped.small.m-t-md
+                tbody
+                  tr
+                    td.no-borders
+                      i.fa.fa-circle.text-danger
+                    td.no-borders
+                      |  Example element 1 
+                  tr
+                    td
+                      i.fa.fa-circle.text-danger
+                    td
+                      |  Example element 2 
+                  tr
+                    td
+                      i.fa.fa-circle.text-danger
+                    td
+                      |  Example element 3 
+    div[ng-include="'/assets/views/common/footer.html'"]

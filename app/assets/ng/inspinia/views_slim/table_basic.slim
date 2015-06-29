@@ -1,0 +1,319 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-10
+    h2
+      | Static Tables
+    ol.breadcrumb
+      li
+        a[href="index.html"]
+          | Home
+      li
+        a
+          | Tables
+      li.active
+        strong
+          | Static Tables
+  .col-lg-2
+
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .col-lg-6
+      .ibox.float-e-margins
+        .ibox-title
+          h5
+            | Basic Table
+          div[ibox-tools]
+        .ibox-content
+          table.table
+            thead
+              tr
+                th
+                  | #
+                th
+                  | First Name
+                th
+                  | Last Name
+                th
+                  | Username
+            tbody
+              tr
+                td
+                  | 1
+                td
+                  | Mark
+                td
+                  | Otto
+                td
+                  | @mdo
+              tr
+                td
+                  | 2
+                td
+                  | Jacob
+                td
+                  | Thornton
+                td
+                  | @fat
+              tr
+                td
+                  | 3
+                td
+                  | Larry
+                td
+                  | the Bird
+                td
+                  | @twitter
+    .col-lg-6
+      .ibox.float-e-margins
+        .ibox-title
+          h5
+            | Striped Table 
+          div[ibox-tools]
+        .ibox-content
+          table.table.table-striped
+            thead
+              tr
+                th
+                  | #
+                th
+                  | Data
+                th
+                  | User
+                th
+                  | Value
+            tbody
+              tr
+                td
+                  | 1
+                td
+                  line-chart[data="main.LineChart4.data" options="main.LineChart4.options"]
+                td
+                  | Samantha
+                td.text-navy
+                  i.fa.fa-level-up
+                  |  40%
+              tr
+                td
+                  | 2
+                td
+                  line-chart[data="main.LineChart2.data" options="main.LineChart2.options"]
+                td
+                  | Jacob
+                td.text-warning
+                  i.fa.fa-level-down
+                  |  -20%
+              tr
+                td
+                  | 3
+                td
+                  line-chart[data="main.LineChart3.data" options="main.LineChart3.options"]
+                td
+                  | Damien
+                td.text-navy
+                  i.fa.fa-level-up
+                  |  26%
+  .row
+    .col-lg-6
+      .ibox.float-e-margins
+        .ibox-title
+          h5
+            | Border Table 
+          div[ibox-tools]
+        .ibox-content
+          table.table.table-bordered
+            thead
+              tr
+                th
+                  | #
+                th
+                  | First Name
+                th
+                  | Last Name
+                th
+                  | Username
+            tbody
+              tr
+                td
+                  | 1
+                td
+                  | Mark
+                td
+                  | Otto
+                td
+                  | @mdo
+              tr
+                td
+                  | 2
+                td
+                  | Jacob
+                td
+                  | Thornton
+                td
+                  | @fat
+              tr
+                td
+                  | 3
+                td
+                  | Larry
+                td
+                  | the Bird
+                td
+                  | @twitter
+    .col-lg-6
+      .ibox.float-e-margins
+        .ibox-title
+          h5
+            | Hover Table 
+          div[ibox-tools]
+        .ibox-content
+          table.table.table-hover
+            thead
+              tr
+                th
+                  | #
+                th
+                  | Data
+                th
+                  | User
+                th
+                  | Value
+            tbody
+              tr
+                td
+                  | 1
+                td
+                  pie-chart[data="main.PieChart4.data" options="main.PieChart4.options"]
+                td
+                  | Samantha
+                td.text-navy
+                  i.fa.fa-level-up
+                  |  40%
+              tr
+                td
+                  | 2
+                td
+                  pie-chart[data="main.PieChart3.data" options="main.PieChart3.options"]
+                td
+                  | Jacob
+                td.text-warning
+                  i.fa.fa-level-down
+                  |  -20%
+              tr
+                td
+                  | 3
+                td
+                  pie-chart[data="main.PieChart2.data" options="main.PieChart2.options"]
+                td
+                  | Damien
+                td.text-navy
+                  i.fa.fa-level-up
+                  |  26%
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title
+          h5
+            | Custom responsive table 
+          div[ibox-tools]
+        .ibox-content
+          .row
+            .col-sm-5.m-b-xs
+              select.input-sm.form-control.input-s-sm.inline
+                option[value="0"]
+                  | Option 1
+                option[value="1"]
+                  | Option 2
+                option[value="2"]
+                  | Option 3
+                option[value="3"]
+                  | Option 4
+            .col-sm-4.m-b-xs
+              .btn-group[data-toggle="buttons"]
+                label.btn.btn-sm.btn-white
+                  input#option1[type="radio" name="options"]
+                  |  Day 
+                label.btn.btn-sm.btn-white.active
+                  input#option2[type="radio" name="options"]
+                  |  Week 
+                label.btn.btn-sm.btn-white
+                  input#option3[type="radio" name="options"]
+                  |  Month 
+            .col-sm-3
+              .input-group
+                input.input-sm.form-control[type="text" placeholder="Search"]
+                span.input-group-btn
+                  button.btn.btn-sm.btn-primary[type="button"]
+                    |  Go!
+          .table-responsive
+            table.table.table-striped
+              thead
+                tr
+                  th
+                  th
+                    | Project
+                  th
+                    | Completed
+                  th
+                    | Task
+                  th
+                    | Date
+                  th
+                    | Action
+              tbody
+                tr
+                  td
+                    input[icheck type="checkbox" ng-model="main.checkOne"]
+                  td
+                    | Project 
+                    small
+                      | This is example of project
+                  td
+                    pie-chart[data="main.PieChart4.data" options="main.PieChart4.options"]
+                  td
+                    | 20%
+                  td
+                    | Jul 14, 2013
+                  td
+                    a[href=""]
+                      i.fa.fa-check.text-navy
+                tr
+                  td
+                    input[icheck type="checkbox" ng-model="main.unCheck1"]
+                  td
+                    | Alpha project
+                  td
+                    pie-chart[data="main.PieChart3.data" options="main.PieChart3.options"]
+                  td
+                    | 40%
+                  td
+                    | Jul 16, 2013
+                  td
+                    a[href=""]
+                      i.fa.fa-check.text-navy
+                tr
+                  td
+                    input[icheck type="checkbox" ng-model="main.unCheck2"]
+                  td
+                    | Betha project
+                  td
+                    pie-chart[data="main.PieChart2.data" options="main.PieChart2.options"]
+                  td
+                    | 75%
+                  td
+                    | Jul 18, 2013
+                  td
+                    a[href=""]
+                      i.fa.fa-check.text-navy
+                tr
+                  td
+                    input[icheck type="checkbox" ng-model="main.unCheck3"]
+                  td
+                    | Gamma project
+                  td
+                    pie-chart[data="main.PieChart5.data" options="main.PieChart5.options"]
+                  td
+                    | 18%
+                  td
+                    | Jul 22, 2013
+                  td
+                    a[href=""]
+                      i.fa.fa-check.text-navy

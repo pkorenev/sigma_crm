@@ -1,0 +1,96 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-9
+    h2
+      | Carousel
+    ol.breadcrumb
+      li
+        a[href="index.html"]
+          | Home
+      li
+        |  UI Elements 
+      li.active
+        strong
+          | Carousel
+.wrapper.wrapper-content
+  .row
+    .col-lg-5
+      .ibox.float-e-margins
+        .ibox-title
+          h5
+            | Animation without caption
+          div[ibox-tools]
+        .ibox-content
+          carousel[interval="main.slideInterval"]
+            slide.active
+              img[ng-src="/assets/img/p_big3.jpg" style="margin:auto;"]
+            slide
+              img[ng-src="/assets/img/p_big1.jpg" style="margin:auto;"]
+            slide
+              img[ng-src="/assets/img/p_big2.jpg" style="margin:auto;"]
+    .col-lg-7
+      .ibox.float-e-margins
+        .ibox-title
+          h5
+            | Animation and Caption
+          div[ibox-tools]
+        .ibox-content
+          carousel[interval="main.slideInterval"]
+            slide.active
+              img[ng-src="/assets/img/p_big1.jpg" style="margin:auto;"]
+              .carousel-caption
+                h4
+                  | Slide 1
+                p
+                  | Simple caption 1 
+            slide
+              img[ng-src="/assets/img/p_big2.jpg" style="margin:auto;"]
+              .carousel-caption
+                h4
+                  | Slide 2
+                p
+                  | Simple caption 2
+            slide
+              img[ng-src="/assets/img/p_big2.jpg" style="margin:auto;"]
+              .carousel-caption
+                h4
+                  | Slide 3
+                p
+                  | Simple caption 3
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title
+          h5
+            | Big gallery carousel
+          div[ibox-tools]
+        .ibox-content
+          carousel[interval="main.slideInterval"]
+            slide.active.gallery
+              .row
+                .col-sm-6
+                  img.img-responsive[alt="image" src="/assets/img/p_big1.jpg"]
+                .col-sm-6
+                  img.img-responsive[alt="image" src="/assets/img/p_big2.jpg"]
+                .col-sm-6
+                  img.img-responsive[alt="image" src="/assets/img/p_big3.jpg"]
+                .col-sm-6
+                  img.img-responsive[alt="image" src="/assets/img/p_big1.jpg"]
+              .carousel-caption
+                h4
+                  | Slide 1
+                p
+                  | Simple caption 1 
+            slide
+              img.img-responsive[ng-src="/assets/img/p_big1.jpg" style="margin:auto;"]
+              .carousel-caption
+                h4
+                  | Slide 2
+                p
+                  | Simple caption 2
+            slide
+              img.img-responsive[ng-src="/assets/img/p_big2.jpg" style="margin:auto;"]
+              .carousel-caption
+                h4
+                  | Slide 3
+                p
+                  | Simple caption 3

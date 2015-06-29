@@ -14,8 +14,14 @@ class Building < ActiveRecord::Base
   belongs_to :parent, polymorphic: true, foreign_key: :parent_id
   has_many :children, class_name: "Building", as: :parent
 
+  has_one :building_complex_link
+  has_one :building_complex, through: :building_complex_link
+
 
   delegate :street, :house_number, :apartment_number, :index, :city, :country, :full_address, to: :address
+
+  has_many :user_views, class_name: "BuildingView"
+  has_many :users_viewed, through: :user_views, source: :building
 
   before_save :set_defaults
   def set_defaults

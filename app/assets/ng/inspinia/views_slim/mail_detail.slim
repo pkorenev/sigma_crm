@@ -1,0 +1,197 @@
+.wrapper.wrapper-content
+  .row
+    .col-lg-3
+      .ibox.float-e-margins
+        .ibox-content.mailbox-content
+          .file-manager
+            a.btn.btn-block.btn-primary.compose-mail[ui-sref="email_compose"]
+              | Compose Mail
+            .space-25
+            h5
+              | Folders
+            ul.folder-list.m-b-md[style="padding: 0"]
+              li
+                a[ui-sref="inbox"]
+                  i.fa.fa-inbox
+                  |  Inbox 
+                  span.label.label-warning.pull-right
+                    | 16
+              li
+                a[ui-sref="inbox"]
+                  i.fa.fa-envelope-o
+                  |  Send Mail
+              li
+                a[ui-sref="inbox"]
+                  i.fa.fa-certificate
+                  |  Important
+              li
+                a[ui-sref="inbox"]
+                  i.fa.fa-file-text-o
+                  |  Drafts 
+                  span.label.label-danger.pull-right
+                    | 2
+              li
+                a[ui-sref="inbox"]
+                  i.fa.fa-trash-o
+                  |  Trash
+            h5
+              | Categories
+            ul.category-list[style="padding: 0"]
+              li
+                a[href=""]
+                  i.fa.fa-circle.text-navy
+                  |  Work 
+              li
+                a[href=""]
+                  i.fa.fa-circle.text-danger
+                  |  Documents
+              li
+                a[href=""]
+                  i.fa.fa-circle.text-primary
+                  |  Social
+              li
+                a[href=""]
+                  i.fa.fa-circle.text-info
+                  |  Advertising
+              li
+                a[href=""]
+                  i.fa.fa-circle.text-warning
+                  |  Clients
+            h5.tag-title
+              | Labels
+            ul.tag-list[style="padding: 0"]
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Family
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Work
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Home
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Children
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Holidays
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Music
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Photography
+              li
+                a[href=""]
+                  i.fa.fa-tag
+                  |  Film
+            .clearfix
+    .col-lg-9.animated.fadeInRight
+      .mail-box-header
+        .pull-right.tooltip-demo
+          a.btn.btn-white.btn-sm[ui-sref="inbox" data-toggle="tooltip" data-placement="top" title="Reply"]
+            i.fa.fa-reply
+            |  Reply
+          a.btn.btn-white.btn-sm[href="" data-toggle="tooltip" data-placement="top" title="Print email"]
+            i.fa.fa-print
+          a.btn.btn-white.btn-sm[ui-sref="inbox" data-toggle="tooltip" data-placement="top" title="Move to trash"]
+            i.fa.fa-trash-o
+        h2
+          |  View Message 
+        .mail-tools.tooltip-demo.m-t-md
+          h3
+            span.font-noraml
+              | Subject: 
+            | Aldus PageMaker including versions of Lorem Ipsum. 
+          h5
+            span.pull-right.font-noraml
+              | 10:15AM 02 FEB 2014
+            span.font-noraml
+              | From: 
+            | alex.smith@corporation.com 
+      .mail-box
+        .mail-body
+          p
+            |  Hello Jonathan! 
+            br
+            br
+            |  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type 
+            strong
+              | specimen book.
+            | It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+          p
+            |  It was popularised in the 1960s with the release 
+            a.text-navy[href=""]
+              | Letraset sheets
+            |  containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. 
+          p
+            |  There are many variations of passages of 
+            strong
+              | Lorem Ipsum
+            | Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of. 
+        .mail-attachment
+          p
+            span
+              i.fa.fa-paperclip
+              |  2 attachments - 
+            a[href=""]
+              | Download all
+            |  | 
+            a[href=""]
+              | View all images
+          .attachment
+            .file-box
+              .file
+                a[href=""]
+                  span.corner
+                .icon
+                  i.fa.fa-file
+                .file-name
+                  |  Document_2014.doc 
+                  br
+                  small
+                    | Added: Jan 11, 2014
+            .file-box
+              .file
+                a[href=""]
+                  span.corner
+                .image
+                  img.img-responsive[alt="image" src="/assets/img/p1.jpg"]
+                .file-name
+                  |  Italy street.jpg 
+                  br
+                  small
+                    | Added: Jan 6, 2014
+            .file-box
+              .file
+                a[href=""]
+                  span.corner
+                .image
+                  img.img-responsive[alt="image" src="/assets/img/p2.jpg"]
+                .file-name
+                  |  My feel.png 
+                  br
+                  small
+                    | Added: Jan 7, 2014
+            .clearfix
+        .mail-body.text-right.tooltip-demo
+          a.btn.btn-sm.btn-white[ui-sref="email_compose"]
+            i.fa.fa-reply
+            |  Reply
+          a.btn.btn-sm.btn-white[ui-sref="email_compose"]
+            i.fa.fa-arrow-right
+            |  Forward
+          button.btn.btn-sm.btn-white[title="" data-placement="top" data-toggle="tooltip" type="button" data-original-title="Print"]
+            i.fa.fa-print
+            |  Print
+          button.btn.btn-sm.btn-white[title="" data-placement="top" data-toggle="tooltip" data-original-title="Trash"]
+            i.fa.fa-trash-o
+            |  Remove
+        .clearfix

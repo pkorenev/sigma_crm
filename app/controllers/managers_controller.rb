@@ -1,6 +1,8 @@
 class ManagersController < CrmController
   before_action :set_manager, only: [:show, :edit, :update, :destroy]
   before_action :authorize_to_users!
+  respond_to :json
+
 
   def authorize_to_users!
     if cannot?(:manage, :users)
@@ -12,6 +14,11 @@ class ManagersController < CrmController
   # GET /managers.json
   def index
     @managers = Manager.all
+    #respond_with @managers
+    respond_to do |format|
+      format.json
+      format.html
+    end
   end
 
   # GET /managers/1

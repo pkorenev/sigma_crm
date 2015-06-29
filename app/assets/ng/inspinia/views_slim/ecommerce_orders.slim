@@ -1,0 +1,830 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-10
+    h2
+      | E-commerce orders
+    ol.breadcrumb
+      li
+        a[href="index.html"]
+          | Home
+      li
+        a
+          | E-commerce
+      li.active
+        strong
+          | Orders
+  .col-lg-2
+
+.wrapper.wrapper-content.animated.fadeInRight.ecommerce
+  .ibox-content.m-b-sm.border-bottom
+    .row
+      .col-sm-4
+        .form-group
+          label.control-label[for="order_id"]
+            | Order ID
+          input#order_id.form-control[type="text" name="order_id" value="" placeholder="Order ID"]
+      .col-sm-4
+        .form-group
+          label.control-label[for="status"]
+            | Order status
+          input#status.form-control[type="text" name="status" value="" placeholder="Status"]
+      .col-sm-4
+        .form-group
+          label.control-label[for="customer"]
+            | Customer
+          input#customer.form-control[type="text" name="customer" value="" placeholder="Customer"]
+    .row
+      .col-sm-4
+        .form-group
+          label.control-label[for="date_added"]
+            | Date added
+          .input-group.date
+            span.input-group-addon
+              i.fa.fa-calendar
+            input#date_added.form-control[type="text" value="03/04/2014"]
+      .col-sm-4
+        .form-group
+          label.control-label[for="date_modified"]
+            | Date modified
+          .input-group.date
+            span.input-group-addon
+              i.fa.fa-calendar
+            input#date_modified.form-control[type="text" value="03/06/2014"]
+      .col-sm-4
+        .form-group
+          label.control-label[for="amount"]
+            | Amount
+          input#amount.form-control[type="text" name="amount" value="" placeholder="Amount"]
+  .row
+    .col-lg-12
+      .ibox
+        .ibox-content
+          table.footable.table.table-stripped.toggle-arrow-tiny[data-page-size="15"]
+            thead
+              tr
+                th
+                  | Order ID
+                th[data-hide="phone"]
+                  | Customer
+                th[data-hide="phone"]
+                  | Amount
+                th[data-hide="phone"]
+                  | Date added
+                th[data-hide="phone,tablet"]
+                  | Date modified
+                th[data-hide="phone"]
+                  | Status
+                th.text-right
+                  | Action
+            tbody
+              tr
+                td
+                  |  3214 
+                td
+                  |  Customer example 
+                td
+                  |  $500.00 
+                td
+                  |  03/04/2015 
+                td
+                  |  03/05/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  324 
+                td
+                  |  Customer example 
+                td
+                  |  $320.00 
+                td
+                  |  12/04/2015 
+                td
+                  |  21/07/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  546 
+                td
+                  |  Customer example 
+                td
+                  |  $2770.00 
+                td
+                  |  06/07/2015 
+                td
+                  |  04/08/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  6327 
+                td
+                  |  Customer example 
+                td
+                  |  $8560.00 
+                td
+                  |  01/12/2015 
+                td
+                  |  05/12/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  642 
+                td
+                  |  Customer example 
+                td
+                  |  $6843.00 
+                td
+                  |  10/04/2015 
+                td
+                  |  13/07/2015 
+                td
+                  span.label.label-success
+                    | Shipped
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  7435 
+                td
+                  |  Customer example 
+                td
+                  |  $750.00 
+                td
+                  |  04/04/2015 
+                td
+                  |  14/05/2015 
+                td
+                  span.label.label-success
+                    | Shipped
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  3214 
+                td
+                  |  Customer example 
+                td
+                  |  $500.00 
+                td
+                  |  03/04/2015 
+                td
+                  |  03/05/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  324 
+                td
+                  |  Customer example 
+                td
+                  |  $320.00 
+                td
+                  |  12/04/2015 
+                td
+                  |  21/07/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  546 
+                td
+                  |  Customer example 
+                td
+                  |  $2770.00 
+                td
+                  |  06/07/2015 
+                td
+                  |  04/08/2015 
+                td
+                  span.label.label-danger
+                    | Canceled
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  6327 
+                td
+                  |  Customer example 
+                td
+                  |  $8560.00 
+                td
+                  |  01/12/2015 
+                td
+                  |  05/12/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  642 
+                td
+                  |  Customer example 
+                td
+                  |  $6843.00 
+                td
+                  |  10/04/2015 
+                td
+                  |  13/07/2015 
+                td
+                  span.label.label-success
+                    | Shipped
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  7435 
+                td
+                  |  Customer example 
+                td
+                  |  $750.00 
+                td
+                  |  04/04/2015 
+                td
+                  |  14/05/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  324 
+                td
+                  |  Customer example 
+                td
+                  |  $320.00 
+                td
+                  |  12/04/2015 
+                td
+                  |  21/07/2015 
+                td
+                  span.label.label-warning
+                    | Expired
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  546 
+                td
+                  |  Customer example 
+                td
+                  |  $2770.00 
+                td
+                  |  06/07/2015 
+                td
+                  |  04/08/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  6327 
+                td
+                  |  Customer example 
+                td
+                  |  $8560.00 
+                td
+                  |  01/12/2015 
+                td
+                  |  05/12/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  642 
+                td
+                  |  Customer example 
+                td
+                  |  $6843.00 
+                td
+                  |  10/04/2015 
+                td
+                  |  13/07/2015 
+                td
+                  span.label.label-success
+                    | Shipped
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  7435 
+                td
+                  |  Customer example 
+                td
+                  |  $750.00 
+                td
+                  |  04/04/2015 
+                td
+                  |  14/05/2015 
+                td
+                  span.label.label-success
+                    | Shipped
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  3214 
+                td
+                  |  Customer example 
+                td
+                  |  $500.00 
+                td
+                  |  03/04/2015 
+                td
+                  |  03/05/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  324 
+                td
+                  |  Customer example 
+                td
+                  |  $320.00 
+                td
+                  |  12/04/2015 
+                td
+                  |  21/07/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  546 
+                td
+                  |  Customer example 
+                td
+                  |  $2770.00 
+                td
+                  |  06/07/2015 
+                td
+                  |  04/08/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  6327 
+                td
+                  |  Customer example 
+                td
+                  |  $8560.00 
+                td
+                  |  01/12/2015 
+                td
+                  |  05/12/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  642 
+                td
+                  |  Customer example 
+                td
+                  |  $6843.00 
+                td
+                  |  10/04/2015 
+                td
+                  |  13/07/2015 
+                td
+                  span.label.label-success
+                    | Shipped
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  7435 
+                td
+                  |  Customer example 
+                td
+                  |  $750.00 
+                td
+                  |  04/04/2015 
+                td
+                  |  14/05/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  324 
+                td
+                  |  Customer example 
+                td
+                  |  $320.00 
+                td
+                  |  12/04/2015 
+                td
+                  |  21/07/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  546 
+                td
+                  |  Customer example 
+                td
+                  |  $2770.00 
+                td
+                  |  06/07/2015 
+                td
+                  |  04/08/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  6327 
+                td
+                  |  Customer example 
+                td
+                  |  $8560.00 
+                td
+                  |  01/12/2015 
+                td
+                  |  05/12/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  642 
+                td
+                  |  Customer example 
+                td
+                  |  $6843.00 
+                td
+                  |  10/04/2015 
+                td
+                  |  13/07/2015 
+                td
+                  span.label.label-success
+                    | Shipped
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  7435 
+                td
+                  |  Customer example 
+                td
+                  |  $750.00 
+                td
+                  |  04/04/2015 
+                td
+                  |  14/05/2015 
+                td
+                  span.label.label-success
+                    | Shipped
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  3214 
+                td
+                  |  Customer example 
+                td
+                  |  $500.00 
+                td
+                  |  03/04/2015 
+                td
+                  |  03/05/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  324 
+                td
+                  |  Customer example 
+                td
+                  |  $320.00 
+                td
+                  |  12/04/2015 
+                td
+                  |  21/07/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  546 
+                td
+                  |  Customer example 
+                td
+                  |  $2770.00 
+                td
+                  |  06/07/2015 
+                td
+                  |  04/08/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  6327 
+                td
+                  |  Customer example 
+                td
+                  |  $8560.00 
+                td
+                  |  01/12/2015 
+                td
+                  |  05/12/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  642 
+                td
+                  |  Customer example 
+                td
+                  |  $6843.00 
+                td
+                  |  10/04/2015 
+                td
+                  |  13/07/2015 
+                td
+                  span.label.label-success
+                    | Shipped
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+              tr
+                td
+                  |  7435 
+                td
+                  |  Customer example 
+                td
+                  |  $750.00 
+                td
+                  |  04/04/2015 
+                td
+                  |  14/05/2015 
+                td
+                  span.label.label-primary
+                    | Pending
+                td.text-right
+                  .btn-group
+                    button.btn-white.btn.btn-xs
+                      | View
+                    button.btn-white.btn.btn-xs
+                      | Edit
+                    button.btn-white.btn.btn-xs
+                      | Delete
+            tfoot
+              tr
+                td[colspan="7"]
+                  ul.pagination.pull-right
