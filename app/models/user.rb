@@ -18,9 +18,13 @@ class User < ActiveRecord::Base
   attr_accessible :user_info, :user_info_attributes
 
   attr_accessible :password, :password_confirmation, :email
-  methods_to_delegate = [:first_name, :last_name, :middle_name, :identification_number, :phone, :user_type, :user_id, :full_name, :address, :full_address, :avatar]
-  methods_to_delegate.clone.each {|m| methods_to_delegate << "#{m}=".to_sym }
-  delegate *methods_to_delegate, to: :user_info, allow_nil: true
+  methods_to_delegate = [:first_name, :last_name, :middle_name, :identification_number, :phone, :user_type, :user_id, :full_name, :address, :country, :city, :full_address, :avatar]
+
+  delegate_with_setter *methods_to_delegate, to: :user_info, allow_nil: true
+
+  #attr_accessible methods_to_delegate
+  #methods_to_delegate.clone.each {|m| methods_to_delegate << "#{m}=".to_sym }
+  #delegate *methods_to_delegate, to: :user_info, allow_nil: true
 
   has_many :comments
   accepts_nested_attributes_for :comments
@@ -30,6 +34,18 @@ class User < ActiveRecord::Base
 
   has_many :building_views
   has_many :viewed_buildings, through: :building_views, source: :building
+
+
+  auto_build :user_info
+
+  # def initialize attributes = nil, options = {}
+  #   user_info ||= UserInfo.new
+  #   super(attributes, options)
+  # end
+
+ # def test
+ #   User.new
+ # end
 
 
 

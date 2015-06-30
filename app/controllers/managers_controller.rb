@@ -45,7 +45,8 @@ class ManagersController < CrmController
   # POST /managers.json
   def create
 
-    @manager = Manager.new(manager_params)
+    @manager = Manager.new()
+    @manager.assign_attributes(manager_params)
     @manager.provider = "email"
     @manager.uid = "{email: '#{@manager.email}'}"
 

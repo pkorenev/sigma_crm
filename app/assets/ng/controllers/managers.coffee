@@ -26,6 +26,9 @@ managersController = [
 
     $scope.editManager = (m)->
       $state.go("crm.managers.edit", { id: m.id })
+
+    $scope.deleteManager = (m)->
+
 ]
 
 manager_form_fields = [
@@ -170,8 +173,9 @@ newManagerController = [
 
     $scope.vm.handleSubmit = ()->
       alert("submit")
+      data = {manager: $scope.vm.model}
       #baseManagers.post($scope.vm.model)
-      baseManagerRegistrations.post($scope.vm.model)
+      baseManagerRegistrations.post(data)
 
 ]
 

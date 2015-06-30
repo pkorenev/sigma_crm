@@ -11,7 +11,9 @@
   .row
     /- 20.times do
     .col-lg-4 ng-repeat="manager in allManagers"
-      .contact-box ng-click="editManager(manager)"
+      .contact-box.manager-box ng-click="editManager(manager)"
+
+        a ng-click="deleteManager(manager)"
         a[ui-sref="profile"]
 
         .col-sm-4
@@ -27,7 +29,7 @@
           p
             i.fa.fa-map-marker
             /|  Riviera State 32/106
-            |{{manager.user_info.full_address}}
+            |{{manager.full_address}}
           address
             /strong
               | Twitter, Inc.
@@ -38,6 +40,10 @@
             /br
             abbr[title="Phone"]
               | P:
-            |  {{manager.user_info.phone}}
+            |  {{manager.phone}}
+
+            br
+            a href="mailto:{{manager.email}}"
+              |{{manager.email}}
         .clearfix
 

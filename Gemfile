@@ -78,3 +78,5 @@ gem 'rails_admin'
 
 
 #gem 'angular_rails_csrf'
+
+gem "auto_build"
