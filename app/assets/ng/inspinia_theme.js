@@ -32,3 +32,7 @@
 //= require angular-formly/dist/formly.min.js
 //= require angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js
 //= require nya-bootstrap-select/dist/js/nya-bs-select.min
+
+
+//= require ckeditor/ckeditor
+//= require ng-ckeditor/ng-ckeditor.min.js

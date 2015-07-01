@@ -4,7 +4,7 @@ asset "rainbow"
 
 # angular crm
 
-asset "angular"
+asset "angular", '1.4'
 asset "angular-ui-router"
 asset "restangular"
 asset "ng-token-auth"
@@ -27,3 +27,6 @@ asset "angular-formly"
 asset "angular-formly-templates-bootstrap"
 
 asset "nya-bootstrap-select"
+
+asset "ng-ckeditor"
+asset "ckeditor"

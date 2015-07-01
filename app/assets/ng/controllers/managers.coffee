@@ -164,7 +164,7 @@ newManagerController = [
   ($scope, Restangular)->
     $scope.breadcrumbs = breadcrumbs
 
-    baseManagerRegistrations = Restangular.all('managers');
+    baseManagerRegistrations = Restangular.all('managers')
 
     $scope.vm = {}
 
@@ -172,7 +172,6 @@ newManagerController = [
     $scope.vm.fields = manager_form_fields
 
     $scope.vm.handleSubmit = ()->
-      alert("submit")
       data = {manager: $scope.vm.model}
       #baseManagers.post($scope.vm.model)
       baseManagerRegistrations.post(data)

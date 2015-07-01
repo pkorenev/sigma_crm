@@ -33,8 +33,8 @@ class BuildingsController < CrmController
   # POST /buildings
   # POST /buildings.json
   def create
-    @building = resource_class.new(building_params)
-
+    @building = resource_class.new()
+    @building.assign_attributes(building_params)
     respond_to do |format|
       if @building.save
         format.html { redirect_to @building, notice: 'Building was successfully created.' }
@@ -49,8 +49,9 @@ class BuildingsController < CrmController
   # PATCH/PUT /buildings/1
   # PATCH/PUT /buildings/1.json
   def update
+    @building.assign_attributes(building_params)
     respond_to do |format|
-      if @building.update(building_params)
+      if @building.save
         format.html { redirect_to @building, notice: 'Building was successfully updated.' }
         format.json { render :show, status: :ok, location: @building }
       else

@@ -16,63 +16,44 @@ config = ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdleProvider,
 
   .state "crm.buildings",
     url: "/buildings"
-    templateUrl: template_path("buildings/index")
+    template: "<ui-view/>"
     controller: controller_name("buildings")
+
   .state "crm.buildings.new",
     url: "/buildings/new"
     templateUrl: template_path("buildings/new")
 
-  .state "crm.buildings.penthouses",
-    url: "/penthouses"
-    templateUrl: template_path("penthouses/index")
-    controller: controller_name("penthouses")
+#  .state "crm.buildings.penthouses",
+#    url: "/penthouses"
+#    templateUrl: template_path("penthouses/index")
+#    controller: controller_name("penthouses")
 
-  .state "crm.buildings.apartments",
-    url: "/apartments"
-    templateUrl: template_path("buildings/index")
-    controller: controller_name("apartments")
+#  .state "crm.buildings.apartment_houses",
+#    url: "/apartment_houses"
+#    templateUrl: template_path("apartment_houses/index")
+#    controller: controller_name("apartment_houses")
 
-  .state "crm.buildings.apartments.new",
-    url: "/apartments"
-    templateUrl: template_path("buildings/index")
-    controller: controller_name("new_apartment")
+#  .state "crm.buildings.apartments",
+#    url: "/apartments"
+#    templateUrl: template_path("apartments/index")
+#    controller: controller_name("apartments")
+#
+#  .state "crm.buildings.apartments.new",
+#    url: "/new"
+#    templateUrl: template_path("buildings/index")
+#    controller: controller_name("new_apartment")
 
-  .state "crm.buildings.apartment_houses",
-    url: "/apartment_houses"
-    templateUrl: template_path("buildings/index")
-    controller: controller_name("apartment_houses")
+  resource_routes("penthouse", $stateProvider, {namespace: "crm.buildings"})
 
-  .state "crm.buildings.building_complexes",
-    url: "/building_complexes"
-    templateUrl: template_path("buildings/index")
-    controller: controller_name("building_complexes")
+  resource_routes("apartment_house", $stateProvider, {namespace: "crm.buildings"})
 
-  .state "crm.managers",
-    url: "/managers"
-    #controller: controller_name("managers")
-    template: empty_view
+  resource_routes("apartment", $stateProvider, {namespace: "crm.buildings"})
 
-  .state "crm.managers.show",
-    url: "/managers/:id"
-    controller: controller_name("showManager")
-    templateUrl: template_path("managers/new")
+  resource_routes("building_complex", $stateProvider, {namespace: "crm.buildings", plural_suffix: "es"})
 
-  .state "crm.managers.edit",
-    url: "/:id/edit"
-    controller: controller_name("showManager")
-    templateUrl: template_path("managers/new")
+  resource_routes('manager', $stateProvider, {namespace: "crm"})
 
-
-  .state "crm.managers.index",
-    controller: controller_name("managers")
-    url: "/list"
-    templateUrl: template_path("managers/index")
-
-  .state "crm.managers.new",
-    controller: controller_name("new_manager")
-    url: "/new"
-    templateUrl: template_path("managers/new")
-
+  console.log
 
 
 

@@ -1,5 +1,5 @@
 class Building < ActiveRecord::Base
-  has_one :address, as: :addressable
+  has_one :address, as: :addressable, autosave: true
   has_many :assets, as: :assetable
 
   accepts_nested_attributes_for :address
@@ -18,16 +18,23 @@ class Building < ActiveRecord::Base
   has_one :building_complex, through: :building_complex_link
 
 
-  delegate :street, :house_number, :apartment_number, :index, :city, :country, :full_address, to: :address, allow_nil: true
+  delegate_with_setter :street, :house_number, :apartment_number, :index, :city, :country, to: :address, allow_nil: true
+  delegate :full_address, to: :address, allow_nil: true
 
   has_many :user_views, class_name: "BuildingView"
   has_many :users_viewed, through: :user_views, source: :building
+
+  belongs_to :parent
+
+  auto_build :address
 
   before_save :set_defaults
   def set_defaults
     if published.nil?
       published = false
     end
+
+    return true
   end
 
   scope :published, -> { where(published: 't') }

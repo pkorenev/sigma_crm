@@ -1,0 +1,26 @@
+tr ng-repeat="complex in building_complexes"
+  td
+    |{{complex.price_with_currency}}
+  td
+    |{{complex.country || "-"}}
+  td
+    |{{complex.city || "-"}}
+  /td
+    |  $500.00
+  /td
+    |  03/04/2015
+  /td
+    |  03/05/2015
+  /td
+    span.label.label-primary
+      | Pending
+
+  / actions
+  td.text-right
+    .btn-group
+      button.btn-white.btn.btn-xs ui-sref="crm.buildings.building_complexes.show({id: complex.id})"
+        | View
+      button.btn-white.btn.btn-xs
+        | Edit
+      button.btn-white.btn.btn-xs
+        | Delete

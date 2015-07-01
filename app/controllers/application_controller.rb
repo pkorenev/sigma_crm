@@ -11,7 +11,11 @@ class ApplicationController < ActionController::Base
 
 
   def render_unauthorized
-    render file: Rails.root.join("public/401.html"), layout: false
+    render file: Rails.root.join("public/401.html"), layout: false, status: 401
+  end
+
+  def render_not_found
+    render file: Rails.root.join("public/404.html"), layout: false, status: 404
   end
 
   def site_home

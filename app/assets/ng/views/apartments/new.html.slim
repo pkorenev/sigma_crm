@@ -1,0 +1,15 @@
+div ng-controller="NewApartmentController"
+  /ng-include src="'/assets/views/buildings/building_base.html'"
+  .row.wrapper.border-bottom.white-bg.page-heading
+    .col-lg-9
+      h2
+        | Створити нову квартиру
+      ng-include src="'/assets/views/common/breadcrumbs'"
+
+  .row
+    .col-lg-4.col-lg-offset-4.form-container
+
+      form name="vm.createApartmentForm" ng-submit="vm.handleSubmit()" style=""
+        formly-form fields="vm.fields" model="vm.model"
+          button.btn.btn-primary ng-disabled="vm.createApartmentForm.$invalid" type="submit"  Створити
+          /button ng-click="vm.options.resetModel()" type="button"  Reset

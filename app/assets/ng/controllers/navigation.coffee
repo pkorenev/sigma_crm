@@ -11,36 +11,30 @@ navigationController = ($scope)->
       icon_class: "fa fa-th-large"
       menu_items: [
         {
-          text: "Квартири"
-          sref: "crm.buildings.apartments"
-          icon_class: "fa fa-th-large"
-        }
-        {
           text: "Житлові комплекси"
-          sref: "crm.buildings.building_complexes"
-          icon_class: "fa fa-th-large"
+          sref: "crm.buildings.building_complexes.index"
         }
+
+        {
+          text: "Багатоквартирні будинки"
+          sref: "crm.buildings.apartment_houses.index"
+        }
+
+        {
+          text: "Квартири"
+          sref: "crm.buildings.apartments.index"
+        }
+
         {
           text: "Особняки"
-          sref: "crm.buildings.penthouses"
-          icon_class: "fa fa-th-large"
+          sref: "crm.buildings.penthouses.index"
         }
       ]
     }
     {
       text: "Менеджери"
-      sref: "crm.managers"
+      sref: "crm.managers.index"
       icon_class: "fa fa-th-large"
-      menu_items: [
-        {
-          text: "Список"
-          sref: "crm.managers.index"
-        }
-        {
-          text: "Створити нового"
-          sref: "crm.managers.new"
-        }
-      ]
     }
 
 
