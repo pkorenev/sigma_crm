@@ -1,15 +1,15 @@
-div ng-controller="EditBuildingComplexController"
+div ng-controller="EditApartmentHouseController"
   .row.wrapper.border-bottom.white-bg.page-heading
     .col-lg-9
       h2
-        | Редагувати житловий комплекс {{vm_model.name}}
+        | Редагувати будинок {{vm_model.name}}
       ng-include src="'/assets/views/common/breadcrumbs'"
 
   .row
     .col-lg-4.col-lg-offset-4.form-container
 
-      form name="vm.buildingComplexForm" ng-submit="vm.handleSubmit()" style=""
+      form name="vm.apartmentHouseForm" ng-submit="vm.handleSubmit()" style=""
         formly-form fields="vm.fields" model="vm_model"
-          button.btn.btn-primary ng-disabled="vm.buildingComplexForm.$invalid" type="submit"
+          button.btn.btn-primary ng-disabled="vm.apartmentHouseForm.$invalid" type="submit"
             |Зберегти
           /button ng-click="vm.options.resetModel()" type="button"  Reset

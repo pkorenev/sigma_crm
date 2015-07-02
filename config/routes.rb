@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope :scheme, controller: "scheme" do
-    get "building_complex_details_attributes"
+    get "house_details_attributes"
   end
 
 

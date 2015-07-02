@@ -3,7 +3,7 @@ class BuildingComplex < Building
 
   has_many :buildings, through: :building_complex_links
 
-  has_one :building_complex_details, autosave: true
+  has_one :building_complex_details, autosave: true, class_name: "HouseDetails", as: :house
   attr_accessible :building_complex_details
   auto_build :building_complex_details
 

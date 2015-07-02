@@ -97,7 +97,7 @@ init_form_fields = (scope, http)->
   applied_config = apply_field_defaults(building_complex_form_fields)
   scope.vm.fields = applied_config
 
-  promise = http.get("/scheme/building_complex_details_attributes")
+  promise = http.get("/scheme/house_details_attributes")
   promise.then(
     (response)->
       #alert "success"
@@ -221,7 +221,7 @@ ShowBuildingComplexController = [
 
     $scope.vm = {}
     set_object(Restangular, $stateParams, $scope, "complex")
-
+    console.log "model", $scope.complex
 
 
     $scope.item_properties = [
