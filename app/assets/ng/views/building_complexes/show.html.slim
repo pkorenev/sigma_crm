@@ -7,19 +7,24 @@
 .row
   .col-lg-4.col-lg-offset-4.form-container
 
-    p
-      strong Назва:
-      |{{complex.name}}
-    p
-      strong Ціна:
-      |{{complex.price_with_currency}}
-    p
-      strong Країна:
-      |{{complex.country}}
+    /p
+    /  strong Назва:
+    /  |{{complex.name}}
+    /p
+    /  strong Ціна:
+    /  |{{complex.price_with_currency}}
+    /p
+    /  strong Країна:
+    /  |{{complex.country}}
+    /
+    /p
+    /  strong Місто:
+    /  |{{complex.city}}
 
-    p
-      strong Місто:
-      |{{complex.city}}
+    p ng-repeat="(prop, val) in complex"
+      strong
+        |{{prop}}:
+      |{{val}}
 
     a.btn.bg-yellow ui-sref="crm.buildings.building_complexes.edit({id: complex.id})"
       |Редагувати

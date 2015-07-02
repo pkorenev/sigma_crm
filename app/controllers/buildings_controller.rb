@@ -64,7 +64,7 @@ class BuildingsController < CrmController
   def update
     resource_instance_variable.assign_attributes(building_params)
     respond_to do |format|
-      if @building.save
+      if resource_instance_variable.save
         format.html { redirect_to resource_instance_variable, notice: 'Building was successfully updated.' }
         format.json { render :show, status: :ok, location: resource_instance_variable }
       else
@@ -155,21 +155,16 @@ class BuildingsController < CrmController
   protected
     # Use callbacks to share common setup or constraints between actions.
     def set_building
-      instance_variable_set(resource_instance_variable_name, resource_class.find(params[:id]))
+      begin
+        resource = resource_class.find(params[:id])
+        instance_variable_set(resource_instance_variable_name, resource)
+      rescue
+        render_not_found
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def building_params
       params.require(resource_name).permit(:type, :price, :price_currency)
-    end
-
-    def associated_model_class
-      Building
-    end
-
-    def self.set_resource_attributes(options={})
-      #self.resource_class = options[:resource_class]
-      #self.parent_resource_class = options[:parent_resource_class]
-      #instance_variable_set(:@resource_class, self.resource_class)
     end
 end

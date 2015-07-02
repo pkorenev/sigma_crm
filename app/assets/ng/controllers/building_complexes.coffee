@@ -93,6 +93,25 @@ buildingComplexesController = [
       )
 ]
 
+init_form_fields = (scope, http)->
+  applied_config = apply_field_defaults(building_complex_form_fields)
+  scope.vm.fields = applied_config
+
+  promise = http.get("/scheme/building_complex_details_attributes")
+  promise.then(
+    (response)->
+      #alert "success"
+      all_fields = applied_config.concat(response.data)
+      console.log "all_fields", all_fields
+      scope.vm.fields = all_fields
+      #for v in response.data
+      #  $scope.vm.fields.push(v)
+      scope.vm.fields_loaded = true
+    ()->
+      alert("error")
+  )
+
+
 newBuildingComplexController = [
   "$scope"
   "Restangular"
@@ -109,26 +128,18 @@ newBuildingComplexController = [
     $scope.vm = {}
 
     $scope.vm_model = {}
-    applied_config = apply_field_defaults(building_complex_form_fields)
+
     #console.log "applied_config", applied_config
 
 
+    init_form_fields($scope, $http)
 
-    $scope.vm.fields = applied_config
 
-    promise = $http.get("/scheme/building_complex_details_attributes")
-    promise.then(
-      (response)->
-        #alert "success"
-        all_fields = applied_config.concat(response.data)
-        console.log "all_fields", all_fields
-        $scope.vm.fields = all_fields
-        #for v in response.data
-        #  $scope.vm.fields.push(v)
-        $scope.vm.fields_loaded = true
-      ()->
-        alert("error")
-    )
+
+
+
+
+
 
     $scope.vm.handleSubmit = ()->
 
@@ -163,7 +174,7 @@ set_object = (Restangular, state_params, scope, model_property_name)->
 
 save_object = (http, object, object_name, url)->
   data = {}
-  data[object_name] = object_name
+  data[object_name] = object
   promise = http.put(url, data)
   return promise
 
@@ -176,14 +187,19 @@ EditBuildingComplexController = [
     $scope.breadcrumbs = breadcrumbs
 
     $scope.vm = {}
-    applied_config = apply_field_defaults(building_complex_form_fields)
-    $scope.vm.fields = applied_config
+    #applied_config = apply_field_defaults(building_complex_form_fields)
+    #$scope.vm.fields = applied_config
+
 
     promise = set_object(Restangular, $stateParams, $scope, "vm_model")
     promise.then(
       (c)->
         $scope.breadcrumbs = breadcrumbs.concat([{text: c.name, sref: "crm.buildings.building_complexes.show({id: #{c.id})"}, {text: "Редагувати", sref: "crm.buildings.building_complexes.edit({id: #{c.id})"}])
     )
+
+
+    init_form_fields($scope, $http)
+
 
     $scope.vm.handleSubmit = ()->
       promise = save_object($http, $scope.vm_model, "building_complex", "/building_complexes/#{$scope.vm_model.id}")
@@ -206,12 +222,16 @@ ShowBuildingComplexController = [
     $scope.vm = {}
     set_object(Restangular, $stateParams, $scope, "complex")
 
+
+
     $scope.item_properties = [
       "name"
       "price"
       "country"
       "city"
     ]
+
+
 ]
 
 
