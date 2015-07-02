@@ -1,5 +1,7 @@
 tr ng-repeat="complex in building_complexes"
   td
+    |{{complex.name}}
+  td
     |{{complex.price_with_currency}}
   td
     |{{complex.country || "-"}}
@@ -20,7 +22,7 @@ tr ng-repeat="complex in building_complexes"
     .btn-group
       button.btn-white.btn.btn-xs ui-sref="crm.buildings.building_complexes.show({id: complex.id})"
         | View
-      button.btn-white.btn.btn-xs
+      button.btn-white.btn.btn-xs ui-sref="crm.buildings.building_complexes.edit({id: complex.id})"
         | Edit
-      button.btn-white.btn.btn-xs
+      button.btn-white.btn.btn-xs ng-click="delete(complex)"
         | Delete

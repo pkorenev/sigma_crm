@@ -12,28 +12,33 @@ navigationController = ($scope)->
       menu_items: [
         {
           text: "Житлові комплекси"
-          sref: "crm.buildings.building_complexes.index"
+          sref: "crm.buildings.building_complexes"
+          rest: true
         }
 
         {
           text: "Багатоквартирні будинки"
-          sref: "crm.buildings.apartment_houses.index"
+          sref: "crm.buildings.apartment_houses"
+          rest: true
         }
 
         {
           text: "Квартири"
-          sref: "crm.buildings.apartments.index"
+          sref: "crm.buildings.apartments"
+          rest: true
         }
 
         {
           text: "Особняки"
-          sref: "crm.buildings.penthouses.index"
+          sref: "crm.buildings.penthouses"
+          rest: true
         }
       ]
     }
     {
       text: "Менеджери"
-      sref: "crm.managers.index"
+      sref: "crm.managers"
+      rest: true
       icon_class: "fa fa-th-large"
     }
 

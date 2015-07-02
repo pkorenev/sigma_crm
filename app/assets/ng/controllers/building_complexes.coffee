@@ -22,6 +22,25 @@ field_defaults = {
   type: 'input'
 }
 
+breadcrumbs = [
+  {
+    text: "Дашборд"
+    sref: "crm.dashboard"
+  }
+  {
+    text: "Нерухомість"
+  }
+  {
+    text: "Житлові комплекси"
+    sref: "crm.buildings.building_complexes.index"
+  }
+
+]
+
+
+
+page_title = "Житлові комплекси"
+
 
 
 
@@ -29,15 +48,18 @@ field_defaults = {
 buildingComplexesController = [
   "$scope"
   "Restangular"
-  ($scope, Restangular)->
+  "$http"
+  ($scope, Restangular, $http)->
     $scope.new_item_button = {
       text: "Новий комплекс",
       sref: "crm.buildings.building_complexes.new"
     }
 
-    #$scope.breadcrumbs = breadcrumbs
+    $scope.breadcrumbs = angular.copy(breadcrumbs)
+    $scope.page_title = page_title
 
     $scope.table_columns = [
+      "name"
       "price"
       "country"
       "city"
@@ -57,16 +79,26 @@ buildingComplexesController = [
             c.price_with_currency = "#{c.price} #{c.price_currency || ""}"
     );
 
-    $scope.editManager = (m)->
-      $state.go("crm.managers.edit", { id: m.id })
+    #$scope.editManager = (m)->
+    #  $state.go("crm.managers.edit", { id: m.id })
 
-    $scope.deleteManager = (m)->
+    $scope.delete = (m)->
+      promise = $http.delete("/building_complexes/#{m.id}.json")
+      promise.then(
+        ()->
+          #$scope.building_complexes[id]
+          index = $scope.building_complexes.indexOf(m)
+          $scope.building_complexes.splice(index, 1)
+      )
 ]
 
 newBuildingComplexController = [
   "$scope"
   "Restangular"
   ($scope, Restangular)->
+    $scope.breadcrumbs = breadcrumbs.concat([{text: "Створити новий", sref: "crm.buildings.building_complexes.new"}])
+    #$scope.breadcrumbs[2] = {text: "Створити новий", sref: "crm.buildings.building_complexes.new"}
+    $scope.page_title = "Створити новий житловий комплекс"
 
     baseComplexes = Restangular.all('building_complexes')
 
@@ -80,19 +112,36 @@ newBuildingComplexController = [
     $scope.vm.handleSubmit = ()->
 
       data = {building_complex: $scope.vm.model}
-      baseComplexes.post(data)
+      promise = baseComplexes.post(data)
+      promise.then(
+        ()->
+          alert("Успішно створено")
+      )
 
 ]
 
-set_object = (state_params, scope, base_query_model)->
+set_object = (Restangular, state_params, scope, model_property_name)->
   id = state_params.id
   baseApartment = Restangular.one("building_complexes", id)
-
   promise = baseApartment.get()
   promise.then(
-    (a)->
-      scope.vm.model = a
+    (c)->
+      if c.price == null
+        c.price_with_currency = "-"
+      else
+        c.price_with_currency = "#{c.price} #{c.price_currency || ""}"
+      scope[model_property_name] = c
   )
+
+
+
+  return promise
+
+save_object = (http, object, object_name, url)->
+  data = {}
+  data[object_name] = object_name
+  promise = http.put(url, data)
+  return promise
 
 EditBuildingComplexController = [
   "$scope"
@@ -100,30 +149,25 @@ EditBuildingComplexController = [
   "$stateParams"
   "$http"
   ($scope, Restangular, $stateParams, $http)->
-    baseApartments = Restangular.all('apartments')
+    $scope.breadcrumbs = breadcrumbs
+
     $scope.vm = {}
-    $scope.vm.fields = applied_apartment_form_fields_config
+    applied_config = apply_field_defaults(building_complex_form_fields)
+    $scope.vm.fields = applied_config
 
-    set_object($stateParams, $scope)
-
-
-    #baseApartment = Restangular.one("apartments", id)
-
-#    managerPromise = baseApartment.get()
-#    managerPromise.then(
-#      (a)->
-##m.prettifyAmount(); // invoke your custom model method
-#        $scope.vm.model = a
-#    );
+    promise = set_object(Restangular, $stateParams, $scope, "vm_model")
+    promise.then(
+      (c)->
+        $scope.breadcrumbs = breadcrumbs.concat([{text: c.name, sref: "crm.buildings.building_complexes.show({id: #{c.id})"}, {text: "Редагувати", sref: "crm.buildings.building_complexes.edit({id: #{c.id})"}])
+    )
 
     $scope.vm.handleSubmit = ()->
-#data = {apartment: $scope.vm.model}
-#baseApartment.put(data)
-#$scope.vm.model.put()
-#$scope.vm.model.save()
-      console.log "model_id", $scope.vm.model.id
-      console.log "model", $scope.vm.model
-#$http.put("/apartments/#{$scope.vm.model.id}", $scope.vm.model)
+      promise = save_object($http, $scope.vm_model, "building_complex", "/building_complexes/#{$scope.vm_model.id}")
+      promise.then(
+        ()->
+          alert("Успішно збережено")
+      )
+
 
 ]
 
@@ -133,12 +177,17 @@ ShowBuildingComplexController = [
   "$stateParams"
   "$http"
   ($scope, Restangular, $stateParams, $http)->
-    baseBuildingComplexes = Restangular.all('building_complexes')
+
+
     $scope.vm = {}
-    #$scope.vm.fields = applied_apartment_form_fields_config
+    set_object(Restangular, $stateParams, $scope, "complex")
 
-    id = $stateParams.id
-
+    $scope.item_properties = [
+      "name"
+      "price"
+      "country"
+      "city"
+    ]
 ]
 
 

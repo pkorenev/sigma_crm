@@ -78,12 +78,13 @@ class BuildingComplexesController < BuildingsController
   #
   # end
 
-  def set_building
-    @building = BuildingComplex.find(params[:id])
-  end
+  # def set_building
+  #   @building = BuildingComplex.find(params[:id])
+  # end
 
   def building_params
-    params.require(:building).permit(:type, :price, :price_currency)
+    super
+    params.require(resource_name).permit(:type, :price, :price_currency, :name, :country, :city)
   end
 
   def associated_model_class

@@ -7,7 +7,7 @@ class BuildingsController < CrmController
   # GET /buildings.json
   def index
     #@buildings = associated_model_class.available_for_user(current_user)
-    @buildings = resource_class.available_for_user(current_user).page(params[:page]).per(25)
+    instance_variable_set(resource_instance_variable_name.pluralize, resource_class.available_for_user(current_user).page(params[:page]).per(25))
     #instance_variable_set("@#{self.parent_resource_class.name.underscore.pluralize}".to_sym, self.resource_class.available_for_user(current_user))
 
     @table_columns = [ 'Address',  'Price', 'Price currency']
@@ -23,7 +23,7 @@ class BuildingsController < CrmController
 
   # GET /buildings/new
   def new
-    @building = resource_class.new
+    instance_variable_set(resource_instance_variable_name, resource_class.new)
   end
 
   # GET /buildings/1/edit
@@ -33,15 +33,15 @@ class BuildingsController < CrmController
   # POST /buildings
   # POST /buildings.json
   def create
-    @building = resource_class.new()
-    @building.assign_attributes(building_params)
+    instance_variable_set(resource_instance_variable_name, resource_class.new())
+    resource_instance_variable.assign_attributes(building_params)
     respond_to do |format|
-      if @building.save
-        format.html { redirect_to @building, notice: 'Building was successfully created.' }
-        format.json { render :show, status: :created, location: @building }
+      if resource_instance_variable.save
+        format.html { redirect_to resource_instance_variable, notice: 'Building was successfully created.' }
+        format.json { render :show, status: :created, location: resource_instance_variable }
       else
         format.html { render :new }
-        format.json { render json: @building.errors, status: :unprocessable_entity }
+        format.json { render json: resource_instance_variable.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,14 +49,14 @@ class BuildingsController < CrmController
   # PATCH/PUT /buildings/1
   # PATCH/PUT /buildings/1.json
   def update
-    @building.assign_attributes(building_params)
+    resource_instance_variable.assign_attributes(building_params)
     respond_to do |format|
       if @building.save
-        format.html { redirect_to @building, notice: 'Building was successfully updated.' }
-        format.json { render :show, status: :ok, location: @building }
+        format.html { redirect_to resource_instance_variable, notice: 'Building was successfully updated.' }
+        format.json { render :show, status: :ok, location: resource_instance_variable }
       else
         format.html { render :edit }
-        format.json { render json: @building.errors, status: :unprocessable_entity }
+        format.json { render json: resource_instance_variable.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -64,7 +64,7 @@ class BuildingsController < CrmController
   # DELETE /buildings/1
   # DELETE /buildings/1.json
   def destroy
-    @building.destroy
+    resource_instance_variable.destroy
     respond_to do |format|
       format.html { redirect_to buildings_url, notice: 'Building was successfully destroyed.' }
       format.json { head :no_content }
@@ -104,6 +104,18 @@ class BuildingsController < CrmController
     url_helpers.send(path_name, args)
   end
 
+  def resource_instance_variable
+    instance_variable_get(resource_instance_variable_name)
+  end
+
+  def resources_instance_variable
+    instance_variable_get(resource_instance_variable_name.pluralize)
+  end
+
+  def resource_instance_variable_name
+    "@#{resource_name}"
+  end
+
   def resource_class
     Building
   end
@@ -112,7 +124,7 @@ class BuildingsController < CrmController
     resource_class.name.underscore.to_sym
   end
 
-  helper_method :new_resource_path, :resource_path, :edit_resource_path, :resources_path
+  helper_method :new_resource_path, :resource_path, :edit_resource_path, :resources_path, :resource_instance_variable
 
 
 
@@ -126,12 +138,12 @@ class BuildingsController < CrmController
   protected
     # Use callbacks to share common setup or constraints between actions.
     def set_building
-      @building = resource_class.find(params[:id])
+      instance_variable_set(resource_instance_variable_name, resource_class.find(params[:id]))
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def building_params
-      params.require(:building).permit(:type, :price, :price_currency)
+      params.require(resource_name).permit(:type, :price, :price_currency)
     end
 
     def associated_model_class

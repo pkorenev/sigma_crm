@@ -1,4 +1,5 @@
 class Building < ActiveRecord::Base
+  attr_accessible *attribute_names
   has_one :address, as: :addressable, autosave: true
   has_many :assets, as: :assetable
 

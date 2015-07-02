@@ -1,14 +1,11 @@
-.row.wrapper.border-bottom.white-bg.page-heading
-  .col-lg-9
-    h2
-      | Створити новий житловий комплекс
-    ng-include src="'/assets/views/common/breadcrumbs'"
+div ng-controller="NewBuildingComplexController"
+  ng-include src="'/assets/views/common/_page_heading'"
 
-.row
-  .col-lg-4.col-lg-offset-4.form-container
+  .row
+    .col-lg-4.col-lg-offset-4.form-container
 
-    form name="vm.createBuildingComplexForm" ng-submit="vm.handleSubmit()" style=""
-      formly-form fields="vm.fields" model="vm.model"
-        button.btn.btn-primary ng-disabled="vm.createManagerForm.$invalid" type="submit"
-          |Створити
+      form name="vm.buildingComplexForm" ng-submit="vm.handleSubmit()" style=""
+        formly-form fields="vm.fields" model="vm.model"
+          button.btn.btn-primary ng-disabled="vm.buildingComplexForm.$invalid" type="submit"
+            |Створити
           /button ng-click="vm.options.resetModel()" type="button"  Reset

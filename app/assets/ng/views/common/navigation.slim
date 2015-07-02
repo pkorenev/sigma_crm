@@ -29,15 +29,15 @@ nav.navbar-default.navbar-static-side role="navigation" ng-controller="Navigatio
         .logo-element
           |  IN+
 
-      li ng-repeat="menu_item in menu_items track by $index" ng-class="{active: $state.includes(menu_item.sref)}"
-        a ui-sref="{{menu_item.sref}}"
+      li ng-repeat="menu_item in menu_items track by $index" ng-class="{active: $state.includes((menu_item.sref))}"
+        a ui-sref="{{menu_item.rest ? menu_item.sref + '.index' : menu_item.sref }}"
           i class="{{menu_item.icon_class}}"
           span.nav-label
             |{{menu_item.text}}
           /span.fa.arrow
         ul.nav.nav-second-level ng-if="menu_item.menu_items && menu_item.menu_items.length" ng-class="{in: $state.includes(menu_item.sref)}"
-          li ui-sref-active="active" ng-repeat="subitem in menu_item.menu_items"
-            a ui-sref="{{subitem.sref}}"
+          li ng-class="{active: $state.includes(subitem.sref)}" ng-repeat="subitem in menu_item.menu_items"
+            a ui-sref="{{subitem.rest ? subitem.sref + '.index' : subitem.sref }}"
               |{{subitem.text}}
 
 
