@@ -69,6 +69,7 @@ buildingComplexesController = [
 
     baseComplexes = Restangular.all('building_complexes');
 
+
     baseComplexes.getList().then(
       (complexes)->
         $scope.building_complexes = complexes;
@@ -95,24 +96,47 @@ buildingComplexesController = [
 newBuildingComplexController = [
   "$scope"
   "Restangular"
-  ($scope, Restangular)->
+  "$http"
+  ($scope, Restangular, $http)->
     $scope.breadcrumbs = breadcrumbs.concat([{text: "Створити новий", sref: "crm.buildings.building_complexes.new"}])
     #$scope.breadcrumbs[2] = {text: "Створити новий", sref: "crm.buildings.building_complexes.new"}
     $scope.page_title = "Створити новий житловий комплекс"
+
+
 
     baseComplexes = Restangular.all('building_complexes')
 
     $scope.vm = {}
 
-    $scope.vm.model = {}
+    $scope.vm_model = {}
     applied_config = apply_field_defaults(building_complex_form_fields)
     #console.log "applied_config", applied_config
+
+
+
     $scope.vm.fields = applied_config
+
+    promise = $http.get("/scheme/building_complex_details_attributes")
+    promise.then(
+      (response)->
+        #alert "success"
+        all_fields = applied_config.concat(response.data)
+        console.log "all_fields", all_fields
+        $scope.vm.fields = all_fields
+        #for v in response.data
+        #  $scope.vm.fields.push(v)
+        $scope.vm.fields_loaded = true
+      ()->
+        alert("error")
+    )
 
     $scope.vm.handleSubmit = ()->
 
-      data = {building_complex: $scope.vm.model}
-      promise = baseComplexes.post(data)
+      data = {building_complex: $scope.vm_model}
+      #promise = baseComplexes.post(data)
+      console.log "data_for_create", data
+      promise = $http.post("/building_complexes", data)
+
       promise.then(
         ()->
           alert("Успішно створено")

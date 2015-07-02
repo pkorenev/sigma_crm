@@ -84,7 +84,7 @@ class BuildingComplexesController < BuildingsController
 
   def building_params
     super
-    params.require(resource_name).permit(:type, :price, :price_currency, :name, :country, :city)
+    params.require(resource_name).permit(:type, :price, :price_currency, :name, :country, :city, *(BuildingComplex.details_attribute_names))
   end
 
   def associated_model_class

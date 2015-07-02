@@ -4,8 +4,9 @@ div ng-controller="NewBuildingComplexController"
   .row
     .col-lg-4.col-lg-offset-4.form-container
 
-      form name="vm.buildingComplexForm" ng-submit="vm.handleSubmit()" style=""
-        formly-form fields="vm.fields" model="vm.model"
-          button.btn.btn-primary ng-disabled="vm.buildingComplexForm.$invalid" type="submit"
-            |Створити
-          /button ng-click="vm.options.resetModel()" type="button"  Reset
+      .form-container ng-if="vm.fields_loaded"
+        form name="vm.buildingComplexForm" ng-submit="vm.handleSubmit()" style=""
+          formly-form fields="vm.fields" model="vm_model"
+            button.btn.btn-primary ng-disabled="vm.buildingComplexForm.$invalid" type="submit"
+              |Створити
+            /button ng-click="vm.options.resetModel()" type="button"  Reset

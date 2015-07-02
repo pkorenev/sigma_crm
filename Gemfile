@@ -80,3 +80,7 @@ gem 'rails_admin'
 #gem 'angular_rails_csrf'
 
 gem "auto_build"
+
+gem 'rabl-rails'
+
+gem 'responders'

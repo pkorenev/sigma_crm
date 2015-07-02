@@ -1,8 +1,0 @@
-= link_to "New building", new_building_complex_path
-
-= table_for @building_complexes, [ ], model: Building_complex do |building_complex|
-  
-
-  = field link_to('Show', building_complex, class: 'show-button')
-  = field link_to('Edit', edit_building_complex_path, class: 'edit-button')
-  = field link_to('Delete', building_complex, class: 'delete-button')

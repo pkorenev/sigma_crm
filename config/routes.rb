@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  scope :scheme, controller: "scheme" do
+    get "building_complex_details_attributes"
+  end
+
+
+  resources :things
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #devise_for :manager_users, controllers: {  }
   devise_for :users, controllers: { sessions: "users/sessions" }

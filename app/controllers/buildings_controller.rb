@@ -1,7 +1,11 @@
 class BuildingsController < CrmController
   before_action :set_building, only: [:show, :edit, :update, :destroy]
 
-  #class_attribute :resource_class, :parent_resource_class
+  class_attribute :resource_class, :parent_resource_class
+
+
+  respond_to :json, :xml
+
 
   # GET /buildings
   # GET /buildings.json
@@ -14,11 +18,20 @@ class BuildingsController < CrmController
     if resource_class == Building
       @table_columns.insert(0, "Type")
     end
+
+    #render json: resources_instance_variable
+
+    respond_with resources_instance_variable
   end
 
   # GET /buildings/1
   # GET /buildings/1.json
   def show
+    #render json: resource_instance_variable
+    respond_to do |format|
+      format.json
+    end
+
   end
 
   # GET /buildings/new
@@ -109,11 +122,15 @@ class BuildingsController < CrmController
   end
 
   def resources_instance_variable
-    instance_variable_get(resource_instance_variable_name.pluralize)
+    instance_variable_get(resources_instance_variable_name)
   end
 
   def resource_instance_variable_name
     "@#{resource_name}"
+  end
+
+  def resources_instance_variable_name
+    resource_instance_variable_name.pluralize
   end
 
   def resource_class
@@ -124,7 +141,7 @@ class BuildingsController < CrmController
     resource_class.name.underscore.to_sym
   end
 
-  helper_method :new_resource_path, :resource_path, :edit_resource_path, :resources_path, :resource_instance_variable
+  helper_method :new_resource_path, :resource_path, :edit_resource_path, :resources_path, :resource_instance_variable, :resources_instance_variable
 
 
 

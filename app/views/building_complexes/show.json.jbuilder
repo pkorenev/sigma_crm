@@ -1,1 +1,1 @@
-json.extract! resource_instance_variable, :id, :created_at, :updated_at, :name, :country, :city
+json.extract! resource_instance_variable, :id, :type, :price, :price_currency, :created_at, :updated_at, *(BuildingComplex.details_attribute_names)
