@@ -38,7 +38,7 @@ module SigmaDb
     #Rails.application.config.assets.precompile += %w( crm.css )
     Rails.application.config.assets.precompile += %w(static_crm.js static_crm.css)
 
-    config.i18n.locale = :uk
+    config.i18n.default_locale = :uk
 
   end
 end
