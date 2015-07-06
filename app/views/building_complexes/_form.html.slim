@@ -1,0 +1,41 @@
+sass:
+  #new_building_complex
+    [role=tablist]
+      li
+        width: 20%
+  .wizard-form
+    fieldset
+      overflow-y: auto
+
+= simple_form_for(@resource, html: {class: "wizard-form wizard-big", form_role: params[:action]}) do |f|
+  /= f.error_notification
+
+
+
+  /.form-inputs
+
+  h1
+    |Основна інформація
+  fieldset
+    .row
+      .col-lg-8
+        = f.input :country, as: :string, required: true
+        = f.input :city, required: true
+
+  h1
+    |Технічна інформація
+  fieldset
+    - BuildingComplex.details_attribute_names.each do |attr|
+      = f.input attr
+  h1
+    |Атачменти
+  fieldset
+  h1
+    |Опис
+  fieldset
+  h1
+    |Попередній перегляд
+  fieldset
+
+  /.form-actions
+    = f.button :submit

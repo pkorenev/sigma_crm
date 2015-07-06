@@ -1,7 +1,13 @@
 class Apartment < Building
+  attr_accessible(*attribute_names)
+
   has_one :apartment_info, as: :building, autosave: true
 
+  delegate_with_setter :square, to: :apartment_info, allow_nil: true
+
   has_one :apartment_details, autosave: true
+
+
 
   delegate_with_setter :level, to: :apartment_details, allow_nil: true
 

@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   end
 
 
-  resources :things
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+
+  #resources :things
+  #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #devise_for :manager_users, controllers: {  }
   devise_for :users, controllers: { sessions: "users/sessions" }
 
@@ -14,14 +16,18 @@ Rails.application.routes.draw do
   #cnstrs[:defaults] = {format: "json"}
   constraints cnstrs do
     #get "ng", to: "crm#ng"
-    root to: "crm#ng", as: "crm_root"
-    with_options defaults: {format: "json"} do
+    root to: "crm#dashboard", as: "crm_root"
+    with_options defaults: {format: "html"} do
+      get "skin-config", to: "crm#skin_config"
       get "buildings/objects_count"
       #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
       root to: "crm#dashboard", as: :crm_dashboard
+      resources :clients
       resources :managers
       resources :buildings
-      resources :building_complexes
+      resources :building_complexes do
+        resources :assets
+      end
       resources :penthouses
       resources :apartments
       resources :apartment_houses

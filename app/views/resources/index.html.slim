@@ -1,0 +1,48 @@
+
+
+
+
+.wrapper.wrapper-content.animated.fadeInRight.ecommerce
+  = render "table_filters"
+  = render "toolbar"
+  .row
+    .col-lg-12
+      .ibox
+        .ibox-content
+          table.footable.table.table-stripped.toggle-arrow-tiny[data-page-size="15"]
+            thead
+              tr
+                = render "table_header"
+            tbody
+
+              = render "table_rows", collection: @resources
+
+
+          /tr
+            td
+              |  Example product 10
+            td
+              |  Model 10
+            td
+              |  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+            td
+              |  $43.00
+            td
+              |  7600
+            td
+              span.label.label-primary
+                | Enable
+            td.text-right
+              .btn-group
+                button.btn-white.btn.btn-xs
+                  | View
+                button.btn-white.btn.btn-xs
+                  | Edit
+        tfoot
+          tr
+            td[colspan="6"]
+              ul.pagination.pull-right
+
+- content_for(:additional_scripts) do
+  script
+    |  $(document).ready(function() { $('.footable').footable(); });

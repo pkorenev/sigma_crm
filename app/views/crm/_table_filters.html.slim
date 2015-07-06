@@ -1,0 +1,26 @@
+.ibox-content.m-b-sm.border-bottom
+  .row
+    .col-sm-4
+      .form-group
+        label.control-label[for="product_name"]
+          | Product Name
+        input#product_name.form-control[type="text" name="product_name" value="" placeholder="Product Name"]
+    .col-sm-2
+      .form-group
+        label.control-label[for="price"]
+          | Price
+        input#price.form-control[type="text" name="price" value="" placeholder="Price"]
+    .col-sm-2
+      .form-group
+        label.control-label[for="quantity"]
+          | Quantity
+        input#quantity.form-control[type="text" name="quantity" value="" placeholder="Quantity"]
+    .col-sm-4
+      .form-group
+        label.control-label[for="status"]
+          | Status
+        select#status.form-control[name="status"]
+          option[value="1" selected]
+            | Enabled
+          option[value="0"]
+            | Disabled

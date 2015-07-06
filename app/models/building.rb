@@ -12,7 +12,7 @@ class Building < ActiveRecord::Base
   accepts_nested_attributes_for :comments
   attr_accessible :comments, :comments_attributes
 
-  belongs_to :parent, polymorphic: true, foreign_key: :parent_id
+  belongs_to :parent, polymorphic: true, foreign_key: :parent_id, class_name: "Building"
   has_many :children, class_name: "Building", as: :parent
 
   has_one :building_complex_link

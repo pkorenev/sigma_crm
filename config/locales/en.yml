@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+
+  admin:
+    new_resource: "New %{resource_name}"

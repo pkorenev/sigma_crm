@@ -30,3 +30,28 @@ asset "nya-bootstrap-select"
 
 asset "ng-ckeditor"
 asset "ckeditor"
+
+asset "toastr"
+
+asset "jquery.gritter"
+
+asset "flot"
+asset "flot.tooltip"
+asset "flot-spline"
+
+asset "peity"
+
+asset "sparkline"
+asset "jquery.sparkline.build"
+
+asset "chart.js"
+
+asset "footable"
+
+asset "icheck"
+
+asset "jquery.steps"
+
+asset "jquery-validation"
+
+asset "dropzone"

@@ -1,0 +1,137 @@
+/= simple_form_for(@client) do |f|
+  = f.error_notification
+
+  .form-inputs
+
+  .form-actions
+    = f.button :submit
+
+
+
+
+
+
+
+.wrapper.wrapper-content.animated.fadeInRight
+
+  .row
+    .col-lg-12
+      .ibox
+        .ibox-title
+          h5
+            | Форма створення квартири
+          .ibox-tools
+            a.collapse-link
+              i.fa.fa-chevron-up
+            a.dropdown-toggle[data-toggle="dropdown" href="#"]
+              i.fa.fa-wrench
+            ul.dropdown-menu.dropdown-user
+              li
+                a[href="#"]
+                  | Config option 1
+              li
+                a[href="#"]
+                  | Config option 2
+            a.close-link
+              i.fa.fa-times
+        .ibox-content
+          h2
+            |  Validation Wizard Form
+          p
+            |  This example show how to use Steps with jQuery Validation plugin.
+          = render "form"
+
+- content_for(:additional_scripts) do
+  javascript:
+    $(document).ready(function () {
+      $("#wizard").steps();
+      $(".wizard-form").steps({
+        bodyTag: "fieldset",
+        onStepChanging: function (event, currentIndex, newIndex) {
+          // Always allow going backward even if the current step contains invalid fields!
+          if (currentIndex > newIndex) {
+            return true;
+          }
+
+          // Forbid suppressing "Warning" step if the user is to young
+          if (newIndex === 3 && Number($("#age").val()) < 18) {
+            return false;
+          }
+
+          var form = $(this);
+
+          // Clean up if user went backward before
+          if (currentIndex < newIndex) {
+            // To remove error styles
+            $(".body:eq(" + newIndex + ") label.error", form).remove();
+            $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+          }
+
+          // Disable validation on fields that are disabled or hidden.
+          form.validate().settings.ignore = ":disabled,:hidden";
+
+          // Start validation; Prevent going forward if false
+          return form.valid();
+        },
+        onStepChanged: function (event, currentIndex, priorIndex) {
+          // Suppress (skip) "Warning" step if the user is old enough.
+          if (currentIndex === 2 && Number($("#age").val()) >= 18) {
+            $(this).steps("next");
+          }
+
+          // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+          if (currentIndex === 2 && priorIndex === 3) {
+            $(this).steps("previous");
+          }
+        },
+        onFinishing: function (event, currentIndex) {
+          var form = $(this);
+
+          // Disable validation on fields that are disabled.
+          // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+          form.validate().settings.ignore = ":disabled";
+
+          // Start validation; Prevent form submission if false
+          return form.valid();
+        },
+        onFinished: function (event, currentIndex) {
+          var $form = $(this);
+
+          // Submit form input
+          url = $form.attr("action") + ".json"
+          type = $form.attr("method") || 'post'
+          data = $form.serializeArray()
+
+          form_role = $form.attr("form_role")
+
+          if(form_role != 'new') {
+            $.ajax({
+              type: type,
+              url: url,
+              data: data,
+              dataType: "json",
+              success: function (data) {
+                //alert("successfully saved")
+                if ($form.attr("form_role") == 'new') {
+                  window.location.pathname = window.location.pathname.replace("/new", "/" + data.id + "/edit")
+                }
+              }
+            })
+          }
+          else{
+            $form.submit();
+          }
+
+
+        }
+      }).validate({
+        errorPlacement: function (error, element) {
+          element.before(error);
+        },
+        rules: {
+          confirm: {
+            equalTo: "#password"
+          }
+        }
+      });
+    });

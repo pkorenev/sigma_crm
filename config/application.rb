@@ -35,6 +35,10 @@ module SigmaDb
       end if File.exists?(env_file)
     end
 
-    Rails.application.config.assets.precompile += %w( crm.css )
+    #Rails.application.config.assets.precompile += %w( crm.css )
+    Rails.application.config.assets.precompile += %w(static_crm.js static_crm.css)
+
+    config.i18n.locale = :uk
+
   end
 end

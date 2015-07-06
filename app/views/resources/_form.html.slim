@@ -1,0 +1,62 @@
+form.wizard-form.wizard-big[action="#"]
+  h1
+    | Account
+  fieldset
+    h2
+      | Account Information
+    .row
+      .col-lg-8
+        .form-group
+          label
+            | Username *
+          input#userName.form-control.required[name="userName" type="text"]
+        .form-group
+          label
+            | Password *
+          input#password.form-control.required[name="password" type="text"]
+        .form-group
+          label
+            | Confirm Password *
+          input#confirm.form-control.required[name="confirm" type="text"]
+      .col-lg-4
+        .text-center
+          div[style="margin-top: 20px"]
+            i.fa.fa-sign-in[style="font-size: 180px;color: #e5e5e5 "]
+  h1
+    | Profile
+  fieldset
+    h2
+      | Profile Information
+    .row
+      .col-lg-6
+        .form-group
+          label
+            | First name *
+          input#name.form-control.required[name="name" type="text"]
+        .form-group
+          label
+            | Last name *
+          input#surname.form-control.required[name="surname" type="text"]
+      .col-lg-6
+        .form-group
+          label
+            | Email *
+          input#email.form-control.required.email[name="email" type="text"]
+        .form-group
+          label
+            | Address *
+          input#address.form-control[name="address" type="text"]
+  h1
+    | Warning
+  fieldset
+    .text-center[style="margin-top: 120px"]
+      h2
+        | You did it Man :-)
+  h1
+    | Finish
+  fieldset
+    h2
+      | Terms and Conditions
+    input#acceptTerms.required[name="acceptTerms" type="checkbox"]
+    label[for="acceptTerms"]
+      | I agree with the Terms and Conditions.

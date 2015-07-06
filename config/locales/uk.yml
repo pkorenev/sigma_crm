@@ -3,3 +3,11 @@ uk:
     models:
       appartment: "Квартира"
       penthouse: "Особняк"
+      client: "клієнт"
+      building_complex: "Житловий комплекс"
+      apartment: "квартира"
+      apartment_house: "Багатоквартирний будинок"
+      penthouse: "Особняк"
+
+  admin:
+    new_resource: "Новий %{resource_name}"
