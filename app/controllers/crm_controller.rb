@@ -1,11 +1,7 @@
 class CrmController < ApplicationController
   #before_action :authenticate_user!
 
-  self.layout "crm_static"
-
-  def dashboard
-    render template: "dashboard/index"
-  end
+  self.layout "crm"
 
   def ng
     render template: "layouts/ng_index", layout: false

@@ -11,4 +11,10 @@ class ApartmentHouse < Building
 
   delegate_with_setter :name, *(details_attribute_names), to: :apartment_house_details, allow_nil: true
 
+  def styles
+    {
+        avatar: "400x200"
+    }
+  end
+
 end

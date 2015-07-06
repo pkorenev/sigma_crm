@@ -18,6 +18,12 @@ class Apartment < Building
 
 
   delegate_with_setter *(details_attribute_names), to: :apartment_details, allow_nil: true
+
+  def styles
+    {
+        bannewr: "2000x500"
+    }
+  end
 end
 
 

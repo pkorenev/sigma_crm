@@ -13,8 +13,12 @@ class User < ActiveRecord::Base
   attr_accessible(*attribute_names)
 
   has_one :user_info, as: :user
-  accepts_nested_attributes_for :user_info
+  has_many :building_views
+  has_many :viewed_buildings, through: :building_views, source: :building
+  has_many :comments
 
+
+  accepts_nested_attributes_for :user_info
   attr_accessible :user_info, :user_info_attributes
 
   attr_accessible :password, :password_confirmation, :email
@@ -22,60 +26,25 @@ class User < ActiveRecord::Base
 
   delegate_with_setter *methods_to_delegate, to: :user_info, allow_nil: true
 
-  #attr_accessible methods_to_delegate
-  #methods_to_delegate.clone.each {|m| methods_to_delegate << "#{m}=".to_sym }
-  #delegate *methods_to_delegate, to: :user_info, allow_nil: true
 
-  has_many :comments
   accepts_nested_attributes_for :comments
   attr_accessible :comments, :comments_attributes
 
-  attr_accessible :remember_me
-
-  has_many :building_views
-  has_many :viewed_buildings, through: :building_views, source: :building
 
 
   auto_build :user_info
 
-  # def initialize attributes = nil, options = {}
-  #   user_info ||= UserInfo.new
-  #   super(attributes, options)
-  # end
 
- # def test
- #   User.new
- # end
-
-
-
-
-  # def self.find_for_database_authentication(warden_conditions)
-  #   conditions = warden_conditions.dup
-  #   if login = conditions.delete(:get_phone)
-  #     #where(conditions.to_h).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
-  #     #return Admin.where('id > 0').limit(1)
-  #     return Admin.first
-  #   else
-  #     #where(conditions.to_h).first
-  #     return Admin.second
-  #   end
-  # end
 
   validates :email, presence: true
 
   def self.find_for_database_authentication(warden_conditions)
-    #return Admin.first
-    #return nil
-
 
     email = warden_conditions[:email]
     user = where("email = '#{email}'").first
     if !user
       user = joins(:user_info).where(user_infos: {phone: email}).first
     end
-
-
 
     user
   end

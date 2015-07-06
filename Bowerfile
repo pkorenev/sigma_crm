@@ -2,12 +2,8 @@
 asset "rainbow"
 
 
-# angular crm
 
-asset "angular", '1.4'
-asset "angular-ui-router"
-asset "restangular"
-asset "ng-token-auth"
+
 asset "bootstrap"
 
 asset "font-awesome"
@@ -19,16 +15,8 @@ asset "slimScroll"
 asset "pace"
 asset "oclazyload"
 
-asset "angular-translate"
-asset "angular-bootstrap"
-asset "ng-idle"
-
-asset "angular-formly"
-asset "angular-formly-templates-bootstrap"
-
 asset "nya-bootstrap-select"
 
-asset "ng-ckeditor"
 asset "ckeditor"
 
 asset "toastr"
