@@ -8,6 +8,19 @@ uk:
       apartment: "квартира"
       apartment_house: "Багатоквартирний будинок"
       penthouse: "Особняк"
+    attributes:
+      building_complex:
+        name: "Назва"
+        country: "Країна"
+        city: "Місто"
+        main_purpose: "Основне призначення"
+        price_per_meter: "Ціна від, грн/м<sup>2</sup>"
+        status: "Статус"
+        building_start_date: "Початок будівництва"
+        estimated_building_end_date_string: "Термін здачі"
+        presence_string: "Наявність"
+        latitude: "Широта"
+        longitude: "Довгота"
 
   admin:
     new_resource: "Новий %{resource_name}"

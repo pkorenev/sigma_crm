@@ -1,10 +1,23 @@
-th[data-toggle="true"]
-  | Ім’я клієнта
-th[data-hide="phone"]
-  | Група клієнтів
-th[data-hide="all"]
-  | Менеджери
-th[data-hide="phone"]
-  | Статуси
-th[data-hide="phone,tablet"]
-  | Дії
+- collection.each do |resource|
+  tr
+    td
+      = resource.name
+    td
+      = resource.country
+    td
+      = resource.city
+    td
+      = "-"
+      /= resource.square
+    td
+      = resource.price
+
+
+    td.text-right
+      .btn-group
+        a.btn-white.btn.btn-xs href=url_for(resource)
+          | View
+        a.btn-white.btn.btn-xs href=url_for([:edit, resource])
+          | Edit
+        a.btn-white.btn.btn-xs href=url_for(resource) role="delete"
+          | Delete

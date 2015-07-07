@@ -46,6 +46,7 @@
 
     window.attachments_drop_zone = null
     $(document).ready(function () {
+      Dropzone.autoDiscover = false;
       $("#wizard").steps();
       $(".wizard-form").steps({
         bodyTag: "fieldset",
@@ -108,7 +109,7 @@
                   $form.attr("form_role", "temp")
                   var update_url = "/" + $form.attr("data-resources-name")+"/"+data.id
                   $form.attr("data-update-url", update_url)
-                  window.attachments_drop_zone.options.url = update_url + "/assets"
+                  window.attachments_drop_zone.options.url = update_url + "/assets.json"
                 }
               })
             }
@@ -175,7 +176,16 @@
 
       }})*/
       //new Dropzone("div.attachments-dropzone", {url: '#{"/#{resources_name}/#{@resource.id || 'new' }/assets"}'})
-      window.attachments_drop_zone = new Dropzone("div.attachments-dropzone")
+      window.attachments_drop_zone = new Dropzone("div.attachments-dropzone", {
+        addRemoveLinks: true,
+        success: function(){
+          console.log("args: ", arguments)
+        },
+        removedfile: function(file){
+          alert("removedfile")
+          console.log("removedfile", file)
+        }
+      })
     });
 
 

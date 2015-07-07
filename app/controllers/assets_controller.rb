@@ -17,6 +17,22 @@ class AssetsController < ResourcesController
     @assetable.assets
   end
 
+  def create
+    @resource ||= resource_class.new()
+    @resource.assign_attributes(resource_params)
+    @resource.assetable = @assetable
+
+    respond_to do |format|
+      if @resource.save
+        format.html { redirect_to @resource, notice: "#{resource_class.to_s} was successfully created." }
+        format.json { render :show, status: :created }
+      else
+        format.html { render :new }
+        format.json { render json: @resource.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 
 
   def set_assetable

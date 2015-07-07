@@ -1,1 +1,1 @@
-json.extract! @client, :id, :created_at, :updated_at
+json.extract! @resource, *(@resource.class.attribute_names)
