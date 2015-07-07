@@ -102,7 +102,7 @@ class ResourcesController < CrmController
     resource_name.pluralize
   end
 
-  helper_method :new_resource_path, :resource_name, :resources_path, :edit_resource_path
+  helper_method :new_resource_path, :resource_name, :resources_name, :resources_path, :edit_resource_path
 
   private
   # Use callbacks to share common setup or constraints between actions.

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  building_id: 1
+  building_type: MyString
+  building_comnplex_id: 1
+  building_complex_type: MyString
+
+two:
+  building_id: 1
+  building_type: MyString
+  building_comnplex_id: 1
+  building_complex_type: MyString

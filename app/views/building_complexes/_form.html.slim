@@ -6,8 +6,10 @@ sass:
   .wizard-form
     fieldset
       overflow-y: auto
+  .attachments-dropzone
+    height: 100%
 
-= simple_form_for(@resource, html: {class: "wizard-form wizard-big", form_role: params[:action]}) do |f|
+= simple_form_for(@resource, html: {class: "wizard-form wizard-big", form_role: params[:action], :"data-resources-name" => resources_name }) do |f|
   /= f.error_notification
 
 
@@ -30,6 +32,7 @@ sass:
   h1
     |Атачменти
   fieldset
+    div.attachments-dropzone action="/building_complexes/new/assets"
   h1
     |Опис
   fieldset
