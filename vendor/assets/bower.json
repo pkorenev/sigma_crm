@@ -1,6 +1,31 @@
 {
   "name": "dsl-generated dependencies",
   "dependencies": {
-    "rainbow": "latest"
+    "rainbow": "latest",
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "animate.css": "latest",
+    "jquery": "latest",
+    "jquery-ui": "latest",
+    "metisMenu": "latest",
+    "slimScroll": "latest",
+    "pace": "latest",
+    "oclazyload": "latest",
+    "nya-bootstrap-select": "latest",
+    "ckeditor": "latest",
+    "toastr": "latest",
+    "jquery.gritter": "latest",
+    "flot": "latest",
+    "flot.tooltip": "latest",
+    "flot-spline": "latest",
+    "peity": "latest",
+    "sparkline": "latest",
+    "jquery.sparkline.build": "latest",
+    "chart.js": "latest",
+    "footable": "latest",
+    "icheck": "latest",
+    "jquery.steps": "latest",
+    "jquery-validation": "latest",
+    "dropzone": "latest"
   }
 }

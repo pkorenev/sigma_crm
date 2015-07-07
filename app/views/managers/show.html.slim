@@ -1,0 +1,48 @@
+.wrapper.wrapper-content
+  .row.wrapper-content.animated.fadeInRight
+    .col-sm-4
+      .ibox.float-e-margins
+        div
+          .ibox-content.profile-content
+            .row.m-b-lg
+              .text-center
+                h2 = @resource.full_name
+                .m-b-sm
+                  img.img-circle alt="image" src="img/a2.jpg" style=("width: 62px")
+            h5
+              | Про менеджера
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.
+            .user-button
+              .row
+                .col-md-6
+                  button.btn.btn-primary.btn-sm.btn-block type="button"
+                    i.fa.fa-envelope
+                    | Надіслати повідомлення
+                .col-md-6
+                  = link_to edit_manager_url
+                    button.btn.btn-default.btn-sm.btn-block type="button"
+                      i.fa.fa-edit
+                      | Редагувати дані
+
+
+
+            strong Остання активність
+            #vertical-timeline.vertical-container.dark-timeline
+              .vertical-timeline-block
+                .vertical-timeline-icon.gray-bg
+                  i.fa.fa-coffee
+                .vertical-timeline-content
+                  p
+                    | Conference on the sales results for the previous year.
+                  span.vertical-date.small.text-muted 2:10 pm - 12.06.2014
+              .vertical-timeline-block
+                .vertical-timeline-icon.gray-bg
+                  i.fa.fa-briefcase
+                .vertical-timeline-content
+                  p
+                    | Many desktop publishing packages and web page editors now use Lorem.
+                  span.vertical-date.small.text-muted 4:20 pm - 10.05.2014
+
+    = render 'clients_list'
+

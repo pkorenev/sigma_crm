@@ -1,0 +1,12 @@
+= table_for @articles, [ 'Content', 'Name', 'Image'], model: Article do |article|
+  
+  = field article.content
+  
+  = field article.name
+  
+  = field article.image
+  
+
+  = field link_to('Show', article, class: 'show-button')
+  = field link_to('Edit', edit_article_path, class: 'edit-button')
+  = field link_to('Delete', article, class: 'delete-button')
