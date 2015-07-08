@@ -8,7 +8,8 @@
               .text-center
                 h2 = @resource.full_name
                 .m-b-sm
-                  img.img-circle alt="image" src="img/a2.jpg" style=("width: 62px")
+                  - asset = @resource.user_info.assets.first || @resource.user_info.assets.build
+                  img.img-circle alt="image" src=asset.data.url style=("width: 62px")
             h5
               | Про менеджера
             p

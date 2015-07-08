@@ -6,7 +6,8 @@
           = link_to manager
             .col-sm-4
               .text-center
-                img.img-circle.m-t-xs.img-responsive alt="image" src="img/a2.jpg" /
+                - asset = manager.user_info.assets.first || manager.user_info.assets.build
+                img.img-circle.m-t-xs.img-responsive alt="image" src=asset.data.url
                 .m-t-xs.font-bold = manager.class.to_s
             .col-sm-8
               h3

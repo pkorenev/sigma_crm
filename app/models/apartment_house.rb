@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: buildings
+#
+#  id             :integer          not null, primary key
+#  type           :string
+#  price          :integer
+#  price_currency :string
+#  status         :string
+#  parent_type    :string
+#  parent_id      :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  published      :boolean
+#
+
 class ApartmentHouse < Building
   has_one :apartment_house_details, autosave: true, class_name: "HouseDetails", as: :house
   attr_accessible :apartment_house_details

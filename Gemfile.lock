@@ -49,6 +49,9 @@ GEM
       tzinfo (~> 1.1)
     ajax-datatables-rails (0.3.0)
       railties (>= 3.1)
+    annotate (2.6.10)
+      activerecord (>= 3.2, <= 4.3)
+      rake (~> 10.4)
     arel (6.0.0)
     auto_build (0.5.0)
       rails (> 3.1.0)
@@ -252,6 +255,7 @@ PLATFORMS
 
 DEPENDENCIES
   ajax-datatables-rails
+  annotate
   auto_build
   bootstrap-sass (~> 3.3.0)
   bower-rails

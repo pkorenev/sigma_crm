@@ -19,27 +19,17 @@
               th data-hide="phone,tablet"  Статус Клієнта
               th data-sort-ignore="true"  Дія
             tbody
-              tr
-                td.client-avatar
-                  img alt="image" src="img/a2.jpg" /
-                td
-                  a.client-link data-toggle="tab" href="#contact-1"  Anthony Jackson
-                td VIP
-                td.client-status
-                  span.label.label-primary Вже купив
-                td
-                  .btn-group
-                    button.btn-white.btn.btn-xs Переглянути
-                    button.btn-white.btn.btn-xs Редагувати
-              tr
-                td.client-avatar
-                  img alt="image" src="img/a3.jpg" /
-                td
-                  a.client-link data-toggle="tab" href="#contact-2"  Rooney Lindsay
-                td Проблемні
-                td.client-status
-                  span.label.label-primary Вже купив
-                td
-                  .btn-group
-                    button.btn-white.btn.btn-xs Переглянути
-                    button.btn-white.btn.btn-xs Редагувати
+              - @resource.clients.each do |client|
+                tr
+                  td.client-avatar
+                    - asset = client.user_info.assets.first || client.user_info.assets.build
+                    = image_tag(asset.data.url)
+                  td
+                    a.client-link data-toggle="tab" href="#contact-1" = client.full_name
+                  td VIP
+                  td.client-status
+                    span.label.label-primary Вже купив
+                  td
+                    .btn-group
+                      button.btn-white.btn.btn-xs Переглянути
+                      button.btn-white.btn.btn-xs Редагувати
