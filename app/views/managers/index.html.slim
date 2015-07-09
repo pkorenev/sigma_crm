@@ -1,0 +1,31 @@
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    - for manager in @resources
+      .col-lg-4
+        .contact-box
+          = link_to manager
+            .col-sm-4
+              .text-center
+                - asset = manager.user_info.assets.first || manager.user_info.assets.build
+                img.img-circle.m-t-xs.img-responsive alt="image" src=asset.data.url
+                .m-t-xs.font-bold = manager.class.to_s
+            .col-sm-8
+              h3
+                strong = manager.full_name
+              p
+                i.fa.fa-map-marker
+                |
+                = manager.full_address
+              address
+                strong Twitter, Inc.
+                br
+                |
+                = manager.user_info.city
+                br
+                |
+                = manager.user_info.country
+                br
+                abbr title="Phone"  P:
+                |
+                = manager.phone
+            .clearfix
