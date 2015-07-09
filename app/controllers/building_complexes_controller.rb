@@ -1,4 +1,4 @@
-class BuildingComplexesController < BuildingsController
+class BuildingComplexesController < BuildingContainersController
 
   def index
     #@resources ||= BuildingComplex.all.limit(100)
@@ -7,7 +7,7 @@ class BuildingComplexesController < BuildingsController
 
   def resource_params
     super
-    params.require(resource_name).permit(:type, :price, :price_currency, :name, :country, :city, *(HouseDetails.details_attribute_names))
+    params.require(resource_name).permit(:full_description, :status, :type, :price, :price_currency, :name, :country, :city, *(HouseDetails.details_attribute_names), :avatar)
   end
 
   def resource_class

@@ -43,3 +43,5 @@ asset "jquery.steps"
 asset "jquery-validation"
 
 asset "dropzone"
+
+asset "jquery-form"

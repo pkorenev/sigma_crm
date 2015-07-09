@@ -1,4 +1,4 @@
-class ApartmentHousesController < BuildingsController
+class ApartmentHousesController < BuildingContainersController
   def resource_class
     ApartmentHouse
   end

@@ -1,0 +1,118 @@
+sass:
+  //.wizard-form
+    .steps
+      [role=tablist]
+        li
+          width: 20%
+  .wizard-form
+    fieldset
+      overflow-y: auto
+  .attachments-dropzone
+    min-height: 100%
+  .wizard > .content > .body
+    width: 100%
+
+  .filemanager-toolbar
+    .tool
+      display: inline-block
+      padding: 5px 10px
+      border: 1px solid lightgray
+      cursor: pointer
+      &:hover
+        background: rgba(#fff, 0.8)
+  .attachments-dropzone
+    background: none
+    border: 1px solid lightgray
+    .dz-preview.dz-image-preview
+      background: none
+    .dz-preview
+      &.ui-selected, &.xselectable-selected
+        background: lightblue
+
+    .xselectable-glass
+      background-color: transparent
+      z-index: 1000
+      cursor: hand
+      cursor: pointer
+
+    .xselectable-box
+      border: 1px dotted black
+      background-color: rgba(255, 255, 255, 0.5)
+      cursor: hand
+      cursor: pointer
+
+
+
+
+
+= simple_form_for(@resource, html: {class: "wizard-form wizard-big", form_role: params[:action], :"data-resources-name" => resources_name }) do |f|
+  /= f.error_notification
+
+
+
+  /.form-inputs
+
+  h1
+    |Основна інформація
+  fieldset
+    .row
+      .col-lg-6
+        - main_keys = %w(name main_purpose price_per_meter status building_start_date estimated_building_end_date_string presence_string latitude longitude)
+        - main_keys = main_keys.map(&:to_sym)
+
+        - main_required_all = false
+
+
+        - if @resource.respond_to?(:name)
+          = f.input :name, required: main_required_all
+        /= f.input :country, as: :select, collection: Address.countries_list, required: true
+        /= f.input :city, required: true
+        = f.input :main_purpose, required: main_required_all
+        = f.input :price_per_meter, label: raw(@resource.class.human_attribute_name(:price_per_meter)), required: main_required_all
+        /= f.input :price_per_meter_currency
+        = f.input :status, as: :select, collection: %w(Будується Побудовано), required: main_required_all
+        = f.input :building_start_date, required: main_required_all
+        = f.input :estimated_building_end_date_string, required: main_required_all
+        /= f.input :presence_string, required: main_required_all
+        = f.input :latitude, required: main_required_all
+        = f.input :longitude, required: main_required_all
+
+        /= f.cktext_area :presence_string
+        = f.input :avatar, as: :file do
+          = image_tag @resource.avatar.url
+          = f.input_field :avatar, as: :file
+
+
+
+
+
+
+
+  h1
+    |Технічна інформація
+  fieldset
+    - HouseDetails.details_attribute_names.select{|attr| !attr.in?(main_keys) && !attr.in?([:estimated_building_end_date, :price_per_meter_currency]) }.each do |attr|
+      = f.input attr
+  h1
+    |Атачменти
+  fieldset
+    .filemanager-toolbar
+      .tool.delete
+        .fa.fa-times.fa-1x
+        |видалити
+      /.tool.mark-for-avatar
+        |встановити як аватарку
+      /.tool.unmark-for-avatar
+        |відмінити як аватарку
+
+    div.dropzone.attachments-dropzone action="/building_complexes/new/assets"
+  h1
+    |Опис
+  fieldset
+    = f.input :full_description, as: :ckeditor
+  /h1
+    |Попередній перегляд
+  /fieldset
+
+  /.form-actions
+    = f.button :submit

@@ -1,0 +1,3 @@
+class BuildingContainersController < BuildingsController
+
+end

@@ -14,13 +14,18 @@ class AssetsController < ResourcesController
   end
 
   def index
-    @assetable.assets
+    @resources = @assetable.assets
   end
 
   def create
+    params[:data] = params.delete :file
     @resource ||= resource_class.new()
     @resource.assign_attributes(resource_params)
     @resource.assetable = @assetable
+    @resource.data = params[:data]
+
+
+    #render inline: params.keys.inspect
 
     respond_to do |format|
       if @resource.save

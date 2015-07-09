@@ -25,6 +25,10 @@ class Building < ActiveRecord::Base
   has_many :user_views, class_name: "BuildingView"
   has_many :users_viewed, through: :user_views, source: :building
 
+  has_attached_file :avatar
+  attr_accessible :avatar
+  do_not_validate_attachment_file_type :avatar
+
   belongs_to :parent
 
   auto_build :address
@@ -51,6 +55,8 @@ class Building < ActiveRecord::Base
       end
     end
   }
+
+
 
 end
 # rails g model UserAttribute attributtable_type:string attributtable_id:integer attribute_name:string attribute_type:string required:boolean

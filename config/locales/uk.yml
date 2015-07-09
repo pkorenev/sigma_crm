@@ -9,7 +9,7 @@ uk:
       apartment_house: "Багатоквартирний будинок"
       penthouse: "Особняк"
     attributes:
-      building_complex:
+      building:
         name: "Назва"
         country: "Країна"
         city: "Місто"
@@ -21,6 +21,24 @@ uk:
         presence_string: "Наявність"
         latitude: "Широта"
         longitude: "Довгота"
+
+        commercial_premises: "Комерційні приміщення"
+        levels_count: "Кількість поверхів"
+        apartments_count: "Кількість квартир"
+        sections_count: "Кількість секцій"
+        construction_description: "Конструкція"
+        construction_material_text: "Конструкційний матеріал"
+        exterior_walls_description: "Зовнішні стіни"
+        insulation_type_description: "Тип утеплення"
+        fasade_description: "Фасад"
+        windows_description: "Вікна"
+        parking_type_description: "Тип паркінгу"
+        roof_structure: "Конструкція даху"
+        level_height: "Висота поверху"
+        heating_type: "Тип опалення"
+        lifts_count: "Кількість ліфтів"
+        additional_description: "Додатковий опис"
+
 
   admin:
     new_resource: "Новий %{resource_name}"

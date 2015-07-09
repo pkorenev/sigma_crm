@@ -1,14 +1,14 @@
 - collection.each do |resource|
   tr
     td
-      = resource.name
+      = "#{resource.street}, #{resource.house_number}"
     td
       = resource.country
     td
       = resource.city
     td
       = "-"
-      /= resource.square
+    /= resource.square
     td
       = resource.price
 

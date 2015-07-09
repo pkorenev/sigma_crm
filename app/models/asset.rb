@@ -8,4 +8,6 @@ class Asset < ActiveRecord::Base
   # def method
   #   assetable.styles
   # end
+
+  do_not_validate_attachment_file_type :data
 end

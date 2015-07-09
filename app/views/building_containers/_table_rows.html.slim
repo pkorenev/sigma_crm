@@ -1,0 +1,25 @@
+- collection.each do |resource|
+  tr
+    td
+      = resource.id
+    td
+      = resource.name
+    /td
+      = resource.country
+    /td
+      = resource.city
+    td
+      = "-"
+      /= resource.square
+    td
+      = resource.price
+
+
+    td.text-right
+      .btn-group
+        a.btn-white.btn.btn-xs href=url_for(resource)
+          | View
+        a.btn-white.btn.btn-xs href=url_for([:edit, resource])
+          | Edit
+        a.btn-white.btn.btn-xs href=url_for(resource) role="delete"
+          | Delete

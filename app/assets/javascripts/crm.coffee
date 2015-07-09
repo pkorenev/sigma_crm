@@ -1,3 +1,4 @@
+#= require functions
 #= require jquery/dist/jquery.min.js
 #= require bootstrap/dist/js/bootstrap.min
 
@@ -25,6 +26,19 @@
 
 #= require dropzone/dist/min/dropzone.min.js
 
+# require ckeditor/ckeditor
+# require ckeditor/config.js
+#= require ckeditor/init
+
+#= require jquery.xselectable.min
+
+
 #= require inspinia
+
+# require jquery-ui/selectable
+
+#= require jquery-form/jquery.form
+
+#= require resources
 
 #= require crm_custom

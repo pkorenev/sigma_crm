@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :users, controllers: { sessions: "users/sessions" }
 
   # constraints for subdomains
@@ -29,5 +30,7 @@ Rails.application.routes.draw do
   # Site routes
 
   root to: "application#site_home"
+
+  match "*url", to: "application#render_not_found", via: [:get]
 
 end
