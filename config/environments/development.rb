@@ -41,4 +41,8 @@ Rails.application.configure do
   if ENV["DEFAULT_URL_OPTIONS_HOST"] != 'false'
     config.action_mailer.default_url_options ={host: ENV["DEFAULT_URL_OPTIONS_HOST"], port: (ENV["DEFAULT_URL_OPTIONS_PORT"] if ENV["DEFAULT_URL_OPTIONS_PORT"] != 'false') }
   end
+
+  Rails.application.configure do
+    config.react.variant = :development
+  end
 end

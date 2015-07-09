@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       get "skin-config", to: "crm#skin_config"
       root to: "dashboard#index", as: :crm_root
 
-      resources :clients, :articles, :managers, :buildings, :building_complexes, :penthouses, :apartments, :apartment_houses do
+      resources :clients, :managers, :buildings, :building_complexes, :penthouses, :apartments, :apartment_houses do
         resources :assets
       end
 

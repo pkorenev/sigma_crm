@@ -86,3 +86,5 @@ gem 'rabl-rails'
 gem 'responders'
 
 gem 'annotate'
+
+gem 'react-rails', '~> 1.0'
