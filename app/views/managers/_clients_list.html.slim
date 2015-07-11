@@ -1,0 +1,35 @@
+.col-sm-8
+  .ibox
+    .ibox-content
+      h2 Список Клієнтів
+      .input-group
+        input.input.form-control placeholder=("Шукати клієнта ") type="text" /
+        span.input-group-btn
+          button.btn.btn.btn-primary type="button"
+            i.fa.fa-search
+            | Знайти
+      br
+      .table-responsive
+        table.footable.table.table-stripped.toggle-arrow-tiny data-page-size="15"
+          thead
+            tr
+              th data-toggle="true"
+              th data-hide="phone"  Ім’я Клієнта
+              th data-hide="all"  Група Клієнтів
+              th data-hide="phone,tablet"  Статус Клієнта
+              th data-sort-ignore="true"  Дія
+            tbody
+              - @resource.clients.each do |client|
+                tr
+                  td.client-avatar
+                    - asset = client.user_info.assets.first || client.user_info.assets.build
+                    = image_tag(asset.data.url)
+                  td
+                    a.client-link data-toggle="tab" href="#contact-1" = client.full_name
+                  td VIP
+                  td.client-status
+                    span.label.label-primary Вже купив
+                  td
+                    .btn-group
+                      button.btn-white.btn.btn-xs Переглянути
+                      button.btn-white.btn.btn-xs Редагувати

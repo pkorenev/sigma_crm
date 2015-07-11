@@ -38,7 +38,7 @@ class Ability
     if user.instance_of?(Admin)
       can :manage, :users
     else
-      cannot :manage, :user
+      # cannot :manage, :user
     end
 
     if !user.instance_of?(Admin)

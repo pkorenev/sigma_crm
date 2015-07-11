@@ -84,3 +84,7 @@ gem "auto_build"
 gem 'rabl-rails'
 
 gem 'responders'
+
+gem 'annotate'
+
+gem 'react-rails', '~> 1.0'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150626093635) do
+ActiveRecord::Schema.define(version: 20150706120236) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 20150626093635) do
   add_index "agreements", ["building_id"], name: "index_agreements_on_building_id"
   add_index "agreements", ["client_id"], name: "index_agreements_on_client_id"
 
+  create_table "apartment_details", force: :cascade do |t|
+    t.integer  "level"
+    t.integer  "apartment_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "apartment_infos", force: :cascade do |t|
     t.text     "exterior_walls_description"
     t.text     "appartment_separator_walls_description"
@@ -63,6 +70,7 @@ ActiveRecord::Schema.define(version: 20150626093635) do
     t.string   "building_type"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
+    t.float    "square"
   end
 
   create_table "assets", force: :cascade do |t|
@@ -75,6 +83,26 @@ ActiveRecord::Schema.define(version: 20150626093635) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  create_table "building_complex_links", force: :cascade do |t|
+    t.integer  "building_id"
+    t.string   "building_type"
+    t.integer  "building_complex_id"
+    t.string   "building_complex_type"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "building_views", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "building_id"
+    t.boolean  "starred"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "building_views", ["building_id"], name: "index_building_views_on_building_id"
+  add_index "building_views", ["user_id"], name: "index_building_views_on_user_id"
 
   create_table "buildings", force: :cascade do |t|
     t.string   "type"
@@ -92,11 +120,13 @@ ActiveRecord::Schema.define(version: 20150626093635) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "type"
   end
 
   create_table "client_tags_link_table", force: :cascade do |t|
     t.integer "client_id"
     t.integer "client_tag_id"
+    t.string  "client_tag_type"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -110,16 +140,50 @@ ActiveRecord::Schema.define(version: 20150626093635) do
 
   add_index "comments", ["comment_author_id"], name: "index_comments_on_comment_author_id"
 
-  create_table "managers", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.text     "address"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+  create_table "house_details", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "house_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "price_per_meter"
+    t.string   "price_per_meter_currency"
+    t.date     "building_start_date"
+    t.date     "estimated_building_end_date"
+    t.string   "main_purpose"
+    t.string   "commercial_premises"
+    t.integer  "levels_count"
+    t.integer  "apartments_count"
+    t.integer  "sections_count"
+    t.text     "construction_description"
+    t.text     "construction_material_text"
+    t.text     "exterior_walls_description"
+    t.text     "insulation_type_description"
+    t.text     "fasade_description"
+    t.text     "windows_description"
+    t.text     "parking_type_description"
+    t.text     "roof_structure"
+    t.float    "level_height"
+    t.text     "heating_type"
+    t.integer  "lifts_count"
+    t.text     "additional_description"
+    t.string   "house_type"
+  end
+
+  create_table "manager_client_links", force: :cascade do |t|
+    t.integer  "client_id"
+    t.integer  "manager_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "manager_client_links", ["client_id"], name: "index_manager_client_links_on_client_id"
+  add_index "manager_client_links", ["manager_id"], name: "index_manager_client_links_on_manager_id"
+
+  create_table "penthouse_details", force: :cascade do |t|
+    t.integer  "levels"
+    t.integer  "penthouse_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -132,21 +196,6 @@ ActiveRecord::Schema.define(version: 20150626093635) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
-
-  create_table "simple_clients", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.text     "address"
-    t.text     "tags"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.integer  "age"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-  end
 
   create_table "user_infos", force: :cascade do |t|
     t.string   "first_name"
@@ -182,6 +231,9 @@ ActiveRecord::Schema.define(version: 20150626093635) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.string   "type"
+    t.string   "provider",               default: "", null: false
+    t.string   "uid",                    default: "", null: false
+    t.text     "tokens"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

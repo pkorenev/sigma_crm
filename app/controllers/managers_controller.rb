@@ -1,18 +1,8 @@
 class ManagersController < ResourcesController
-  before_action :set_manager, only: [:show, :edit, :update, :destroy]
   #before_action :authorize_to_users!
-  respond_to :json
 
-
-
-  def authorize_to_users!
-    if cannot?(:manage, :users)
-      render_unauthorized
-    end
-  end
-
-  def invite
-
+  def resource_class
+    Manager
   end
 
   private

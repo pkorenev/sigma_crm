@@ -12,6 +12,7 @@ class ResourcesController < CrmController
   # GET /clients/1
   # GET /clients/1.json
   def show
+    @resource ||= resource_class.find(params.id)
   end
 
   # GET /clients/new
