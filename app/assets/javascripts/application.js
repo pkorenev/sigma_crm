@@ -15,9 +15,6 @@
 //= require jquery_ujs
 // require turbolinks
 //= require bootstrap
-//= require react
-//= require react_ujs
-//= require components
 //= require rainbow/js/rainbow.min
 //= require rainbow/js/language/ruby
 //= require dataTables/jquery.dataTables

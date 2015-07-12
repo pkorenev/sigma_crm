@@ -14,5 +14,4 @@ class ClientTagLink < ActiveRecord::Base
   belongs_to :client
   belongs_to :client_tag, polymorphic: true
 
-
 end

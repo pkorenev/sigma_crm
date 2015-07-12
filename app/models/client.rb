@@ -33,12 +33,31 @@ class Client < User
   #has_and_belongs_to_many :client_status_tags, join_table: :client_tags_link_table
   has_many :client_status_tags, through: :client_tag_links, source: :client_tag, source_type: "ClientStatusTag"
   has_many :client_group_tags, through: :client_tag_links, source: :client_tag, source_type: "ClientGroupTag"
-
-
+  acts_as_taggable_on :group, :status
 
   #has_many :client_group_tags, join_table: :client_tags_link_table
 
   has_many :manager_client_links
   has_many :managers, through: :manager_client_links
+
+  def status_label
+    case self.status_list.first
+      when 'Bought' then 'label-primary'
+      when 'In Process' then 'label-warning'
+      when 'Booked' then 'label-danger'
+      else 'label-primary'
+    end
+  end
+
+  def group_text
+    case self.group_list.first
+      when 'Ok' then 'text-navy'
+      when 'VIP' then 'text-warning'
+      when 'Bad' then 'text-danger'
+      when 'Good' then 'text-success'
+      else 'label-primary'
+    end
+  end
+
 
 end

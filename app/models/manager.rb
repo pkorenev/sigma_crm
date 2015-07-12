@@ -32,5 +32,11 @@ class Manager < User
   has_many :manager_client_links
   has_many :clients, through: :manager_client_links
 
-  attr_accessible :first_name, :middle_name, :last_name, :phone, :country, :city
+  has_many :manager_company_links
+  has_many :companies, through: :manager_company_links
+
+  def company_name
+    self.companies.first.name unless self.companies.empty?
+  end
+
 end

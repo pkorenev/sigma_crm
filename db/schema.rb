@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706120236) do
+ActiveRecord::Schema.define(version: 20150712165348) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -140,11 +140,17 @@ ActiveRecord::Schema.define(version: 20150706120236) do
 
   add_index "comments", ["comment_author_id"], name: "index_comments_on_comment_author_id"
 
+  create_table "companies", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "house_details", force: :cascade do |t|
     t.string   "name"
     t.integer  "house_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "price_per_meter"
     t.string   "price_per_meter_currency"
     t.date     "building_start_date"
@@ -167,6 +173,10 @@ ActiveRecord::Schema.define(version: 20150706120236) do
     t.integer  "lifts_count"
     t.text     "additional_description"
     t.string   "house_type"
+    t.string   "presence_string"
+    t.string   "estimated_building_end_date_string"
+    t.string   "latitude"
+    t.string   "longitude"
   end
 
   create_table "manager_client_links", force: :cascade do |t|
@@ -178,6 +188,16 @@ ActiveRecord::Schema.define(version: 20150706120236) do
 
   add_index "manager_client_links", ["client_id"], name: "index_manager_client_links_on_client_id"
   add_index "manager_client_links", ["manager_id"], name: "index_manager_client_links_on_manager_id"
+
+  create_table "manager_company_links", force: :cascade do |t|
+    t.integer  "manager_id"
+    t.integer  "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "manager_company_links", ["company_id"], name: "index_manager_company_links_on_company_id"
+  add_index "manager_company_links", ["manager_id"], name: "index_manager_company_links_on_manager_id"
 
   create_table "penthouse_details", force: :cascade do |t|
     t.integer  "levels"
@@ -196,6 +216,33 @@ ActiveRecord::Schema.define(version: 20150706120236) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", force: :cascade do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+
+  create_table "things", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "user_infos", force: :cascade do |t|
     t.string   "first_name"

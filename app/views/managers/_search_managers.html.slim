@@ -1,0 +1,13 @@
+.ibox-content.m-b-sm.border-bottom
+  .row
+    .col-sm-8
+      .form-group
+        label.control-label for="product_name" Ім’я менеджера
+        input#search-manager.form-control.input-sm.m-b-xs placeholder=("Ім’я менеджера") type="text" /
+    .col-sm-4
+      .form-group
+        label.control-label for="status"  Компанія
+        select#manager-category.form-control name="status"
+          option[data-filter="0" selected="selected"] Всі компанії
+          - for company in @companies
+            option data-filter=company.name value=company.name = company.name

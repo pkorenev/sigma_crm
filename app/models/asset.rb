@@ -16,11 +16,9 @@
 class Asset < ActiveRecord::Base
   belongs_to :assetable, polymorphic: true
 
-  has_attached_file :data, :default_url => ActionController::Base.helpers.asset_path('default-avatar.jpg')
-
+  has_attached_file :data,
+                    :styles => { :thumb => "200x220#" },
+                    :default_url => ApplicationController.helpers.image_path('default-avatar.jpg')
+  do_not_validate_attachment_file_type :data
   attr_accessible :data
-  #
-  # def method
-  #   assetable.styles
-  # end
 end

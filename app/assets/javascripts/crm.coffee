@@ -28,3 +28,5 @@
 #= require inspinia
 
 #= require crm_custom
+
+#= require manager

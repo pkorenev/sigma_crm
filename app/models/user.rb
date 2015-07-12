@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
 
   auto_build :user_info
 
-
+  delegate :assets, to: :user_info
 
   validates :email, presence: true
 

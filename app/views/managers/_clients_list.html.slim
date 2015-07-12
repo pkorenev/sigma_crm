@@ -2,20 +2,15 @@
   .ibox
     .ibox-content
       h2 Список Клієнтів
-      .input-group
-        input.input.form-control placeholder=("Шукати клієнта ") type="text" /
-        span.input-group-btn
-          button.btn.btn.btn-primary type="button"
-            i.fa.fa-search
-            | Знайти
+      input#filter.form-control.input-sm.m-b-xs placeholder=("Search in table") type="text" /
       br
       .table-responsive
-        table.footable.table.table-stripped.toggle-arrow-tiny data-page-size="15"
+        table.footable.table.table-stripped.toggle-arrow-tiny data-filter="#filter" data-page-size="10"
           thead
             tr
-              th data-toggle="true"
-              th data-hide="phone"  Ім’я Клієнта
-              th data-hide="all"  Група Клієнтів
+              th data-sort-ignore="true"
+              th data-hide="phone" Ім’я Клієнта
+              th data-hide="phone"  Група Клієнтів
               th data-hide="phone,tablet"  Статус Клієнта
               th data-sort-ignore="true"  Дія
             tbody
@@ -26,10 +21,18 @@
                     = image_tag(asset.data.url)
                   td
                     a.client-link data-toggle="tab" href="#contact-1" = client.full_name
-                  td VIP
+                  td class=client.group_text = client.group_list.first
                   td.client-status
-                    span.label.label-primary Вже купив
+                    span.label class=client.status_label = client.status_list.first
                   td
                     .btn-group
                       button.btn-white.btn.btn-xs Переглянути
                       button.btn-white.btn.btn-xs Редагувати
+              tfoot
+                tr
+                  td colspan="6"
+                    ul.pagination.pull-right
+
+- content_for(:additional_scripts) do
+  script
+    |  $(document).ready(function() { $('.footable').footable(); });

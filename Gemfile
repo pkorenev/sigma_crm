@@ -87,4 +87,8 @@ gem 'responders'
 
 gem 'annotate'
 
-gem 'react-rails', '~> 1.0'
+gem 'acts-as-taggable-on', '~> 3.4'
+
+gem 'database_cleaner', '~> 1.4.1'
+
+gem 'rmagick'
