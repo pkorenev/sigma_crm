@@ -1,22 +1,20 @@
-
 - collection.each do |resource|
   tr
     td
-      |  Example product 1
+      = resource.full_name
     td
-      |  Model 1
+      = resource.client_group_tags.map(&:name).join(", ")
     td
-      |  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+      = resource.managers.map(&:full_name).join(", ")
     td
-      |  $50.00
-    td
-      |  1000
-    td
-      span.label.label-primary
-        | Enable
+      = resource.client_status_tags.map(&:name).join(", ")
+
+
     td.text-right
       .btn-group
-        button.btn-white.btn.btn-xs
+        a.btn-white.btn.btn-xs href=url_for(resource)
           | View
-        button.btn-white.btn.btn-xs
+        a.btn-white.btn.btn-xs href=url_for([:edit, resource])
           | Edit
+        a.btn-white.btn.btn-xs href=url_for(resource) role="delete"
+          | Delete

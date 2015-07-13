@@ -30,3 +30,5 @@
 #= require crm_custom
 
 #= require manager
+
+#= require clients

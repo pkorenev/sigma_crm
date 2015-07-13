@@ -1,5 +1,5 @@
-= render 'search_managers'
 .wrapper.wrapper-content.animated.fadeInRight
+  = render 'search_managers'
   .row
     - for manager in @resources
       .manager data-cat=manager.company_name
@@ -19,7 +19,7 @@
                   |
                   = manager.full_address
                 address
-                  strong Twitter, Inc.
+                  strong = manager.company_name
                   br
                   |
                   = manager.user_info.city
@@ -31,3 +31,7 @@
                   |
                   = manager.phone
               .clearfix
+
+/- content_for(:additional_scripts) do
+/  script
+/    |  $(document).ready(function(){ $('.contact-box').each(function() { animationHover(this, 'pulse'); }); });

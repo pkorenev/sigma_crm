@@ -17,17 +17,15 @@
             .user-button
               .row
                 .col-md-6
-                  button.btn.btn-primary.btn-sm.btn-block type="button"
-                    i.fa.fa-envelope
+                  button.btn.btn-primary type="button"
                     | Надіслати повідомлення
                 .col-md-6
                   = link_to edit_manager_url
-                    button.btn.btn-default.btn-sm.btn-block type="button"
-                      i.fa.fa-edit
+                    button.btn.btn-outline.btn-primary type="button"
                       | Редагувати дані
 
 
-
+            br
             strong Остання активність
             #vertical-timeline.vertical-container.dark-timeline
               .vertical-timeline-block
@@ -37,6 +35,13 @@
                   p
                     | Conference on the sales results for the previous year.
                   span.vertical-date.small.text-muted 2:10 pm - 12.06.2014
+              .vertical-timeline-block
+                .vertical-timeline-icon.navy-bg
+                  i.fa.fa-warning
+                .vertical-timeline-content
+                  p
+                    | The generated Lorem Ipsum is therefore.
+                  span.vertical-date.small.text-muted 02:50 pm - 03.10.2014
               .vertical-timeline-block
                 .vertical-timeline-icon.gray-bg
                   i.fa.fa-briefcase

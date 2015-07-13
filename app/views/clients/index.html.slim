@@ -1,0 +1,8 @@
+.wrapper.wrapper-content.animated.fadeInRight
+  = render "table_filters"
+  .row
+    =render "clients_list"
+
+- content_for(:additional_scripts) do
+  script
+    |  $(document).ready(function() { $('.footable').footable(); });

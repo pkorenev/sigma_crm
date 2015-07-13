@@ -38,7 +38,7 @@ end
 end
 
 
-200.times do |i|
+50.times do |i|
   c = Client.new
   c.email = "client#{i+1}@mail.com"
   c.password = "client12345"
@@ -59,7 +59,7 @@ end
   c.save!
 end
 
-50.times do
+200.times do
   Manager.find(rand(1..19)).clients << User.find(rand(21..70))
 end
 

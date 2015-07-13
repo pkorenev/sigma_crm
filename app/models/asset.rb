@@ -18,7 +18,9 @@ class Asset < ActiveRecord::Base
 
   has_attached_file :data,
                     :styles => { :thumb => "200x220#" },
-                    :default_url => ApplicationController.helpers.image_path('default-avatar.jpg')
+                    :default_url => ApplicationController.helpers.asset_path('default-avatar.jpg')
+
   do_not_validate_attachment_file_type :data
+
   attr_accessible :data
 end

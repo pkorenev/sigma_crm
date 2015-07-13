@@ -1,0 +1,20 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-8
+    h2
+      | Менеджери
+    ol.breadcrumb
+      li
+        a = link_to root_url
+          | Головна
+      li.active
+        strong
+          a = link_to managers_path
+            | Менеджери
+  .col-lg-4
+    .title-action[style="margin-right: 15px"]
+      a = link_to new_building_path
+        button.btn.btn-w-m.btn-warning[style="margin-right: 5px" type="button"]
+          | Нова Нерухомість
+      a = link_to new_client_path
+        button.btn.btn-w-m.btn-primary type="button"
+          | Новий Клієнт

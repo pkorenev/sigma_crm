@@ -1,0 +1,31 @@
+.ibox-content.m-b-sm.border-bottom
+  .row
+    .col-sm-3
+      .form-group
+        label.control-label[for="product_name"]
+          | Ім’я клієнта
+        input#client_name.form-control[type="text" name="client_name" value="" placeholder="Ім’я клієнта"]
+    .col-sm-3
+      .form-group
+        label.control-label[for="client_group"]
+          | Група клієнтів
+        select#client_group.form-control[name="client_group"]
+          option[data-filter="0" selected="selected"] Всі групи
+          - for group in @group_array
+            option data-filter=group value=group = group
+    .col-sm-3
+      .form-group
+        label.control-label[for="manager_connection"]
+          | Менеджер
+        select#manager_connection.form-control[name="manager_connection"]
+          option[data-filter="0" selected="selected"] Всі менеджери
+          - for manager in @managers
+            option data-filter=manager.full_name value=manager.full_name = manager.full_name
+    .col-sm-3
+      .form-group
+        label.control-label[for="status"]
+          | Статус клієнта
+        select#status.form-control[name="status"]
+          option[data-filter="0" selected="selected"] Всі Статуси
+          - for status in @status_array
+            option data-filter=status value=status = status

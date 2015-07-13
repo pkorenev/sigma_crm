@@ -1,28 +1,27 @@
-.col-sm-8
+.col-lg-12
   .ibox
     .ibox-content
-      h2 Список Клієнтів
-      input#filter.form-control.input-sm.m-b-xs placeholder=("Шукати клієнта") type="text" /
-      br
       .table-responsive
-        table.footable.table.table-stripped.toggle-arrow-tiny data-filter="#filter" data-page-size="15"
+        table.footable.table.table-stripped.toggle-arrow-tiny data-page-size="20"
           thead
             tr
               th data-sort-ignore="true"
               th data-hide="phone" Ім’я Клієнта
               th data-hide="phone"  Група Клієнтів
+              th data-hide="phone"  Приналежність до менеджера
               th data-hide="phone,tablet"  Статус Клієнта
               th data-sort-ignore="true"  Дія
             tbody
-              - @resource.clients.each do |client|
-                tr
+              - Client.all.each do |client|
+                tr.client data-group=client.group_list.first data-manager=client.manager_name data-status=client.status_list.first
                   td.client-avatar
                     - asset = client.assets.first || client.assets.build
                     a = link_to client
                       = image_tag(asset.data.url)
-                  td
+                  td.manager-name
                     a.client-link href=url_for(client) = client.full_name
                   td class=client.group_text = client.group_list.first
+                  td = client.manager_name
                   td.client-status
                     span.label class=client.status_label = client.status_list.first
                   td

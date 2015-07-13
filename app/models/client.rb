@@ -59,5 +59,7 @@ class Client < User
     end
   end
 
-
+  def manager_name
+    self.managers.first.full_name unless self.managers.empty?
+  end
 end
