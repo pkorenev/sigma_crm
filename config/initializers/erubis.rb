@@ -1,0 +1,1 @@
+#Erubis::Helpers::RailsHelper.init_properties = {:bufvar => '@output_buffer'}

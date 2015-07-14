@@ -1,0 +1,10 @@
+- collection.each do |resource|
+  tr
+    = td :name, :"data-toggle" => "true", resource: resource
+    = td :main_purpose, :"data-hide" => "phone", resource: resource
+    = td :status, resource: resource
+    = td :levels_count, resource: resource
+    = td :apartments_count, resource: resource
+    = td :sections_count, resource: resource
+    = td :buildings_count, resource_class: resource_class
+    = td_actions resource: resource

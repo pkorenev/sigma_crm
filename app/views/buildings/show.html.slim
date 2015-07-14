@@ -1,0 +1,38 @@
+.row
+  = render "show__main_info"
+  .col-lg-8
+    .ibox.init-collapsed
+      .ibox-title
+        h5
+          |Технічні характеристики
+        .ibox-tools
+          a.collapse-link
+            i.fa.fa-chevron-up
+          a.dropdown-toggle[data-toggle="dropdown" href="#"]
+      .ibox-content
+        = render "show_details"
+    .ibox.init-collapsed
+      .ibox-title
+        h5
+          |Атачменти
+        .ibox-tools
+          a.collapse-link
+            i.fa.fa-chevron-up
+          a.dropdown-toggle[data-toggle="dropdown" href="#"]
+      .ibox-content
+        .filemanager-toolbar
+          .tool.delete
+            .fa.fa-times.fa-1x
+            |видалити
+        div action=building_complex_assets_path(@resource) class="dropzone attachments-dropzone"
+    .ibox.init-collapsed
+      .ibox-title
+        h5
+          |Примітки
+        .ibox-tools
+          a.collapse-link
+            i.fa.fa-chevron-up
+          a.dropdown-toggle[data-toggle="dropdown" href="#"]
+      .ibox-content.forum-post-container
+        = render "show_comments"
+

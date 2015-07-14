@@ -1,0 +1,29 @@
+- if @resource.respond_to?(:comments)
+  .comments
+    - @resource.comments.each do |comment|
+      .media.comment
+        a.forum-avatar href="#"
+          img.img-circle alt="image" src="img/a1.jpg"
+          .author-info
+            strong Posts:
+            | 542
+            br
+            strong Joined:
+            | April 11.2015
+            br
+        .media-body
+          .title-and-text-container
+            - if comment.title.present?
+              h4.media-heading
+                = comment.title
+            .comment-text
+              = comment.comment_text
+          .comment-author
+            = link_to comment.comment_author.full_name, comment.comment_author
+        .clearfix
+  = simple_form_for @resource.comments.new, url: url_for([@resource, @resource.comments.new]) do |comment_form|
+    h2
+      |Новий коментар
+    = comment_form.input :title
+    = comment_form.input :comment_text, as: :text, required: true
+    = comment_form.button :submit, class: "btn-primary"

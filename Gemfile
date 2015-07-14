@@ -68,7 +68,9 @@ gem 'ajax-datatables-rails'
 gem "kaminari"
 
 
-gem 'simple_table_for', '~> 0.3.0'
+#gem 'simple_table_for'
+#gem "tabletastic"
+gem "table_cloth"
 
 gem 'faker'
 
@@ -86,3 +88,7 @@ gem 'rabl-rails'
 gem 'responders'
 
 gem 'ckeditor'
+
+gem 'keynote'
+
+gem 'docile'

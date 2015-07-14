@@ -9,13 +9,7 @@
     .col-lg-12
       .ibox
         .ibox-content
-          table.footable.table.table-stripped.toggle-arrow-tiny[data-page-size="15"]
-            thead
-              tr
-                = render "table_header"
-            tbody
-
-              = render "table_rows", collection: @resources
+          = render "index__table"
 
 
           /tr
@@ -44,5 +38,5 @@
               ul.pagination.pull-right
 
 - content_for(:additional_scripts) do
-  script
+  /script
     |  $(document).ready(function() { $('.footable').footable(); });

@@ -18,8 +18,11 @@ $(document).ready(function () {
     // MetsiMenu
     $('#side-menu').metisMenu();
 
+
+
     // Collapse ibox function
-    $('.collapse-link').click(function () {
+
+    $('.ibox').on("click", ".ibox-title", function () {
         var ibox = $(this).closest('div.ibox');
         var button = $(this).find('i');
         var content = ibox.find('div.ibox-content');
@@ -31,6 +34,8 @@ $(document).ready(function () {
             ibox.find('[id^=map-]').resize();
         }, 50);
     });
+
+    $(".ibox.init-collapsed .ibox-title").trigger("click")
 
     // Close ibox function
     $('.close-link').click(function () {

@@ -1,0 +1,22 @@
+.col-lg-4
+  .ibox
+    .ibox-title
+      .row
+        .col-lg-9
+          h5
+            = @resource.to_s
+        .col-lg-3
+          a.btn.btn-warning href=url_for([:edit, @resource])
+            |Редагувати
+    /= "#{@resource.street }, #{@resource.address}"
+    .ibox-content
+      .avatar
+        - if @resource.avatar.exists?
+          = image_tag @resource.avatar.url
+        - else
+          .no-image
+            .fa.fa-picture-o.fa-5x
+            br
+            .text
+              |картинка відсутня
+      = render "show__main_info_table_columns"

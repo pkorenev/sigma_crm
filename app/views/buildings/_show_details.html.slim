@@ -1,0 +1,14 @@
+/table.show-details
+  thead
+    th
+      |Назва поля
+    th
+      |Вміст поля
+  tbody
+    - arr = [:name, *HouseDetails.details_attribute_names]
+    - arr.each do |attr_name|
+      tr
+        td
+          = raw @resource.class.human_attribute_name(attr_name)
+        td
+          = @resource.send(attr_name)

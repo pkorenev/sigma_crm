@@ -1,6 +1,6 @@
 h1
-  = t("admin.new_resource", resource_name: t("activerecord.models.building_complex"))
+  = t("admin.new_resource", resource_name: t("activerecord.models.#{@resource.class.to_s.underscore}"))
 
 == render 'wizard'
 
-= link_to 'Back', clients_path
+= link_to 'Back', resources_path

@@ -1,6 +1,8 @@
 class ResourcesController < CrmController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
+
+
   #self.layout false
 
   # GET /clients
@@ -102,7 +104,7 @@ class ResourcesController < CrmController
     resource_name.pluralize
   end
 
-  helper_method :new_resource_path, :resource_name, :resources_name, :resources_path, :edit_resource_path
+  helper_method :new_resource_path, :resource_name, :resources_name, :resources_path, :edit_resource_path, :resource_class
 
   private
   # Use callbacks to share common setup or constraints between actions.

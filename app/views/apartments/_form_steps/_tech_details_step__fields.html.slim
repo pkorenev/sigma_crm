@@ -1,0 +1,9 @@
+/= ApartmentInfo.descriptive_attribute_names.inspect
+
+/- ApartmentDetails.descriptive_attribute_names.each do |attr|
+  = form.input attr
+
+= form.input :level, as: :integer
+
+- ApartmentInfo.descriptive_attribute_names.each do |attr|
+  = form.input attr

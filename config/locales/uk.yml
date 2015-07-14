@@ -22,6 +22,8 @@ uk:
         latitude: "Широта"
         longitude: "Довгота"
 
+        full_address: "Адреса"
+
         commercial_premises: "Комерційні приміщення"
         levels_count: "Кількість поверхів"
         apartments_count: "Кількість квартир"
@@ -39,6 +41,34 @@ uk:
         lifts_count: "Кількість ліфтів"
         additional_description: "Додатковий опис"
 
+      building_complex:
+        name: "Назва ЖК"
+  tables:
+    actions:
+      show: "Показати"
+      edit: "Редагувати"
+      delete: "Видалити"
+  wizard_titles:
+    building_complex:
+      new: "Форма створення ЖК"
+      edit: "Форма редагування ЖК"
+    apartment_house:
+      new: "Форма створення будинку"
+      edit: "Форма редагування будинку"
+    apartment:
+      new: "Форма створення квартири"
+      edit: "Форма редагування квартири"
+    penthouse:
+      new: "Форма створення особняка"
+      edit: "Форма редагування особняка"
+
 
   admin:
     new_resource: "Новий %{resource_name}"
+    edit_resource: "Редагувати %{resource_name}"
+
+  date:
+    order:
+      - :day
+      - :month
+      - :year

@@ -19,7 +19,7 @@
       .ibox
         .ibox-title
           h5
-            | Форма створення квартири
+            = t("wizard_titles.#{@resource.class.to_s.underscore}.#{params[:action]}")
           .ibox-tools
             a.collapse-link
               i.fa.fa-chevron-up
@@ -35,9 +35,9 @@
             a.close-link
               i.fa.fa-times
         .ibox-content
-          h2
-            |  Validation Wizard Form
-          p
+          /h2
+            | Візард
+          /p
             |  This example show how to use Steps with jQuery Validation plugin.
           = render "form"
 

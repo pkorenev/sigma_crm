@@ -1,0 +1,6 @@
+= simple_form_for(@resource, html: {class: "wizard-form wizard-big", form_role: params[:action], :"data-resources-name" => resources_name }) do |f|
+  = render "_form_steps/main_step", form: f
+  = render "_form_steps/tech_details_step", form: f
+  = render "_form_steps/attachments_step", form: f
+  = render "_form_steps/full_description_step", form: f
+

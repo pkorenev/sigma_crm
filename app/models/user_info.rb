@@ -15,10 +15,11 @@ class UserInfo < ActiveRecord::Base
 
   delegate_with_setter :street, :house_number, :apartment_number, :index, :city, :country, :full_address, to: :address, allow_nil: true
 
-
-
-
-  has_attached_file :avatar
-
   auto_build :address
+
+  def avatar_url
+    assets.first.try{|a| return a.data.url if a.data.exists?; return nil } || "/assets/img.jpg"
+  end
+
+
 end

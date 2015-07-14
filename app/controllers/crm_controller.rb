@@ -1,5 +1,5 @@
 class CrmController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
 
   self.layout "crm"
 
