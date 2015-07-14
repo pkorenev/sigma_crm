@@ -92,3 +92,5 @@ gem 'ckeditor'
 gem 'keynote'
 
 gem 'docile'
+
+gem 'annotate'

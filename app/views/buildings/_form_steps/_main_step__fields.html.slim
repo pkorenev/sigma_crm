@@ -10,7 +10,7 @@
 = form.input :main_purpose, required: main_required_all
 = form.input :price_per_meter, label: raw(@resource.class.human_attribute_name(:price_per_meter)), required: main_required_all
 = form.input :status, as: :select, collection: %w(Будується Побудовано), required: main_required_all
-= form.input :building_start_date, required: main_required_all, as: :string, class: "datepicker"
+= form.input :building_start_date_string, required: main_required_all
 = form.input :estimated_building_end_date_string, required: main_required_all
 = form.input :latitude, required: main_required_all
 = form.input :longitude, required: main_required_all
@@ -19,4 +19,10 @@
 = form.input :avatar, as: :file do
   = image_tag @resource.avatar.url
   = form.input_field :avatar, as: :file
+
+
+
+
+
+
 

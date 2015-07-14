@@ -68,9 +68,15 @@ $(document).ready(function () {
                         return !!v.length
                     }).join(", ")
 
+
+
                     update_ckeditors()
 
-                    var data = $form.serializeArray()
+                    var data = { }
+                    var resource_name = $form.attr("data-resource-name")
+                    //data[resource_name] =  $form.serializeArray()
+                    data = $form.serializeArray()
+
 
                     console.log("data:", data)
 
@@ -209,30 +215,34 @@ $(document).ready(function () {
 
         })
 
-        $.ajax(
-            {
-                dataType: "json",
-                type: "get",
-                url: $form.attr('action') + "/assets.json",
-                success: function (data) {
-                    var files = data
-                    var dz = window.attachments_drop_zone
-                    for (var i = 0; i < files.length; i++) {
-                        var file = files[i]
-                        var f = {name: file.url, size: file.data_file_size, id: file.id}
-                        console.log("f", f)
-                        //dz.addFile.call(dz, f);
+        if ($form.attr("form_role") != 'new') {
 
 
-                        dz.files.push(f)
-                        dz.options.addedfile.call(dz, f);
-                        dz.options.thumbnail.call(dz, f, file.thumb_url);
-                        dz.options.complete.call(dz, f)
+            $.ajax(
+                {
+                    dataType: "json",
+                    type: "get",
+                    url: $form.attr('action') + "/assets.json",
+                    success: function (data) {
+                        var files = data
+                        var dz = window.attachments_drop_zone
+                        for (var i = 0; i < files.length; i++) {
+                            var file = files[i]
+                            var f = {name: file.url, size: file.data_file_size, id: file.id}
+                            console.log("f", f)
+                            //dz.addFile.call(dz, f);
 
+
+                            dz.files.push(f)
+                            dz.options.addedfile.call(dz, f);
+                            dz.options.thumbnail.call(dz, f, file.thumb_url);
+                            dz.options.complete.call(dz, f)
+
+                        }
                     }
                 }
-            }
-        )
+            )
+        }
     }
 
     var $dz = $(".attachments-dropzone")

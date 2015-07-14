@@ -18,6 +18,7 @@ uk:
         status: "Статус"
         building_start_date: "Початок будівництва"
         estimated_building_end_date_string: "Термін здачі"
+        estimated_building_end_date: "Термін здачі"
         presence_string: "Наявність"
         latitude: "Широта"
         longitude: "Довгота"
@@ -40,6 +41,14 @@ uk:
         heating_type: "Тип опалення"
         lifts_count: "Кількість ліфтів"
         additional_description: "Додатковий опис"
+
+
+        square: "Площа"
+        rooms_count: "Кількість кімнат"
+
+        full_description: "Повний опис"
+
+
 
       building_complex:
         name: "Назва ЖК"

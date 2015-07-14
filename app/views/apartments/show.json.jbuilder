@@ -1,3 +1,3 @@
 arr = [:exterior_walls_description, :appartment_separator_walls_description, :appartment_inner_separator_walls_description, :height_description, :filling_openings_in_walls_description, :phone_description, :internet_description, :tv_description, :kitchen_stove_description, :wiring_description, :plumbing_description, :heating_description, :ventilation_description, :water_supply_description, :meters_description, :internal_sewer_system_description, :internal_finishing_work_description, :beautification_description, :additional_info]
 
-json.extract! @building, :id, :type, :price, :price_currency, :created_at, :updated_at, *arr, :level, :street, :house_number, :apartment_number, :index, :city, :country, :full_address
+json.extract! @resource, :id, :type, :price, :price_currency, :created_at, :updated_at, *arr, :level, :street, :house_number, :apartment_number, :index, :city, :country, :full_address
