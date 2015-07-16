@@ -1,11 +1,13 @@
 uk:
   activerecord:
     models:
-      appartment: "Квартира"
+      apartment:
+        one: "Квартира"
+        many: "Квартири"
       penthouse: "Особняк"
-      client: "клієнт"
+      client: "Клієнт"
       building_complex: "Житловий комплекс"
-      apartment: "квартира"
+      apartment: "Квартира"
       apartment_house: "Багатоквартирний будинок"
       penthouse: "Особняк"
     attributes:
@@ -33,7 +35,7 @@ uk:
         construction_material_text: "Конструкційний матеріал"
         exterior_walls_description: "Зовнішні стіни"
         insulation_type_description: "Тип утеплення"
-        fasade_description: "Фасад"
+        facade_description: "Фасад"
         windows_description: "Вікна"
         parking_type_description: "Тип паркінгу"
         roof_structure: "Конструкція даху"
@@ -42,11 +44,48 @@ uk:
         lifts_count: "Кількість ліфтів"
         additional_description: "Додатковий опис"
 
+        building_start_date_string: "Початок будівництва"
 
-        square: "Площа"
-        rooms_count: "Кількість кімнат"
+
+        level: "Поверх"
+
+
+        price: "Ціна"
 
         full_description: "Повний опис"
+
+        avatar: "Аватарка"
+        
+        
+        
+        additional_info: "Додаткова інформація"
+        apartment_inner_separator_walls_description: "Внутрішньоквартирні перегородки"
+        apartment_separator_walls_description: "Міжквартирні стіни"
+        apartment_type: "Тип квартири"
+        beautification_description: "Благоустрій"
+        building_code_number: "№ Приміщення (будівельний)"
+        exterior_walls_description: "Зовнішні стіни"
+        filling_openings_in_walls_description: "Заповнення прорізів у стінах"
+        heating_description: "Система опалення"
+        height_description: "Висота"
+        internal_finishing_work_description: "Внутрішні оздоблювальні роботи"
+        internal_sewer_system_description: "Система внутрішньої побутової каналізації"
+        internet_description: "Інтернет"
+        kitchen_stove_description: "Тип кухонної плити"
+        live_square: "Житлова площа, м<sup>2</sup>"
+        meters_description: "Встановлення лічильників"
+        phone_description: "Телефонія"
+        plumbing_description: "Сантехнічні прилади"
+        rooms_count: "Кількість кімнат"
+        section_number: "Секція (будівельний номер)"
+        square: "Площа"
+        state: "Стан, в якому здається квартира"
+        total_square: "Загальна площа, м<sup>2</sup>"
+        tv_description: "Телебачення"
+
+        ventilation_description: "Вентиляція"
+        water_supply_description: "Внутрішні системи холодного та гарячого водопостачання"
+        wiring_description: "Електропроводка"
 
 
 
@@ -81,3 +120,17 @@ uk:
       - :day
       - :month
       - :year
+
+  #breadcrumbs:
+  #  buildings: "Нерухомість"
+
+  models:
+    apartment:
+      1: "Квартира"
+      2: "Квартири"
+      5: "Квартир"
+      new: "Нова квартира"
+
+
+  breadcrumbs:
+    buildings: "Нерухомість"

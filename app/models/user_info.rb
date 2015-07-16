@@ -2,17 +2,17 @@
 #
 # Table name: user_infos
 #
-#  id                    :integer          not null, primary key
+#  birthday              :date
+#  created_at            :datetime         not null
 #  first_name            :string
+#  id                    :integer          not null, primary key
+#  identification_number :string
 #  last_name             :string
 #  middle_name           :string
-#  identification_number :string
 #  phone                 :string
-#  birthday              :date
-#  user_type             :string
-#  user_id               :integer
-#  created_at            :datetime         not null
 #  updated_at            :datetime         not null
+#  user_id               :integer
+#  user_type             :string
 #
 
 class UserInfo < ActiveRecord::Base

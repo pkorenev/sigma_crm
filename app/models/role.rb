@@ -2,11 +2,11 @@
 #
 # Table name: roles
 #
+#  created_at    :datetime
 #  id            :integer          not null, primary key
 #  name          :string
 #  resource_id   :integer
 #  resource_type :string
-#  created_at    :datetime
 #  updated_at    :datetime
 #
 

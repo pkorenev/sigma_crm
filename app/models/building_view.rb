@@ -2,12 +2,12 @@
 #
 # Table name: building_views
 #
-#  id          :integer          not null, primary key
-#  user_id     :integer
 #  building_id :integer
-#  starred     :boolean
 #  created_at  :datetime         not null
+#  id          :integer          not null, primary key
+#  starred     :boolean
 #  updated_at  :datetime         not null
+#  user_id     :integer
 #
 
 class BuildingView < ActiveRecord::Base

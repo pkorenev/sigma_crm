@@ -2,10 +2,10 @@
 #
 # Table name: client_tags_link_table
 #
-#  id              :integer          not null, primary key
 #  client_id       :integer
 #  client_tag_id   :integer
 #  client_tag_type :string
+#  id              :integer          not null, primary key
 #
 
 class ClientTagLink < ActiveRecord::Base

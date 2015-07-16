@@ -2,14 +2,16 @@
   .col-lg-10
     h2
       | E-commerce product list
-    ol.breadcrumb
-      li
-        a[href="index.html"]
-          | Home
-      li
-        a
-          | E-commerce
-      li.active
-        strong
-          | Product list
+    - if @breadcrumbs.try(&:any?)
+      ol.breadcrumb
+        - @breadcrumbs.each_with_index do |b, i|
+          - last = i + 1 == @breadcrumbs.length
+          li class=("active" if last)
+            a href=(b[:url] if b[:url].present? && !last)
+              - if last
+                strong
+                  = b[:name]
+              - else
+                = b[:name]
+
   .col-lg-2

@@ -5,5 +5,22 @@
 
 = form.input :level, as: :integer
 
-- ApartmentInfo.descriptive_attribute_names.each do |attr|
+/- ApartmentInfo.descriptive_attribute_names.each do |attr|
   = form.input attr
+
+
+
+= form.input :apartment_type, label: raw(resource_class.human_attribute_name(:apartment_type))
+= form.input :rooms_count, as: :integer, label: raw(resource_class.human_attribute_name(:rooms_count))
+= form.input :state, as: :text, label: raw(resource_class.human_attribute_name(:state))
+= form.input :total_square, as: :float, label: raw(resource_class.human_attribute_name(:total_square))
+= form.input :live_square, as: :float, label: raw(resource_class.human_attribute_name(:live_square))
+= form.input :building_code_number, as: :integer, label: raw(resource_class.human_attribute_name(:building_code_number))
+
+- fields = [:exterior_walls_description, :apartment_separator_walls_description, :apartment_inner_separator_walls_description, :height_description, :filling_openings_in_walls_description, :phone_description, :internet_description, :tv_description, :kitchen_stove_description, :wiring_description, :plumbing_description, :heating_description, :ventilation_description, :water_supply_description, :meters_description, :internal_sewer_system_description, :internal_finishing_work_description, :beautification_description, :additional_info]
+- fields.each do |f|
+  = form.input f, as: :text, label: raw(resource_class.human_attribute_name(f))
+
+
+
+/= form.input :square, as: :float, label: raw(resource_class.human_attribute_name(:apartment_type))

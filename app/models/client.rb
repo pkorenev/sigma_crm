@@ -2,30 +2,30 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
+#  created_at             :datetime         not null
+#  current_sign_in_at     :datetime
+#  current_sign_in_ip     :string
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  reset_password_token   :string
-#  reset_password_sent_at :datetime
-#  remember_created_at    :datetime
-#  sign_in_count          :integer          default(0), not null
-#  current_sign_in_at     :datetime
-#  last_sign_in_at        :datetime
-#  current_sign_in_ip     :string
-#  last_sign_in_ip        :string
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
-#  invitation_token       :string
-#  invitation_created_at  :datetime
-#  invitation_sent_at     :datetime
+#  id                     :integer          not null, primary key
 #  invitation_accepted_at :datetime
+#  invitation_created_at  :datetime
 #  invitation_limit       :integer
+#  invitation_sent_at     :datetime
+#  invitation_token       :string
 #  invited_by_id          :integer
 #  invited_by_type        :string
-#  type                   :string
+#  last_sign_in_at        :datetime
+#  last_sign_in_ip        :string
 #  provider               :string           default(""), not null
-#  uid                    :string           default(""), not null
+#  remember_created_at    :datetime
+#  reset_password_sent_at :datetime
+#  reset_password_token   :string
+#  sign_in_count          :integer          default(0), not null
 #  tokens                 :text
+#  type                   :string
+#  uid                    :string           default(""), not null
+#  updated_at             :datetime         not null
 #
 
 class Client < User

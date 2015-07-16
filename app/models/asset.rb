@@ -2,14 +2,14 @@
 #
 # Table name: assets
 #
-#  id                :integer          not null, primary key
-#  data_file_name    :string
+#  assetable_id      :integer
+#  assetable_type    :string
+#  created_at        :datetime         not null
 #  data_content_type :string
+#  data_file_name    :string
 #  data_file_size    :integer
 #  data_updated_at   :datetime
-#  assetable_type    :string
-#  assetable_id      :integer
-#  created_at        :datetime         not null
+#  id                :integer          not null, primary key
 #  updated_at        :datetime         not null
 #
 

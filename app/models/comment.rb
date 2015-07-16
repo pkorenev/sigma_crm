@@ -2,14 +2,14 @@
 #
 # Table name: comments
 #
-#  id                :integer          not null, primary key
-#  commentable_type  :string
-#  commentable_id    :integer
-#  comment_text      :text
 #  comment_author_id :integer
+#  comment_text      :text
+#  commentable_id    :integer
+#  commentable_type  :string
 #  created_at        :datetime         not null
-#  updated_at        :datetime         not null
+#  id                :integer          not null, primary key
 #  title             :string
+#  updated_at        :datetime         not null
 #
 
 class Comment < ActiveRecord::Base

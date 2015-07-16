@@ -1,24 +1,4 @@
 table.show-item-main-info
-  tr
-    td
-      |Статус:
-    td
-      = @resource.status
-  tr
-    td
-      |Ціна:
-    td
-      = @resource.price
-  tr
-    td
-      |Початок будівництва:
-    td
-      = @resource.building_start_date
-  tr
-    td
-      |Термін завершення:
-    td
-      = @resource.estimated_building_end_date_string
-/= table_block @resource, class: "show-item-main-info" do |t|
-  - t.field :status
-
+  = vertical_table_field :status, resource: @resource
+  = vertical_table_field :price, resource: @resource
+  = vertical_table_field :square, resource: @resource

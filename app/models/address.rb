@@ -2,16 +2,18 @@
 #
 # Table name: addresses
 #
-#  id               :integer          not null, primary key
-#  street           :string
-#  house_number     :integer
-#  apartment_number :integer
-#  index            :integer
-#  city             :string
-#  country          :string
 #  addressable_id   :integer
 #  addressable_type :string
+#  apartment_number :integer
+#  city             :string
+#  country          :string
 #  created_at       :datetime         not null
+#  house_number     :integer
+#  id               :integer          not null, primary key
+#  index            :integer
+#  latitude         :float
+#  longitude        :float
+#  street           :string
 #  updated_at       :datetime         not null
 #
 
@@ -22,6 +24,12 @@ class Address < ActiveRecord::Base
   belongs_to :addressable, polymorphic: true, foreign_key: :addressable_id
   attr_accessible :addressable
 
+  attr_accessible :coordinates
+
+
+  def self.form_fields
+      [:city, :country, :index, :street, :house_number, :apartment_number, :coordinates]
+  end
 
 
   def full_address
@@ -53,8 +61,14 @@ class Address < ActiveRecord::Base
     end
 
     res
+  end
 
+  def coordinates
+      "#{latitude}, #{longitude}"
+  end
 
+  def coordinates=(value)
+      self.latitude, self.longitude = value.split(',')
   end
 
   def self.countries_list

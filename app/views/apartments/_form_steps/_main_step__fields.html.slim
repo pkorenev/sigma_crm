@@ -3,4 +3,8 @@
 
 - apartment = present(:apartment, form, @resource)
 
+= form.association :parent, collection: BuildingComplex.all
+= form.input :price
+= apartment.form_address
+= apartment.form_status
 = apartment.form_avatar

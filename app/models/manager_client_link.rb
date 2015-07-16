@@ -2,10 +2,10 @@
 #
 # Table name: manager_client_links
 #
-#  id         :integer          not null, primary key
 #  client_id  :integer
-#  manager_id :integer
 #  created_at :datetime         not null
+#  id         :integer          not null, primary key
+#  manager_id :integer
 #  updated_at :datetime         not null
 #
 

@@ -140,10 +140,9 @@ module ResourcesHelper
     klass = resource.class
     label = klass.human_attribute_name(field_name)
     content_tag :tr do
-
-      content_tag :td, label
+      content_tag(:td, label) +
       content_tag(:td, content).html_safe
-    end
+    end.html_safe
 
   end
 

@@ -1,5 +1,6 @@
 class CrmController < ApplicationController
   before_action :authenticate_user!
+  before_action :create_breadcrumbs
 
   self.layout "crm"
 
@@ -9,6 +10,12 @@ class CrmController < ApplicationController
 
   def skin_config
     render template: "layouts/skin_config.html.slim", layout: false
+  end
+
+  private
+
+  def create_breadcrumbs
+    @breadcrumbs = []
   end
 
 end

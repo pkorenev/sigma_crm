@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: manager_client_links
+#
+#  client_id  :integer
+#  created_at :datetime         not null
+#  id         :integer          not null, primary key
+#  manager_id :integer
+#  updated_at :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

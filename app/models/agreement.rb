@@ -2,13 +2,13 @@
 #
 # Table name: agreements
 #
-#  id           :integer          not null, primary key
 #  building_id  :integer
 #  client_id    :integer
-#  manager_type :string
-#  manager_id   :integer
-#  set_at       :datetime
 #  created_at   :datetime         not null
+#  id           :integer          not null, primary key
+#  manager_id   :integer
+#  manager_type :string
+#  set_at       :datetime
 #  updated_at   :datetime         not null
 #
 
