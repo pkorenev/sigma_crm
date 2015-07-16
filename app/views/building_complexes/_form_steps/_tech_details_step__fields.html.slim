@@ -1,0 +1,8 @@
+/- [:commercial_premises, :levels_count, :apartments_count, :sections_count, :construction_description, :construction_material_text, :exterior_walls_description, :insulation_type_description, :facade_description, :windows_description, :parking_type_description, :roof_structure, :level_height, :heating_type, :lifts_count, :additional_description].each do |attr|
+  = form.input attr, label: raw(form.object.class.human_attribute_name(attr, locale: I18n.locale))
+
+- resource_presenter = present(:building_complex, form, @resource)
+
+= resource_presenter.form_infrastructure
+
+= resource_presenter.form_house_tech_parameters

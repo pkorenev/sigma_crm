@@ -28,7 +28,7 @@ class Address < ActiveRecord::Base
 
 
   def self.form_fields
-      [:city, :country, :index, :street, :house_number, :apartment_number, :coordinates]
+      [:city, :country, :index, :street, :house_number, :apartment_number, :coordinates, :latitude, :longitude]
   end
 
 
@@ -64,7 +64,11 @@ class Address < ActiveRecord::Base
   end
 
   def coordinates
-      "#{latitude}, #{longitude}"
+      if latitude.present? && longitude.present?
+          "#{latitude}, #{longitude}"
+      else
+        nil
+      end
   end
 
   def coordinates=(value)

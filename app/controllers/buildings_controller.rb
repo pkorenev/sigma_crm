@@ -29,7 +29,7 @@ class BuildingsController < ResourcesController
 
   def resource_params
     super
-    params.permit(resource_name).permit(Address.form_fields)
+    params.permit(resource_name).permit(Address.form_fields, :utf8, :_method, :authenticity_token, :building_complex, :format, :id, :latitude, :longitude, :avatar)
     #params.permit(:avatar)
     #params.require(resource_name).permit(:avatar)
   end

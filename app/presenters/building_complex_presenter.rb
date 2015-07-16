@@ -1,0 +1,3 @@
+class BuildingComplexPresenter < BuildingContainerPresenter
+
+end

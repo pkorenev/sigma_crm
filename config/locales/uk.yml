@@ -24,8 +24,12 @@ uk:
         presence_string: "Наявність"
         latitude: "Широта"
         longitude: "Довгота"
+        coordinates: "GPS-координати"
 
         full_address: "Адреса"
+        apartment_number: "Номер квартири"
+
+
 
         commercial_premises: "Комерційні приміщення"
         levels_count: "Кількість поверхів"
@@ -45,6 +49,8 @@ uk:
         additional_description: "Додатковий опис"
 
         building_start_date_string: "Початок будівництва"
+
+        playground: "Дитячий майданчик"
 
 
         level: "Поверх"
@@ -130,6 +136,11 @@ uk:
       2: "Квартири"
       5: "Квартир"
       new: "Нова квартира"
+    apartment_house:
+      1: "Житловий будинок"
+      2: "Житлові будинки"
+      5: "Житлових будинків"
+      new: "Новий житловий будинок"
 
 
   breadcrumbs:

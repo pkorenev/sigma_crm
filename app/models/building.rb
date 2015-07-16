@@ -39,7 +39,7 @@ class Building < ActiveRecord::Base
   has_one :building_complex, through: :building_complex_link
 
 
-  delegate_with_setter :street, :house_number, :apartment_number, :index, :city, :country, to: :address, allow_nil: true
+  delegate_with_setter *Address.form_fields, to: :address, allow_nil: true
   delegate :full_address, to: :address, allow_nil: true
 
   has_many :user_views, class_name: "BuildingView"
