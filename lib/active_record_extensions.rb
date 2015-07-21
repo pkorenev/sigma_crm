@@ -10,6 +10,10 @@ module ActiveRecordExtensions
     end
 
     def human_model_name(options = 1)
+      if options.is_a?(Symbol) || options.is_a?(String)
+        return I18n.t("models.#{name.underscore}.#{options}")
+      end
+
       if options.is_a?(Numeric)
         count = options
       end

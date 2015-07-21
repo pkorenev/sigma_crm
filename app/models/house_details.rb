@@ -25,6 +25,7 @@
 #  main_purpose                       :string
 #  name                               :string
 #  parking_type_description           :text
+#  playground                         :text
 #  presence_string                    :string
 #  price_per_meter                    :integer
 #  price_per_meter_currency           :string

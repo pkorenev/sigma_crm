@@ -28,6 +28,11 @@ class ApartmentHouse < Building
   belongs_to :parent, polymorphic: true, foreign_key: :parent_id, class_name: "Building"
   has_many :children, class_name: "Building", as: :parent
 
+  belongs_to :building_complex, polymorphic: true, foreign_key: :parent_id, class_name: "BuildingComplex"
+
+  has_many :apartments, class_name: "Apartment", as: :parent
+  #, conditions: ["'parent_type' == ?", "ApartmentHouse"]
+
 
   delegate_with_setter *(HouseDetails.details_attribute_names), to: :apartment_house_details, allow_nil: true
 
@@ -35,6 +40,18 @@ class ApartmentHouse < Building
     {
         avatar: "400x200"
     }
+  end
+
+  def house_address
+    if street.present? && house_number.present?
+      "#{street}, #{house_number}"
+    else
+      nil
+    end
+  end
+
+  def house_address=(value)
+
   end
 
 end

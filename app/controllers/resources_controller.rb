@@ -106,7 +106,7 @@ class ResourcesController < CrmController
 
   helper_method :new_resource_path, :resource_name, :resources_name, :resources_path, :edit_resource_path, :resource_class
 
-  private
+  protected
   # Use callbacks to share common setup or constraints between actions.
   def set_resource
     @resource ||= resource_class.find(params[:id])
@@ -114,6 +114,7 @@ class ResourcesController < CrmController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def resource_params
-    params[resource_name.to_sym]
+    #params[resource_name.to_sym]
+    params.require(resource_name).permit(*resource_class.accessible_attributes)
   end
 end

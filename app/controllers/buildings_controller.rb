@@ -6,7 +6,7 @@ class BuildingsController < ResourcesController
   before_action :edit_breadcrumbs, only: :edit
 
   def new_breadcrumbs
-    @breadcrumbs << {name: t("models.#{resource_class.name.underscore}.new")}
+    @breadcrumbs << {name: resource_class.human_model_name(:new)}
   end
 
   def show_breadcrumbs
@@ -15,7 +15,7 @@ class BuildingsController < ResourcesController
 
   def edit_breadcrumbs
     @breadcrumbs << {name: @resource.to_s, url: url_for(@resource)}
-    @breadcrumbs << {name: @resource.to_s}
+    @breadcrumbs << {name: "Редагування"}
   end
 
   def resource_class
@@ -23,13 +23,13 @@ class BuildingsController < ResourcesController
   end
 
   def index
-    @resources ||= resource_class.all.includes(:address)#.limit(100)
+    @resources ||= resource_class.all.includes(:address).order("id desc")#.limit(100)
 
   end
 
   def resource_params
     super
-    params.permit(resource_name).permit(Address.form_fields, :utf8, :_method, :authenticity_token, :building_complex, :format, :id, :latitude, :longitude, :avatar)
+    #params.require(resource_name).permit(*Address.form_fields, :utf8, :_method, :authenticity_token, :building_complex, :format, :id, :latitude, :longitude, :avatar)
     #params.permit(:avatar)
     #params.require(resource_name).permit(:avatar)
   end

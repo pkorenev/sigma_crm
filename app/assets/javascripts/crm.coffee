@@ -40,5 +40,6 @@
 #= require jquery-form/jquery.form
 
 #= require resources
+#= require buildings
 
 #= require crm_custom

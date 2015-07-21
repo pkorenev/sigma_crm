@@ -18,24 +18,26 @@ class AssetsController < NestedResourcesController
   # end
   #
   def create
-    params[:data] = params.delete :file
-    @resource ||= resource_class.new()
-    @resource.assign_attributes(resource_params)
-    @resource.assetable = @assetable
-    @resource.data = params[:data]
-
-
-    #render inline: params.keys.inspect
-
-    respond_to do |format|
-      if @resource.save
-        format.html { redirect_to @resource, notice: "#{resource_class.to_s} was successfully created." }
-        format.json { render :show, status: :created }
-      else
-        format.html { render :new }
-        format.json { render json: @resource.errors, status: :unprocessable_entity }
-      end
-    end
+    params[:data] = params.delete(:file)
+    super
+    # params[:data] = params.delete :file
+    # @resource ||= resource_class.new()
+    # @resource.assign_attributes(resource_params)
+    # @resource.assetable = @assetable
+    # @resource.data = params[:data]
+    #
+    #
+    # #render inline: params.keys.inspect
+    #
+    # respond_to do |format|
+    #   if @resource.save
+    #     format.html { redirect_to @resource, notice: "#{resource_class.to_s} was successfully created." }
+    #     format.json { render :show, status: :created }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @resource.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
   #
   #
@@ -48,5 +50,8 @@ class AssetsController < NestedResourcesController
     Asset
   end
 
+  def resource_params
+    params.permit(:file, :building_complex_id, :format, :data)
+  end
 
 end

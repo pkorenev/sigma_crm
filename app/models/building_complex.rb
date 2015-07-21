@@ -38,6 +38,7 @@ class BuildingComplex < Building
 
   #belongs_to :parent, polymorphic: true, foreign_key: :parent_id, class_name: "Building"
   has_many :children, class_name: "Building", as: :parent
+  has_many :apartment_houses, class_name: "ApartmentHouse", as: :building_complex
 
   
 
@@ -61,6 +62,10 @@ class BuildingComplex < Building
   #   buildings.where(type: "Apartment")
   #   ActiveRecord::Associations::CollectionProxy
   # end
+
+  def to_s
+    name
+  end
 end
 
 #

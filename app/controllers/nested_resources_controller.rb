@@ -51,4 +51,9 @@ class NestedResourcesController < ResourcesController
   def nestable_attr_name
     resource_name + "able"
   end
+
+
+  def resource_params
+    params.require(resource_name).permit(*resource_class.accessible_attributes)
+  end
 end

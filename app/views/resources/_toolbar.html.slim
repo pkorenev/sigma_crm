@@ -2,4 +2,4 @@
   .row
     /= @resources.inspect
     a.btn.btn-warning href=new_resource_path
-      = t("admin.new_resource", resource_name: t("activerecord.models.#{resource_name}"))
+      = resource_class.human_model_name(:new)

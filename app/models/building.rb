@@ -49,7 +49,7 @@ class Building < ActiveRecord::Base
   attr_accessible :avatar
   do_not_validate_attachment_file_type :avatar
 
-  belongs_to :parent
+  #belongs_to :parent
 
   auto_build :address
 
@@ -75,8 +75,5 @@ class Building < ActiveRecord::Base
       end
     end
   }
-
-
-
 end
 # rails g model UserAttribute attributtable_type:string attributtable_id:integer attribute_name:string attribute_type:string required:boolean

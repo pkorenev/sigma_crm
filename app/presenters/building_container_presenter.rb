@@ -4,8 +4,8 @@ class BuildingContainerPresenter < Keynote::Presenter
 
   end
 
-  def form_status
-    form.input :status, as: :select, collection: [["Будується", 1], [ "Побудовано", 2]], default: 2
+  def form_status(required = true)
+    form.input(:status, required: required, as: :select, collection: [["Будується", 1], [ "Побудовано", 2]], default: 2)
   end
 
   def form_address
@@ -54,17 +54,17 @@ class BuildingContainerPresenter < Keynote::Presenter
     end
   end
 
-  def form_house_building_date_range
-    form.input(:building_start_date_string, required: false) +
-    form.input(:estimated_building_end_date_string, required: false)
+  def form_house_building_date_range(required = true)
+    form.input(:building_start_date_string, required: required) +
+    form.input(:estimated_building_end_date_string, required: required)
   end
 
-  def form_buildings_presence
-    form.input(:presence_string, required: false)
+  def form_buildings_presence(required = true)
+    form.input(:presence_string, required: required)
   end
 
-  def form_price_per_meter
-    form.input(:price_per_meter, label: raw(resource.class.human_attribute_name(:price_per_meter)), required: false)
+  def form_price_per_meter(required = true)
+    form.input(:price_per_meter, label: raw(resource.class.human_attribute_name(:price_per_meter)), required: required)
   end
 
   def form_avatar
@@ -72,5 +72,12 @@ class BuildingContainerPresenter < Keynote::Presenter
       image_tag(resource.avatar.url) +
           form.input_field( :avatar, as: :file)
     end
+  end
+
+
+  # show section
+
+  def show_status
+    vertical_table_field :status, resource: resource
   end
 end

@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   #protect_from_forgery with: :exception
   #protect_from_forgery with: :null_session
 
+
   before_action :add_view_paths
 
   attr_accessor :current_view_folder
@@ -29,6 +30,8 @@ class ApplicationController < ActionController::Base
   def set_csrf_headers
     cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
   end
+
+
 
 
 

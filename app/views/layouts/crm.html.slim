@@ -6,12 +6,24 @@ html#html data-user-fullname=current_user.try(&:full_name) data-user-profile-url
     title
       | INSPINIA | Dashboard
     link[href="/assets/crm.css" rel="stylesheet"]
+    sass:
+      .flash-notice
+        background: rgba(26, 179, 148, 0.6)
+        margin: 0
+        padding: 1rem
+        color: #FFF
+        font-size: 30px
+
   body
     #wrapper
       = render "sidebar"
       #page-wrapper.gray-bg
         = render "top_bar"
         = render "page_heading"
+        - if flash[:notice].present?
+          .flash-notice
+            h1
+              = flash[:notice].inspect
         = yield
 
 
@@ -363,6 +375,7 @@ html#html data-user-fullname=current_user.try(&:full_name) data-user-profile-url
                   | Settings
                 .small
                   |  I belive that. Lorem Ipsum is simply dummy text of the printing and typesetting industry. And typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+    script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places&language=uk"
     script src="/assets/crm.js"
     - if content_for?(:additional_scripts)
       = content_for(:additional_scripts)

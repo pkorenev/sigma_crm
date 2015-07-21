@@ -117,11 +117,13 @@ $(document).ready(function () {
             update_ckeditors()
             //}
 
+
+
             var data = $form.serializeArray()
 
             var form_role = $form.attr("form_role")
 
-            if (form_role != 'new') {
+            if (form_role != 'new' && form_role != 'temp' && form_role != 'edit' ) {
 
                 /*
                  success: function (data) {
@@ -316,3 +318,8 @@ $(document).ready(function () {
 
 });
 
+
+
+$(document).on("ready", function(){
+    $(".flash-notice").fadeOut(500)
+})

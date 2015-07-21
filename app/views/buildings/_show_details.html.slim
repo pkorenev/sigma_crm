@@ -1,11 +1,11 @@
-/table.show-details
+table.show-details
   thead
     th
       |Назва поля
     th
       |Вміст поля
   tbody
-    - arr = [:name, *HouseDetails.details_attribute_names]
+    - arr = [ *HouseDetails.details_attribute_names]
     - arr.each do |attr_name|
       tr
         td

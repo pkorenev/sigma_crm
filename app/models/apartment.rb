@@ -20,7 +20,7 @@
 #
 
 class Apartment < Building
-  attr_accessible(*attribute_names)
+  #attr_accessible(*attribute_names)
 
   has_one :apartment_info, as: :building, autosave: true
 
@@ -29,6 +29,10 @@ class Apartment < Building
   has_one :apartment_details, autosave: true
 
   belongs_to :parent, polymorphic: true, foreign_key: :parent_id, class_name: "Building"
+
+  #belongs_to :apartment_house, polymorphic: true, foreign_key: :parent_id, class_name: "ApartmentHouse"
+  belongs_to :apartment_house, ->(apartment) { where(type: "ApartmentHouse") }, foreign_key: :parent_id
+  #has_one :apartment_house
 
 
 
