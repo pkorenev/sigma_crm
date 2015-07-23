@@ -97,6 +97,10 @@ uk:
         wiring_description: "Електропроводка"
 
 
+        street: "Вулиця"
+        house_number: "Номер будинку"
+
+
 
       building_complex:
         name: "Назва ЖК"

@@ -1,5 +1,5 @@
 doctype html
-html#html data-user-fullname=current_user.try(&:full_name) data-user-profile-url=url_for(current_user)
+html#html data-user-fullname=current_user.try(&:full_name) data-user-profile-url=url_for(current_user) data-controller=params[:controller] data-action=params[:action]
   head
     meta[charset="utf-8"]
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]

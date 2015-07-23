@@ -37,14 +37,14 @@ class BuildingComplex < Building
 
 
   #belongs_to :parent, polymorphic: true, foreign_key: :parent_id, class_name: "Building"
-  has_many :children, class_name: "Building", as: :parent
-  has_many :apartment_houses, class_name: "ApartmentHouse", as: :building_complex
+  has_many :children, as: :parent, class_name: "Building"
+  has_many :apartment_houses, foreign_key: :parent_id
 
   
 
   [:apartments, :apartment_houses, :penthouses].each do |attr|
     if attr.to_s.plural?
-      has_many attr, -> { where( type: attr.to_s.singularize.classify ) }, through: :building_complex_links, source: :building
+      #has_many attr, -> { where( type: attr.to_s.singularize.classify ) }, through: :building_complex_links, source: :building
     end
   end
 
@@ -66,6 +66,12 @@ class BuildingComplex < Building
   def to_s
     name
   end
+
+  def self.details_attribute_names
+    HouseDetails.details_attribute_names
+  end
+
+
 end
 
 #

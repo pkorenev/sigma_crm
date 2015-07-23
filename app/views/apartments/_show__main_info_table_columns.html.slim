@@ -1,0 +1,6 @@
+- resource_presenter = present(:building_complex, nil, @resource)
+
+table.show-item-main-info
+  /= resource_presenter.show_status
+  /= vertical_table_field :price, resource: @resource
+    /= vertical_table_field :square, resource: @resource

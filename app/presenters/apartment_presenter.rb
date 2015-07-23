@@ -19,7 +19,7 @@ class ApartmentPresenter < Keynote::Presenter
     content_tag :div, class: "group address" do
       content_tag(:h3, "Адреса") +
       content_tag(:div, class: "group-content") do
-        #form.input :apartment_address
+        form.association( :apartment_house, as: :grouped_select, collection: BuildingComplex.all, group_method: :apartment_houses, label: "Виберіть будинок")  +
         form.input(:apartment_number, as: :integer)
       end
     end

@@ -11,16 +11,22 @@ componentForm = {
   sublocality_level_1: "short_name"
 }
 
-initializeAddressAutocomplete = ->
+
+
+window.initializeAddressAutocomplete = ()->
 # Create the autocomplete object, restricting the search
 # to geographical location types.
+  #alert("hello")
+
   $address_autocomplete = $("#building_complex_address_autocomplete")
-  autocomplete = new (google.maps.places.Autocomplete)($address_autocomplete.get(0), types: [ 'geocode' ], language: 'uk')
+  autocomplete = new (google.maps.places.Autocomplete)($address_autocomplete.get(0), language: 'uk')
   # When the user selects an address from the dropdown,
   # populate the address fields in the form.
   google.maps.event.addListener autocomplete, 'place_changed', ->
-    console.log("IMPORTANT: value: ", $address_autocomplete.val())
+    #alert("hello")
+    #console.log("IMPORTANT: value: ", $address_autocomplete.val())
     fillInAddress()
+    return true
 
 
 address_component_by_name = (place, component_name)->
@@ -70,10 +76,12 @@ fillInAddress = ->
   $house_coordinates_input = $(".building_complex_coordinates")
 
 
-  city = address_component_by_name(place, "locality")
-  district = address_component_by_name(place,"sublocality_level_1")
-  street = address_component_by_name(place, "route")
-  house_number = address_component_by_name(place, "street_number")
+  city = address_component_by_name(place, "locality").short_name
+  district = address_component_by_name(place,"sublocality_level_1").short_name
+  street = address_component_by_name(place, "route").short_name
+  house_number = address_component_by_name(place, "street_number").short_name
+
+
   console.log "place-geometry -> --------------------------", place
   coordinates = "#{place.geometry.location.A}, #{place.geometry.location.F}"
 
@@ -95,6 +103,9 @@ fillInAddress = ->
     $house_coordinates_input.addClass("hide")
 
 
+  return true
 
-
+console.log "$", $
 $(document).on "ready", initializeAddressAutocomplete
+
+

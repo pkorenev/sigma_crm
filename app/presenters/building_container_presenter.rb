@@ -80,4 +80,9 @@ class BuildingContainerPresenter < Keynote::Presenter
   def show_status
     vertical_table_field :status, resource: resource
   end
+
+  def show_complex
+    vertical_table_field :building_complex, {resource: resource}, link_to(resource.building_complex, [resource.building_complex])
+
+  end
 end

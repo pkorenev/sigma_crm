@@ -1,0 +1,8 @@
+- resource = BuildingComplex.new
+= simple_form_for resource do |form|
+  - resource_presenter = present(:building_complex, form, resource)
+
+  = resource_presenter.form_address
+
+
+

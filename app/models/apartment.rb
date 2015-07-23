@@ -34,6 +34,7 @@ class Apartment < Building
   belongs_to :apartment_house, ->(apartment) { where(type: "ApartmentHouse") }, foreign_key: :parent_id
   #has_one :apartment_house
 
+  has_one :building_complex, through: :apartment_house
 
 
 
@@ -47,6 +48,10 @@ class Apartment < Building
 
   delegate_with_setter *(ApartmentInfo.form_attribute_names), to: :apartment_info, allow_nil: true
 
+  #delegate_with_setter :house_number, to: [:address, :apartment_house], prefix: "computed"
+
+  #delegate_with_setter :street, :city, to: [:address, :building_complex], prefix: "computed"
+
   def styles
     {
         bannewr: "2000x500"
@@ -54,9 +59,20 @@ class Apartment < Building
   end
 
   def to_s
-    full_address
+    "#{computed_street}, #{computed_house_number}/#{apartment_number}"
   end
 
+  def self.details_attribute_names
+    ApartmentInfo.form_attribute_names
+  end
+
+  def computed_house_number
+    apartment_house.house_number
+  end
+
+  def computed_street
+    apartment_house.computed_street
+  end
 
 end
 

@@ -8,17 +8,37 @@ function update_ckeditors(){
 }
 
 window.attachments_drop_zone = null
-$(document).ready(function () {
 
-    // if index action
-    $('.footable').footable();
+var load_dz_files = function(url){
+    $.ajax(
+        {
+            dataType: "json",
+            type: "get",
+            url:  url,
+            success: function (data) {
+                var files = data
+                var dz = window.attachments_drop_zone
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i]
+                    var f = {name: file.url, size: file.data_file_size, id: file.id}
+                    console.log("f", f)
+                    //dz.addFile.call(dz, f);
 
-    // if another action
 
-    Dropzone.autoDiscover = false;
-    $("#wizard").steps();
-    var $form = $(".wizard-form")
-    $form.steps({
+                    dz.files.push(f)
+                    dz.options.addedfile.call(dz, f);
+                    dz.options.thumbnail.call(dz, f, file.thumb_url);
+                    dz.options.complete.call(dz, f)
+
+                }
+            }
+        }
+    )
+}
+
+$.fn.init_steps = function(){
+    var $form = $(this)
+    $(this).steps({
         enableAllSteps: $form.attr("form_role") == "edit",
         bodyTag: "fieldset",
         onStepChanging: function (event, currentIndex, newIndex) {
@@ -144,29 +164,18 @@ $(document).ready(function () {
 
 
         }
-    }).validate({
-        errorPlacement: function (error, element) {
-            element.before(error);
-        },
-        rules: {
-            confirm: {
-                equalTo: "#password"
-            }
-        }
-    });
+    })
 
-    /*$("div.attachments-dropzone").dropzone({url: function(){
-     var $dz = $(this)
-     var $form = $dz.closest("form")
-     return $form.attr("data-update-url")+"/assets"
+    return this
+}
 
-     }})*/
-    //new Dropzone("div.attachments-dropzone", {url: '#{"/#{resources_name}/#{@resource.id || 'new' }/assets"}'})
-    var $dz = $("div.attachments-dropzone")
+$.fn.init_dz = function(){
+
+
+    var $dz = $(this)
     if ($dz.length) {
         var $form = $dz.closest("form")
         var base_url = $dz.attr("action") || $form.attr("action") + "/assets"
-        //var dropzone_url =
 
         window.attachments_drop_zone = new Dropzone("div.attachments-dropzone", {
             url: base_url + ".json",
@@ -217,109 +226,134 @@ $(document).ready(function () {
 
         })
 
-        if ($form.attr("form_role") != 'new') {
 
 
-            $.ajax(
-                {
-                    dataType: "json",
-                    type: "get",
-                    url: $form.attr('action') + "/assets.json",
-                    success: function (data) {
-                        var files = data
-                        var dz = window.attachments_drop_zone
-                        for (var i = 0; i < files.length; i++) {
-                            var file = files[i]
-                            var f = {name: file.url, size: file.data_file_size, id: file.id}
-                            console.log("f", f)
-                            //dz.addFile.call(dz, f);
+        if ($form.attr("form_role") != 'new' || (action == 'show')) {
 
+            var url = ($form.attr('action') || window.location.pathname) + "/assets.json"
+            load_dz_files(url)
 
-                            dz.files.push(f)
-                            dz.options.addedfile.call(dz, f);
-                            dz.options.thumbnail.call(dz, f, file.thumb_url);
-                            dz.options.complete.call(dz, f)
-
-                        }
-                    }
-                }
-            )
         }
     }
 
-    var $dz = $(".attachments-dropzone")
-    $dz.bind("mousedown", function (e) {
-        e.metaKey = true;
-    }).xselectable()
+
+    if($dz.length){
+        $dz.on("mousedown", function (e) {
+           e.metaKey = true;
+        })
+        $dz.xselectable()
+    }
+    //
+
+    //$(".filemanager-toolbar").on("click", ".tool", function(e){
+    //    var dz = window.attachments_drop_zone
+    //    var files = $.map($dz.children().filter(".xselectable-selected"), function(item){var i = $(item).index() - $dz.find(">.dz-message").length; return dz.files[i]})
+    //    console.log("indexes", files)
+    //
+    //    var $tool = $(this)
+    //
+    //    if($tool.hasClass("delete")) {
+    //        for (var i = 0; i < files.length; i++) {
+    //            var file = files[i]
+    //            if(dz) {
+    //                dz.options.removedfile.call(dz, file)
+    //            }
+    //        }
+    //    }
+    //    else if($tool.hasClass("mark-for-avatar")){
+    //        $.ajax({})
+    //    }
+    //})
+
+    return this
+}
+
+function on_submit_comments(event){
+    event.preventDefault()
+    var $form = $(this)
+    $form.validate()
+    var $html = $("#html")
+    var author = {full_name: $html.attr("data-user-fullname"), profile_url: $html.attr("data-user-profile-url")}
+
+    if ($form.valid()){
+
+        var comment_text = $form.find('textarea').val()
+        var comment_title = (text = $form.find("input:text").val()).length ? text : false
+        var $comments_container = $(".comments")
+        var comment_html = "" +
+            "<div class='media comment'>" +
+            "<a class='forum-avatar' href='#'>" +
+            "<img class='img-circle' src=''/>" +
+            "<div class='author-info'></div> " + "</a>" +
+            "<div class='media-body'>" +
+            "<div class='title-and-text-container'>" +
+            ( comment_title ? "<h4 class='media-heading'>" + comment_title + "</h4>" : "") +
+            "<div class='comment-text'>" +
+            comment_text +
+            "</div>" +
+            "</div>" +
+            "<div class='comment-author'>" +
+            "<a href='" + author.profile_url + "'>" + author.full_name + "</a>"
+        "</div>" +
+        "</div>" +
+        "<div class='clearfix'></div>" +
+        "</div>"
+
+        var $comment = $(comment_html)
+        $comments_container.append($comment)
+
+        $form.ajaxSubmit({url: $form.attr("action")+".json"})
+
+        $form.resetForm()
 
 
-    $(".filemanager-toolbar").on("click", ".tool", function(e){
-        var dz = window.attachments_drop_zone
-        var files = $.map($dz.children().filter(".xselectable-selected"), function(item){var i = $(item).index() - $dz.find(">.dz-message").length; return dz.files[i]})
-        console.log("indexes", files)
+    }
+}
 
-        var $tool = $(this)
+$(document).ready(function () {
 
-        if($tool.hasClass("delete")) {
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i]
-                dz.options.removedfile.call(dz, file)
+    // if index action
+    $('.footable').footable();
+
+    // if another action
+
+
+    $("#wizard").steps();
+    var $form = $(".wizard-form")
+    $form.init_steps()
+
+
+    $form.validate({
+        errorPlacement: function (error, element) {
+            element.before(error);
+        },
+        rules: {
+            confirm: {
+                equalTo: "#password"
             }
         }
-        else if($tool.hasClass("mark-for-avatar")){
-            $.ajax({})
-        }
-    })
+    });
+
+    Dropzone.autoDiscover = false;
+    var $dz = $("div.attachments-dropzone")
+    $dz.init_dz()
+
+
+
+
+
+
+
 
 
 
     // Comments
-    $("form#new_comment").on("submit", function(event){
-        event.preventDefault()
-        var $form = $(this)
-        $form.validate()
-        var $html = $("#html")
-        var author = {full_name: $html.attr("data-user-fullname"), profile_url: $html.attr("data-user-profile-url")}
 
-        if ($form.valid()){
+    $(".flash-notice").fadeOut(500)
 
-            var comment_text = $form.find('textarea').val()
-            var comment_title = (text = $form.find("input:text").val()).length ? text : false
-            var $comments_container = $(".comments")
-            var comment_html = "" +
-                "<div class='media comment'>" +
-                    "<a class='forum-avatar' href='#'>" +
-                        "<img class='img-circle' src=''/>" +
-                        "<div class='author-info'></div> " + "</a>" +
-                    "<div class='media-body'>" +
-                        "<div class='title-and-text-container'>" +
-                            ( comment_title ? "<h4 class='media-heading'>" + comment_title + "</h4>" : "") +
-                            "<div class='comment-text'>" +
-                                comment_text +
-                            "</div>" +
-                        "</div>" +
-                        "<div class='comment-author'>" +
-                            "<a href='" + author.profile_url + "'>" + author.full_name + "</a>"
-                        "</div>" +
-                    "</div>" +
-                    "<div class='clearfix'></div>" +
-                "</div>"
-
-            var $comment = $(comment_html)
-            $comments_container.append($comment)
-
-            $form.ajaxSubmit({url: $form.attr("action")+".json"})
-
-            $form.resetForm()
-
-
-        }
-    })
+    $("form#new_comment").on("submit", on_submit_comments)
 
 });
 
 
 
-$(document).on("ready", function(){
-    $(".flash-notice").fadeOut(500)
-})

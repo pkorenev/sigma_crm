@@ -39,7 +39,13 @@
 
 #= require jquery-form/jquery.form
 
+
+
+#= require crm_init
 #= require resources
 #= require buildings
+#= require apartment_houses
+
+
 
 #= require crm_custom

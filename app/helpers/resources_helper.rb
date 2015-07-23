@@ -129,13 +129,13 @@ module ResourcesHelper
     end
   end
 
-  def vertical_table_field field_name = nil, options = {}
+  def vertical_table_field field_name = nil, options = {}, content = nil
     resource = options[:resource]
     if resource.blank?
       return nil
     end
 
-    content = resource.send(field_name)
+    content = resource.send(field_name) if content.nil?
     content = "-" if content.blank?
     klass = resource.class
     label = klass.human_attribute_name(field_name)

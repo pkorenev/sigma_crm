@@ -1,10 +1,9 @@
 - @main_keys = %w(name main_purpose price_per_meter status building_start_date estimated_building_end_date_string presence_string latitude longitude)
 - @main_keys = @main_keys.map(&:to_sym)
 
-- apartment = present(:apartment, form, @resource)
+- resource_presenter = present(:apartment, form, @resource)
 
-= form.association :parent, collection: BuildingComplex.all
+= resource_presenter.form_address
 = form.input :price
-= apartment.form_address
-= apartment.form_status
-= apartment.form_avatar
+= resource_presenter.form_status
+= resource_presenter.form_avatar
