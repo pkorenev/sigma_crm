@@ -54,7 +54,7 @@ class Apartment < Building
 
   def styles
     {
-        bannewr: "2000x500"
+        banner: "2000x500"
     }
   end
 
@@ -74,6 +74,8 @@ class Apartment < Building
     apartment_house.computed_street
   end
 
+  def url
+
+  end
+
 end
-
-

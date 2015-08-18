@@ -1,0 +1,3 @@
+class ManagerInvitationsController < ResourcesController
+
+end

@@ -23,8 +23,7 @@ class BuildingsController < ResourcesController
   end
 
   def index
-    @resources ||= resource_class.all.includes(:address).order("id desc")#.limit(100)
-
+    @resources ||= resource_class.all.includes(:address).order("id desc").limit(10)
   end
 
   def resource_params

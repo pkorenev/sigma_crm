@@ -17,6 +17,7 @@
 #  invited_by_type        :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
+#  profile_status         :string
 #  provider               :string           default(""), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime

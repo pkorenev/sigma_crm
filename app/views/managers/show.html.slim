@@ -1,0 +1,21 @@
+
+.row
+  .col-sm-4
+    .ibox.float-e-margins
+      div
+        .ibox-content.profile-content
+          .row.m-b-lg
+            .text-center
+              h2
+                = @resource.full_name
+              .m-b-sm
+                img.img-circle alt="image" src="/system/assets/data/000/000/001/original/chris.jpg?1436781569" style=("width: 62px")
+          h5
+            | Про менеджера
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.
+          .user-button
+            .row
+              .col-md-6
+                a href=edit_resource_path
+                  button.btn.btn-outline.btn-primary type="button"  Редагувати дані

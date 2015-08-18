@@ -40,11 +40,13 @@
 #= require jquery-form/jquery.form
 
 
+#= require js-cookie/src/js.cookie
 
 #= require crm_init
 #= require resources
 #= require buildings
 #= require apartment_houses
+#= require managers
 
 
 

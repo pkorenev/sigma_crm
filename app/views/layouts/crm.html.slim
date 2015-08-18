@@ -3,9 +3,11 @@ html#html data-user-fullname=current_user.try(&:full_name) data-user-profile-url
   head
     meta[charset="utf-8"]
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+
     title
       | INSPINIA | Dashboard
     link[href="/assets/crm.css" rel="stylesheet"]
+    = csrf_meta_tags
     sass:
       .flash-notice
         background: rgba(26, 179, 148, 0.6)

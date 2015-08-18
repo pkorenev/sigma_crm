@@ -99,3 +99,4 @@ gem 'annotate'
 
 gem 'russian'
 
+gem 'enumerize'

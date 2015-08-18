@@ -1,0 +1,10 @@
+.ibox-content.m-b-sm.border-bottom
+  .row
+    /= @resources.inspect
+    a.btn.btn-warning href=new_resource_path
+      = resource_class.human_model_name(:new)
+    |&nbsp;
+    = simple_form_for(:manager_invitation, url: manager_invitation_path, html: {style: "display: inline-block;"}, type: "post") do |form|
+      = form.input :email
+      button.btn.btn-warning.new-manager-invitation type="submit"  data-post-url=manager_invitation_path data-token="form_authenticity_token"
+        | Запросити менеджера

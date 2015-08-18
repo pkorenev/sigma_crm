@@ -17,6 +17,7 @@
 #  invited_by_type        :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
+#  profile_status         :string
 #  provider               :string           default(""), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
@@ -29,6 +30,7 @@
 #
 
 class User < ActiveRecord::Base
+  extend Enumerize
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -52,7 +54,7 @@ class User < ActiveRecord::Base
   attr_accessible :user_info, :user_info_attributes
 
   attr_accessible :password, :password_confirmation, :email
-  methods_to_delegate = [:first_name, :last_name, :middle_name, :identification_number, :phone, :user_type, :user_id, :full_name, :address, :country, :city, :full_address, :avatar]
+  methods_to_delegate = [:first_name, :last_name, :middle_name, :identification_number, :phone, :user_type, :user_id, :full_name, :address, :country, :city, :full_address, :avatar, :birthday]
 
   delegate_with_setter *methods_to_delegate, to: :user_info, allow_nil: true
 
@@ -60,6 +62,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :comments
   attr_accessible :comments, :comments_attributes
 
+
+  enumerize :profile_status, in: [:filled, :unfilled], default: :unfilled
 
 
   auto_build :user_info

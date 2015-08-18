@@ -1,0 +1,19 @@
+= render "toolbar"
+.row
+  - @resources.each do |manager|
+    .col-lg-4
+      .contact-box
+        a href=url_for(manager)
+          .col-sm-4
+            .text-center
+              img.img-circle.m-t-xs.img-responsive alt="image" src="img/a2.jpg"
+          .col-sm-8
+            h3
+              strong
+                = manager.full_name
+            address
+              = manager.full_address
+              br
+              abbr title="Phone"  P:
+              = manager.phone
+          .clearfix

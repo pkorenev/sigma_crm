@@ -159,7 +159,15 @@ $.fn.init_steps = function(){
                 })
             }
             else {
-                $form.submit();
+                //$form.submit();
+
+                $form.ajaxSubmit({
+                    url: url,
+                    type: type,
+                    success: function(){
+                        window.location = $form.attr("data-update-url")
+                    }
+                })
             }
 
 

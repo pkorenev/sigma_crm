@@ -71,7 +71,11 @@ class ResourcesController < CrmController
   end
 
   def resource_class
-    raise NotImplementedError, "Please specify resource class"
+    s = self.class.name
+    c = s[0, s.length - "Controller".length].singularize.constantize
+    c
+
+
   end
 
   def resources_url

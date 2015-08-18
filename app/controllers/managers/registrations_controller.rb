@@ -1,8 +1,9 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class Managers::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
+
   prepend_before_filter :require_no_authentication
-  skip_before_filter :authenticate_scope!
+  #skip_before_filter :authenticate_scope!
 
   # GET /resource/sign_up
   # def new
@@ -10,14 +11,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    super
-  end
-
-  # GET /resource/edit
-  # def edit
+  # def create
   #   super
   # end
+
+  # GET /resource/edit
+  def edit
+    #resource = current_manager
+    super
+  end
 
   # PUT /resource
   # def update
@@ -59,4 +61,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def authenticate_scope!
+    self.resource = current_user
+  end
 end

@@ -1,0 +1,3 @@
+class HumanAuthor < Author
+
+end

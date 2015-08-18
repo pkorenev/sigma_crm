@@ -1,7 +1,8 @@
 class ManagersController < ResourcesController
-  before_action :set_manager, only: [:show, :edit, :update, :destroy]
   #before_action :authorize_to_users!
   respond_to :json
+
+  skip_before_filter :verify_authenticity_token
 
 
 

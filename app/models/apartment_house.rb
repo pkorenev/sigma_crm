@@ -70,12 +70,12 @@ class ApartmentHouse < Building
 
   def computed_street
     s = street
-    s = building_complex.street  if s.blank?
+    s = building_complex.try(&:street)  if s.blank?
   end
 
   def computed_house_number
     res = house_number
-    res = building_complex.house_number if res.blank?
+    res = building_complex.try(&:house_number) if res.blank?
   end
 
 

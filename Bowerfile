@@ -45,3 +45,5 @@ asset "jquery-validation"
 asset "dropzone"
 
 asset "jquery-form"
+
+asset "js-cookie"

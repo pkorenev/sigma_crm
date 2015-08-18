@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   get 'example/index'
 
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :users, controllers: { sessions: "users/sessions" }
+  devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
+
+  devise_for :managers, controllers: { invitations: "managers/invitations", sessions: "managers/sessions", registrations: "managers/registrations" }
+
 
   # constraints for subdomains
   cnstrs = {subdomain: ENV["CRM_SUBDOMAIN"]}
